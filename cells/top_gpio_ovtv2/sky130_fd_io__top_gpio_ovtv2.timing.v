@@ -18,7 +18,6 @@
 
 module sky130_fd_io__top_gpio_ovtv2 ( IN, IN_H, TIE_HI_ESD, TIE_LO_ESD, AMUXBUS_A,
                                       AMUXBUS_B, PAD, PAD_A_ESD_0_H, PAD_A_ESD_1_H, PAD_A_NOESD_H,
-                                      VCCD, VCCHIB,VDDA, VDDIO, VDDIO_Q, VSSA, VSSD, VSSIO, VSSIO_Q, VSWITCH,
                                       ANALOG_EN, ANALOG_POL, ANALOG_SEL, DM, ENABLE_H, ENABLE_INP_H, ENABLE_VDDA_H, ENABLE_VDDIO, ENABLE_VSWITCH_H, HLD_H_N,
                                       HLD_OVR, IB_MODE_SEL, INP_DIS, OE_N, OUT, SLOW, SLEW_CTL, VTRIP_SEL, HYS_TRIM, VINREF );
 input OUT;
@@ -41,16 +40,18 @@ input ANALOG_POL;
 input [2:0] DM;
 input [1:0] IB_MODE_SEL;
 input VINREF;
-inout VDDIO;
-inout VDDIO_Q;
-inout VDDA;
-inout VCCD;
-inout VSWITCH;
-inout VCCHIB;
-inout VSSA;
-inout VSSD;
-inout VSSIO_Q;
-inout VSSIO;
+supply1 vddio;
+supply1 vddio_q;
+supply1 vdda;
+supply1 vccd;
+supply1 vswitch;
+supply1 vcchib;
+supply1 vpb;
+supply1 vpbhib;
+supply0 vssd;
+supply0 vssio;
+supply0 vssio_q;
+supply0 vssa;
 inout PAD;
 inout PAD_A_NOESD_H,PAD_A_ESD_0_H,PAD_A_ESD_1_H;
 inout AMUXBUS_A;
@@ -210,19 +211,19 @@ specify
     $setuphold (posedge IB_MODE_SEL[1], negedge HLD_H_N, tsetup, thold,  notifier_ib_mode_sel,  ENABLE_H==1'b1, ENABLE_H==1'b1, ib_mode_sel_del[1], hld_h_n_del);
     $setuphold (posedge IB_MODE_SEL[0], negedge HLD_H_N, tsetup, thold,  notifier_ib_mode_sel,  ENABLE_H==1'b1, ENABLE_H==1'b1, ib_mode_sel_del[0], hld_h_n_del);
 endspecify
-wire  pwr_good_amux	         = ((hld_h_n_buf===0 || ENABLE_H===0) ? 1:(VCCD===1))  && (VSSD===0) && (VSSA===0) && (VSSIO_Q===0);
-wire  pwr_good_output_driver     = (VDDIO===1)   && (VDDIO_Q===1)&& (VSSIO===0)   && (VSSD===0)  && (VSSA===0) ;
-wire  pwr_good_hold_ovr_mode     = (VDDIO_Q===1) && (VDDIO===1)  && (VSSD===0)    && (VCCHIB===1);
-wire  pwr_good_active_mode       = (VDDIO_Q===1) && (VDDIO===1)  && (VSSD===0)    && (VCCD===1);
-wire  pwr_good_hold_mode         = (VDDIO_Q===1) && (VDDIO===1)  && (VSSD===0);
-wire  pwr_good_active_mode_vdda  = (VDDA===1)  && (VSSD===0)   && (VCCD===1);
-wire  pwr_good_hold_mode_vdda    = (VDDA===1)    && (VSSD===0);
-wire  pwr_good_inpbuff_hv        = (VDDIO_Q===1) && (inp_dis_final===0 && dm_final!==3'b000 && ib_mode_sel_final===2'b01 ? VCCHIB===1 : 1) && (VSSD===0);
-wire  pwr_good_inpbuff_lv        = (VDDIO_Q===1) && (VSSD===0)   && (VCCHIB===1);
-wire  pwr_good_analog_en_vdda    = (VDDA===1)  && (VSSD===0) && (VSSA===0) ;
-wire  pwr_good_analog_en_vddio_q = (VDDIO_Q ===1)  && (VSSD===0) && (VSSA===0) ;
-wire  pwr_good_analog_en_vswitch = (VSWITCH ===1)  && (VSSD===0) && (VSSA===0) ;
-wire  pwr_good_amux_vccd   	 = ((hld_h_n_buf===0 || ENABLE_H===0) ? 1:(VCCD===1));
+wire  pwr_good_amux	      	 = 1;
+wire  pwr_good_inpbuff_hv      	 = 1;
+wire  pwr_good_inpbuff_lv        = 1;
+wire  pwr_good_output_driver   	 = 1;
+wire  pwr_good_hold_mode	 = 1;
+wire  pwr_good_hold_ovr_mode	 = 1;
+wire  pwr_good_active_mode       = 1;
+wire  pwr_good_hold_mode_vdda	 = 1;
+wire  pwr_good_active_mode_vdda	 = 1;
+wire pwr_good_amux_vccd          = 1;
+wire  pwr_good_analog_en_vdda    = 1;
+wire  pwr_good_analog_en_vddio_q = 1;
+wire  pwr_good_analog_en_vswitch = 1;
 parameter MAX_WARNING_COUNT = 100;
 wire pad_tristate = oe_n_final === 1 || dm_final === 3'b000 || dm_final === 3'b001;
 wire x_on_pad  =  !pwr_good_output_driver
@@ -312,25 +313,25 @@ wire disable_inp_buff = ENABLE_H===1 ? (dm_final===3'b000 || inp_dis_final===1) 
 assign IN_H = (x_on_in_hv===1 || pwr_good_inpbuff_hv===0) ? 1'bx : (disable_inp_buff===1 ? 0 : (^PAD===1'bx ? 1'bx : PAD));
 wire disable_inp_buff_lv = ENABLE_H===1 ? (dm_final===3'b000 || inp_dis_final===1) : ENABLE_VDDIO===0;
 assign IN   = (x_on_in_lv ===1 || pwr_good_inpbuff_lv===0) ? 1'bx : (disable_inp_buff_lv===1 ? 0 : (^PAD===1'bx ? 1'bx : PAD));
-assign TIE_HI_ESD = VDDIO===1'b1 ? 1'b1 : 1'bx;
-assign TIE_LO_ESD = VSSIO===1'b0 ? 1'b0 : 1'bx;
-wire functional_mode_amux = (pwr_good_analog_en_vdda ===1 && pwr_good_analog_en_vddio_q ===1 && pwr_good_analog_en_vswitch ===1 );
+assign TIE_HI_ESD = vddio===1'b1 ? 1'b1 : 1'bx;
+assign TIE_LO_ESD = vssio===1'b0 ? 1'b0 : 1'bx;
+wire timing_mode_amux = (pwr_good_analog_en_vdda ===1 && pwr_good_analog_en_vddio_q ===1 && pwr_good_analog_en_vswitch ===1 );
 wire x_on_analog_en_vdda = (pwr_good_analog_en_vdda !==1
-                            || (functional_mode_amux ==1 && (ENABLE_H !==0 && ^hld_h_n_buf === 1'bx) || (hld_h_n_buf!== 0 && ^ENABLE_H=== 1'bx) || pwr_good_amux_vccd !==1 )
-                            || (functional_mode_amux ==1 && (hld_h_n_buf ===1 && ENABLE_H===1 && ^ANALOG_EN === 1'bx && ENABLE_VDDA_H ===1 && ENABLE_VSWITCH_H===1 ) || (hld_h_n_buf ===1 && ENABLE_H===1 && ANALOG_EN ===0 && ^ENABLE_VDDA_H ===1'bx) ));
+                            || (timing_mode_amux ==1 && (ENABLE_H !==0 && ^hld_h_n_buf === 1'bx) || (hld_h_n_buf!== 0 && ^ENABLE_H=== 1'bx) || pwr_good_amux_vccd !==1 )
+                            || (timing_mode_amux ==1 && (hld_h_n_buf ===1 && ENABLE_H===1 && ^ANALOG_EN === 1'bx && ENABLE_VDDA_H ===1 && ENABLE_VSWITCH_H===1 ) || (hld_h_n_buf ===1 && ENABLE_H===1 && ANALOG_EN ===0 && ^ENABLE_VDDA_H ===1'bx) ));
 wire zero_on_analog_en_vdda = ( (pwr_good_analog_en_vdda ===1 && ENABLE_VDDA_H ===0)
                                 || (pwr_good_analog_en_vdda ===1 && pwr_good_analog_en_vddio_q ===1 && hld_h_n_buf===0)
                                 || (pwr_good_analog_en_vdda ===1 && pwr_good_analog_en_vddio_q ===1 && ENABLE_H===0)
                                 ||  (pwr_good_analog_en_vdda ===1 && pwr_good_analog_en_vddio_q ===1 && pwr_good_amux_vccd && ANALOG_EN===0) );
 wire x_on_analog_en_vddio_q =  ( pwr_good_analog_en_vddio_q !==1
-                                 || (functional_mode_amux ==1 && (ENABLE_H !==0 && ^hld_h_n_buf === 1'bx) || (hld_h_n_buf!== 0 && ^ENABLE_H=== 1'bx) || pwr_good_amux_vccd !==1 )
-                                 || (functional_mode_amux ==1 && (hld_h_n_buf ===1 && ENABLE_H===1 && ^ANALOG_EN === 1'bx && ENABLE_VDDA_H ===1 && ENABLE_VSWITCH_H===1 ) ));
+                                 || (timing_mode_amux ==1 && (ENABLE_H !==0 && ^hld_h_n_buf === 1'bx) || (hld_h_n_buf!== 0 && ^ENABLE_H=== 1'bx) || pwr_good_amux_vccd !==1 )
+                                 || (timing_mode_amux ==1 && (hld_h_n_buf ===1 && ENABLE_H===1 && ^ANALOG_EN === 1'bx && ENABLE_VDDA_H ===1 && ENABLE_VSWITCH_H===1 ) ));
 wire zero_on_analog_en_vddio_q =  ( (pwr_good_analog_en_vddio_q ===1 && hld_h_n_buf===0)
                                     || (pwr_good_analog_en_vddio_q ===1 && ENABLE_H===0)
                                     ||  (pwr_good_analog_en_vddio_q ===1 && pwr_good_amux_vccd && ANALOG_EN===0) );
 wire x_on_analog_en_vswitch = (pwr_good_analog_en_vswitch !==1
-                               || (functional_mode_amux ==1 && (ENABLE_H !==0 && ^hld_h_n_buf === 1'bx) || (hld_h_n_buf!== 0 && ^ENABLE_H=== 1'bx) || pwr_good_amux_vccd !==1 )
-                               || (functional_mode_amux ==1 && (hld_h_n_buf ===1 && ENABLE_H===1 && ^ANALOG_EN === 1'bx && ENABLE_VDDA_H ===1 && ENABLE_VSWITCH_H===1 ) || (hld_h_n_buf ===1 && ENABLE_H===1 && ANALOG_EN ===0 && ^ENABLE_VSWITCH_H ===1'bx) ));
+                               || (timing_mode_amux ==1 && (ENABLE_H !==0 && ^hld_h_n_buf === 1'bx) || (hld_h_n_buf!== 0 && ^ENABLE_H=== 1'bx) || pwr_good_amux_vccd !==1 )
+                               || (timing_mode_amux ==1 && (hld_h_n_buf ===1 && ENABLE_H===1 && ^ANALOG_EN === 1'bx && ENABLE_VDDA_H ===1 && ENABLE_VSWITCH_H===1 ) || (hld_h_n_buf ===1 && ENABLE_H===1 && ANALOG_EN ===0 && ^ENABLE_VSWITCH_H ===1'bx) ));
 wire  zero_on_analog_en_vswitch =   ( (pwr_good_analog_en_vswitch ===1 && ENABLE_VSWITCH_H ===0)
                                       || (pwr_good_analog_en_vswitch ===1 && pwr_good_analog_en_vddio_q ===1 && hld_h_n_buf===0)
                                       || (pwr_good_analog_en_vswitch ===1 && pwr_good_analog_en_vddio_q ===1 && ENABLE_H===0)
@@ -598,8 +599,8 @@ wire enable_pad_vssio_q   = invalid_controls_amux  ? 1'bx : (amux_select===3'b10
 wire enable_pad_vddio_q   = invalid_controls_amux  ? 1'bx : (amux_select===3'b011 || amux_select===3'b111) && (analog_en_final===1);
 tranif1 pad_amuxbus_a 	(PAD, AMUXBUS_A, enable_pad_amuxbus_a);
 tranif1 pad_amuxbus_b 	(PAD, AMUXBUS_B, enable_pad_amuxbus_b);
-bufif1 pad_vddio_q	(PAD, VDDIO_Q,   enable_pad_vddio_q);
-bufif1 pad_vssio_q   	(PAD, VSSIO_Q,   enable_pad_vssio_q);
+bufif1 pad_vddio_q	(PAD, vddio_q,   enable_pad_vddio_q);
+bufif1 pad_vssio_q   	(PAD, vssio_q,   enable_pad_vssio_q);
 reg dis_err_msgs;
 integer msg_count_pad,msg_count_pad1,msg_count_pad2,msg_count_pad3,msg_count_pad4,msg_count_pad5,msg_count_pad6,msg_count_pad7,msg_count_pad8,msg_count_pad9,msg_count_pad10,msg_count_pad11,msg_count_pad12;
 initial
@@ -646,7 +647,7 @@ begin
         end
     end
 end
-wire #100 error_vdda = ( VDDA===1 && VDDIO_Q !==1 && ENABLE_VDDA_H===1 );
+wire #100 error_vdda = ( vdda===1 && vddio_q !==1 && ENABLE_VDDA_H===1 );
 event event_error_vdda;
 always @(error_vdda)
 begin
@@ -658,7 +659,7 @@ begin
             ->event_error_vdda;
             if (msg_count_pad1 <= MAX_WARNING_COUNT)
             begin
-                $display(" ===ERROR=== sky130_fd_io__top_gpio_ovtv2 : ENABLE_VDDA_H (= %b) cannot be 1 when VDDA (= %b) and VDDIO_Q (= %b) %m",ENABLE_VDDA_H, VDDA,VDDIO_Q,$stime);
+                $display(" ===ERROR=== sky130_fd_io__top_gpio_ovtv2 : ENABLE_VDDA_H (= %b) cannot be 1 when vdda (= %b) and vddio_q (= %b) %m",ENABLE_VDDA_H, vdda,vddio_q,$stime);
             end
             else
                 if (msg_count_pad1 == MAX_WARNING_COUNT+1)
@@ -668,7 +669,7 @@ begin
         end
     end
 end
-wire #100 error_vdda2 = ( VDDA===1 && VDDIO_Q ===1 && VSWITCH !==1 && ENABLE_H===1 && hld_h_n_buf ===1  &&  VCCD===1 && ANALOG_EN ===1 );
+wire #100 error_vdda2 = ( vdda===1 && vddio_q ===1 && vswitch !==1 && ENABLE_H===1 && hld_h_n_buf ===1  &&  vccd===1 && ANALOG_EN ===1 );
 event event_error_vdda2;
 always @(error_vdda2)
 begin
@@ -680,7 +681,7 @@ begin
             ->event_error_vdda2;
             if (msg_count_pad2 <= MAX_WARNING_COUNT)
             begin
-                $display(" ===ERROR=== sky130_fd_io__top_gpio_ovtv2 : ANALOG_EN (= %b) cannot be 1 when VDDA (= %b) , VDDIO_Q (= %b) , VSWITCH(= %b), ENABLE_H (= %b),hld_h_n_buf (= %b) and VCCD (= %b)   %m",ANALOG_EN,VDDA,VDDIO_Q,VSWITCH,ENABLE_H,hld_h_n_buf,VCCD,$stime);
+                $display(" ===ERROR=== sky130_fd_io__top_gpio_ovtv2 : ANALOG_EN (= %b) cannot be 1 when vdda (= %b) , vddio_q (= %b) , vswitch(= %b), ENABLE_H (= %b),hld_h_n_buf (= %b) and vccd (= %b)   %m",ANALOG_EN,vdda,vddio_q,vswitch,ENABLE_H,hld_h_n_buf,vccd,$stime);
             end
             else
                 if (msg_count_pad2 == MAX_WARNING_COUNT+1)
@@ -690,7 +691,7 @@ begin
         end
     end
 end
-wire #100 error_vdda3 =  ( VDDA===1 && VDDIO_Q ===1 && VSWITCH !==1 && ENABLE_H===1 && hld_h_n_buf ===1  && VCCD !==1 );
+wire #100 error_vdda3 =  ( vdda===1 && vddio_q ===1 && vswitch !==1 && ENABLE_H===1 && hld_h_n_buf ===1  && vccd !==1 );
 event event_error_vdda3;
 always @(error_vdda3)
 begin
@@ -702,7 +703,7 @@ begin
             ->event_error_vdda3;
             if (msg_count_pad3 <= MAX_WARNING_COUNT)
             begin
-                $display(" ===ERROR=== sky130_fd_io__top_gpio_ovtv2 : VCCD (= %b) cannot be any value other than 1 when VDDA (= %b) , VDDIO_Q (= %b) , VSWITCH(= %b), ENABLE_H (= %b) and hld_h_n_buf (= %b) %m",VCCD,VDDA,VDDIO_Q,VSWITCH,ENABLE_H,hld_h_n_buf,$stime);
+                $display(" ===ERROR=== sky130_fd_io__top_gpio_ovtv2 : vccd (= %b) cannot be any value other than 1 when vdda (= %b) , vddio_q (= %b) , vswitch(= %b), ENABLE_H (= %b) and hld_h_n_buf (= %b) %m",vccd,vdda,vddio_q,vswitch,ENABLE_H,hld_h_n_buf,$stime);
             end
             else
                 if (msg_count_pad3 == MAX_WARNING_COUNT+1)
@@ -712,7 +713,7 @@ begin
         end
     end
 end
-wire #100 error_vswitch1 =  (VDDA !==1 && VDDIO_Q !==1 && VSWITCH ===1 && (ENABLE_VSWITCH_H===1)) ;
+wire #100 error_vswitch1 =  (vdda !==1 && vddio_q !==1 && vswitch ===1 && (ENABLE_VSWITCH_H===1)) ;
 event event_error_vswitch1;
 always @(error_vswitch1)
 begin
@@ -724,7 +725,7 @@ begin
             ->event_error_vswitch1;
             if (msg_count_pad4 <= MAX_WARNING_COUNT)
             begin
-                $display(" ===ERROR=== sky130_fd_io__top_gpio_ovtv2 : ENABLE_VSWITCH_H (= %b) cannot be 1 when VDDA (= %b) , VDDIO_Q (= %b) & VSWITCH(= %b) %m",ENABLE_VSWITCH_H,VDDA,VDDIO_Q,VSWITCH,$stime);
+                $display(" ===ERROR=== sky130_fd_io__top_gpio_ovtv2 : ENABLE_VSWITCH_H (= %b) cannot be 1 when vdda (= %b) , vddio_q (= %b) & vswitch(= %b) %m",ENABLE_VSWITCH_H,vdda,vddio_q,vswitch,$stime);
             end
             else
                 if (msg_count_pad4 == MAX_WARNING_COUNT+1)
@@ -734,7 +735,7 @@ begin
         end
     end
 end
-wire #100 error_vswitch2 =   (VDDA !==1 && VDDIO_Q !==1 && VSWITCH ===1 && VCCD===1 && ANALOG_EN===1);
+wire #100 error_vswitch2 =   (vdda !==1 && vddio_q !==1 && vswitch ===1 && vccd===1 && ANALOG_EN===1);
 event event_error_vswitch2;
 always @(error_vswitch2)
 begin
@@ -746,7 +747,7 @@ begin
             ->event_error_vswitch2;
             if (msg_count_pad5 <= MAX_WARNING_COUNT)
             begin
-                $display(" ===ERROR=== sky130_fd_io__top_gpio_ovtv2 : ANALOG_EN (= %b) cannot be 1 when VDDA (= %b) , VDDIO_Q (= %b) , VSWITCH(= %b)  & VCCD(= %b) %m",ANALOG_EN,VDDA,VDDIO_Q,VSWITCH,VCCD,$stime);
+                $display(" ===ERROR=== sky130_fd_io__top_gpio_ovtv2 : ANALOG_EN (= %b) cannot be 1 when vdda (= %b) , vddio_q (= %b) , vswitch(= %b)  & vccd(= %b) %m",ANALOG_EN,vdda,vddio_q,vswitch,vccd,$stime);
             end
             else
                 if (msg_count_pad5 == MAX_WARNING_COUNT+1)
@@ -756,7 +757,7 @@ begin
         end
     end
 end
-wire #100 error_vswitch3 =   (VDDA ===1 && VDDIO_Q !==1 && VSWITCH ===1 && ENABLE_VSWITCH_H===1);
+wire #100 error_vswitch3 =   (vdda ===1 && vddio_q !==1 && vswitch ===1 && ENABLE_VSWITCH_H===1);
 event event_error_vswitch3;
 always @(error_vswitch3)
 begin
@@ -768,7 +769,7 @@ begin
             ->event_error_vswitch3;
             if (msg_count_pad6 <= MAX_WARNING_COUNT)
             begin
-                $display(" ===ERROR=== sky130_fd_io__top_gpio_ovtv2 : ENABLE_VSWITCH_H(= %b) cannot be 1 when VDDA (= %b) , VDDIO_Q (= %b) & VSWITCH(= %b) %m",ENABLE_VSWITCH_H,VDDA,VDDIO_Q,VSWITCH,$stime);
+                $display(" ===ERROR=== sky130_fd_io__top_gpio_ovtv2 : ENABLE_VSWITCH_H(= %b) cannot be 1 when vdda (= %b) , vddio_q (= %b) & vswitch(= %b) %m",ENABLE_VSWITCH_H,vdda,vddio_q,vswitch,$stime);
             end
             else
                 if (msg_count_pad6 == MAX_WARNING_COUNT+1)
@@ -778,7 +779,7 @@ begin
         end
     end
 end
-wire #100 error_vswitch4 =  (VDDA !==1 && VDDIO_Q ===1 && VSWITCH ===1 && ENABLE_VSWITCH_H===1);
+wire #100 error_vswitch4 =  (vdda !==1 && vddio_q ===1 && vswitch ===1 && ENABLE_VSWITCH_H===1);
 event event_error_vswitch4;
 always @(error_vswitch4)
 begin
@@ -790,7 +791,7 @@ begin
             ->event_error_vswitch4;
             if (msg_count_pad7 <= MAX_WARNING_COUNT)
             begin
-                $display(" ===ERROR=== sky130_fd_io__top_gpio_ovtv2 : ENABLE_VSWITCH_H(= %b) cannot be 1 when VDDA (= %b) , VDDIO_Q (= %b) & VSWITCH(= %b) %m",ENABLE_VSWITCH_H,VDDA,VDDIO_Q,VSWITCH,$stime);
+                $display(" ===ERROR=== sky130_fd_io__top_gpio_ovtv2 : ENABLE_VSWITCH_H(= %b) cannot be 1 when vdda (= %b) , vddio_q (= %b) & vswitch(= %b) %m",ENABLE_VSWITCH_H,vdda,vddio_q,vswitch,$stime);
             end
             else
                 if (msg_count_pad7 == MAX_WARNING_COUNT+1)
@@ -800,7 +801,7 @@ begin
         end
     end
 end
-wire #100 error_vswitch5 =  (VDDA !==1 && VDDIO_Q ===1 && VSWITCH ===1 && ENABLE_H ===1 && hld_h_n_buf ===1 && VCCD ===1 && ANALOG_EN===1);
+wire #100 error_vswitch5 =  (vdda !==1 && vddio_q ===1 && vswitch ===1 && ENABLE_H ===1 && hld_h_n_buf ===1 && vccd ===1 && ANALOG_EN===1);
 event event_error_vswitch5;
 always @(error_vswitch5)
 begin
@@ -812,7 +813,7 @@ begin
             ->event_error_vswitch5;
             if (msg_count_pad8 <= MAX_WARNING_COUNT)
             begin
-                $display(" ===ERROR=== sky130_fd_io__top_gpio_ovtv2 : ANALOG_EN(= %b) cannot be 1 when VDDA (= %b) , VDDIO_Q (= %b) , VSWITCH(= %b),ENABLE_H (= %b),hld_h_n_buf (= %b) and VCCD (= %b) %m",ANALOG_EN,VDDA,VDDIO_Q,VSWITCH,ENABLE_H,hld_h_n_buf,VCCD,$stime);
+                $display(" ===ERROR=== sky130_fd_io__top_gpio_ovtv2 : ANALOG_EN(= %b) cannot be 1 when vdda (= %b) , vddio_q (= %b) , vswitch(= %b),ENABLE_H (= %b),hld_h_n_buf (= %b) and vccd (= %b) %m",ANALOG_EN,vdda,vddio_q,vswitch,ENABLE_H,hld_h_n_buf,vccd,$stime);
             end
             else
                 if (msg_count_pad8 == MAX_WARNING_COUNT+1)
@@ -822,7 +823,7 @@ begin
         end
     end
 end
-wire #100 error_vddio_q1 =  (VDDA !==1 && VDDIO_Q ===1 && VSWITCH !==1 && ENABLE_H ===1 && hld_h_n_buf ===1 && VCCD!==1);
+wire #100 error_vddio_q1 =  (vdda !==1 && vddio_q ===1 && vswitch !==1 && ENABLE_H ===1 && hld_h_n_buf ===1 && vccd!==1);
 event event_error_vddio_q1;
 always @(error_vddio_q1)
 begin
@@ -834,7 +835,7 @@ begin
             ->event_error_vddio_q1;
             if (msg_count_pad9 <= MAX_WARNING_COUNT)
             begin
-                $display(" ===ERROR=== sky130_fd_io__top_gpio_ovtv2 : VCCD(= %b) cannot be any value other than 1 when VDDA (= %b) , VDDIO_Q (= %b) , VSWITCH(= %b),ENABLE_H (= %b) and hld_h_n_buf (= %b)  %m",VCCD,VDDA,VDDIO_Q,VSWITCH,ENABLE_H,hld_h_n_buf,$stime);
+                $display(" ===ERROR=== sky130_fd_io__top_gpio_ovtv2 : vccd(= %b) cannot be any value other than 1 when vdda (= %b) , vddio_q (= %b) , vswitch(= %b),ENABLE_H (= %b) and hld_h_n_buf (= %b)  %m",vccd,vdda,vddio_q,vswitch,ENABLE_H,hld_h_n_buf,$stime);
             end
             else
                 if (msg_count_pad9 == MAX_WARNING_COUNT+1)
@@ -844,7 +845,7 @@ begin
         end
     end
 end
-wire #100 error_vddio_q2 =  (VDDA !==1 && VDDIO_Q ===1 && VSWITCH !==1 && ENABLE_H ===1 && hld_h_n_buf ===1 && VCCD ===1 && ANALOG_EN===1);
+wire #100 error_vddio_q2 =  (vdda !==1 && vddio_q ===1 && vswitch !==1 && ENABLE_H ===1 && hld_h_n_buf ===1 && vccd ===1 && ANALOG_EN===1);
 event event_error_vddio_q2;
 always @(error_vddio_q2)
 begin
@@ -856,7 +857,7 @@ begin
             ->event_error_vddio_q2;
             if (msg_count_pad10 <= MAX_WARNING_COUNT)
             begin
-                $display(" ===ERROR=== sky130_fd_io__top_gpio_ovtv2 : ANALOG_EN(= %b) cannot be 1 when VDDA (= %b) , VDDIO_Q (= %b) , VSWITCH(= %b),ENABLE_H (= %b) , hld_h_n_buf (= %b) && VCCD (= %b) %m",ANALOG_EN, VDDA,VDDIO_Q,VSWITCH,ENABLE_H,hld_h_n_buf,VCCD,$stime);
+                $display(" ===ERROR=== sky130_fd_io__top_gpio_ovtv2 : ANALOG_EN(= %b) cannot be 1 when vdda (= %b) , vddio_q (= %b) , vswitch(= %b),ENABLE_H (= %b) , hld_h_n_buf (= %b) && vccd (= %b) %m",ANALOG_EN, vdda,vddio_q,vswitch,ENABLE_H,hld_h_n_buf,vccd,$stime);
             end
             else
                 if (msg_count_pad10 == MAX_WARNING_COUNT+1)
@@ -866,7 +867,7 @@ begin
         end
     end
 end
-wire #100 error_supply_good = ( VDDA ===1 && VDDIO_Q ===1 && VSWITCH ===1  && ENABLE_H ===1 && hld_h_n_buf ===1 && VCCD ===1 &&  ANALOG_EN===1 && ENABLE_VSWITCH_H !==1 && ENABLE_VSWITCH_H !==0 );
+wire #100 error_supply_good = ( vdda ===1 && vddio_q ===1 && vswitch ===1  && ENABLE_H ===1 && hld_h_n_buf ===1 && vccd ===1 &&  ANALOG_EN===1 && ENABLE_VSWITCH_H !==1 && ENABLE_VSWITCH_H !==0 );
 event event_error_supply_good;
 always @(error_supply_good)
 begin
@@ -878,7 +879,7 @@ begin
             ->event_error_supply_good;
             if (msg_count_pad11 <= MAX_WARNING_COUNT)
             begin
-                $display(" ===ERROR=== sky130_fd_io__top_gpio_ovtv2 : ENABLE_VSWITCH_H(= %b) should be either 1 or 0 when VDDA (= %b) , VDDIO_Q (= %b) , VSWITCH(= %b), ENABLE_H (= %b), hld_h_n_buf (= %b) ,VCCD (= %b) and ANALOG_EN(= %b)  %m",ENABLE_VSWITCH_H, VDDA,VDDIO_Q,VSWITCH,ENABLE_H,hld_h_n_buf,VCCD,ANALOG_EN,$stime);
+                $display(" ===ERROR=== sky130_fd_io__top_gpio_ovtv2 : ENABLE_VSWITCH_H(= %b) should be either 1 or 0 when vdda (= %b) , vddio_q (= %b) , vswitch(= %b), ENABLE_H (= %b), hld_h_n_buf (= %b) ,vccd (= %b) and ANALOG_EN(= %b)  %m",ENABLE_VSWITCH_H, vdda,vddio_q,vswitch,ENABLE_H,hld_h_n_buf,vccd,ANALOG_EN,$stime);
             end
             else
                 if (msg_count_pad11 == MAX_WARNING_COUNT+1)
@@ -888,7 +889,7 @@ begin
         end
     end
 end
-wire #100 error_vdda_vddioq_vswitch2 = ( VDDA ===1 && VDDIO_Q ===1 && VSWITCH ===1 && ENABLE_H ===1 && hld_h_n_buf ===1 && VCCD ===1 &&  ANALOG_EN===1 && ENABLE_VDDA_H !==1 && ENABLE_VDDA_H !==0 );
+wire #100 error_vdda_vddioq_vswitch2 = ( vdda ===1 && vddio_q ===1 && vswitch ===1 && ENABLE_H ===1 && hld_h_n_buf ===1 && vccd ===1 &&  ANALOG_EN===1 && ENABLE_VDDA_H !==1 && ENABLE_VDDA_H !==0 );
 event event_error_vdda_vddioq_vswitch2;
 always @(error_vdda_vddioq_vswitch2)
 begin
@@ -900,7 +901,7 @@ begin
             ->event_error_vdda_vddioq_vswitch2;
             if (msg_count_pad12 <= MAX_WARNING_COUNT)
             begin
-                $display(" ===ERROR=== sky130_fd_io__top_gpio_ovtv2 : ENABLE_VDDA_H(= %b) should be either 1 or 0 when VDDA (= %b) , VDDIO_Q (= %b) , VSWITCH(= %b), ENABLE_H (= %b), hld_h_n_buf (= %b) ,VCCD (= %b) and ANALOG_EN(= %b)  %m",ENABLE_VDDA_H, VDDA,VDDIO_Q,VSWITCH,ENABLE_H,hld_h_n_buf,VCCD,ANALOG_EN,$stime);
+                $display(" ===ERROR=== sky130_fd_io__top_gpio_ovtv2 : ENABLE_VDDA_H(= %b) should be either 1 or 0 when vdda (= %b) , vddio_q (= %b) , vswitch(= %b), ENABLE_H (= %b), hld_h_n_buf (= %b) ,vccd (= %b) and ANALOG_EN(= %b)  %m",ENABLE_VDDA_H, vdda,vddio_q,vswitch,ENABLE_H,hld_h_n_buf,vccd,ANALOG_EN,$stime);
             end
             else
                 if (msg_count_pad12 == MAX_WARNING_COUNT+1)

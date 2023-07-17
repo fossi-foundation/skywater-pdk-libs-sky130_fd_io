@@ -35,7 +35,7 @@
 `ifdef FUNCTIONAL
 `include "sky130_fd_io__top_power_lvc_wpad.functional.pp.v"
 `else  // FUNCTIONAL
-`include "sky130_fd_io__top_power_lvc_wpad.behavioral.pp.v"
+`include "sky130_fd_io__top_power_lvc_wpad.timing.pp.v"
 `endif // FUNCTIONAL
 
 `else  // USE_POWER_PINS
@@ -43,7 +43,7 @@
 `ifdef FUNCTIONAL
 `include "sky130_fd_io__top_power_lvc_wpad.functional.v"
 `else  // FUNCTIONAL
-`include "sky130_fd_io__top_power_lvc_wpad.behavioral.v"
+`include "sky130_fd_io__top_power_lvc_wpad.timing.v"
 `endif // FUNCTIONAL
 
 `endif // USE_POWER_PINS
