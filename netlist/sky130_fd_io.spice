@@ -20,8 +20,8 @@
 .ENDS
 
 .SUBCKT sky130_fd_io__gnd2gnd_120x2_lv_isosub BDY2_B2B SRC_BDY_LVC1 VSSD
-D0 SRC_BDY_LVC1 BDY2_B2B sky130_fd_pr__diode_pd2nw_05v5 area=90E+12 pj=132E+6
-D1 BDY2_B2B SRC_BDY_LVC1 sky130_fd_pr__diode_pd2nw_05v5 area=90E+12 pj=132E+6
+XD0 SRC_BDY_LVC1 BDY2_B2B sky130_fd_pr__diode_pd2nw_05v5 area=90E+12 perim=132E+6
+XD1 BDY2_B2B SRC_BDY_LVC1 sky130_fd_pr__diode_pd2nw_05v5 area=90E+12 perim=132E+6
 .ENDS
 
 .SUBCKT sky130_fd_io__amuxsplitv2_delay ENABLE_VDDA_H HLD_VDDA_H_N HOLD RESET
@@ -934,9 +934,9 @@ XI37 PU_H_N DRVHI_H VCC_IO VCC_IO sky130_fd_pr__pfet_g5v0d10v5 m=2 w=5.0 l=0.6
 .SUBCKT sky130_fd_io__com_res_strong_slow RA RB VGND_IO
 *.PININFO RA:B RB:B VGND_IO:I
 XI28 net34 net30 sky130_fd_io__tk_em1s
-RI32 RB net30 sky130_fd_pr__res_generic_po W=2 L=2 m=1
-RI29 net30 net34 sky130_fd_pr__res_generic_po W=2 L=3 m=1
-Rr1 net34 RA sky130_fd_pr__res_generic_po W=2 L=5 m=1
+XRI32 RB net30 sky130_fd_pr__res_generic_po W=2 L=2 m=1
+XRI29 net30 net34 sky130_fd_pr__res_generic_po W=2 L=3 m=1
+XRr1 net34 RA sky130_fd_pr__res_generic_po W=2 L=5 m=1
 .ENDS sky130_fd_io__com_res_strong_slow
 
 * Copyright 2020 The SkyWater PDK Authors
@@ -963,14 +963,14 @@ Xe10_q0 n<1> n<2> sky130_fd_io__tk_em1s
 Xe12_q0 n<3> RB sky130_fd_io__tk_em1s
 Xe13_q0 n<4> n<0> sky130_fd_io__tk_em1s
 Xe14_q0 n<5> n<4> sky130_fd_io__tk_em1o
-RI84 n<0> n<1> sky130_fd_pr__res_generic_po W=0.8 L=1.5 m=1
-RI62 n<3> RB sky130_fd_pr__res_generic_po W=0.8 L=1.5 m=1
-RI82 n<2> n<3> sky130_fd_pr__res_generic_po W=0.8 L=1.5 m=1
-RI85 RA net64 sky130_fd_pr__res_generic_po W=0.8 L=50 m=1
-RI83 n<1> n<2> sky130_fd_pr__res_generic_po W=0.8 L=1.5 m=1
-RI116 net64 n<5> sky130_fd_pr__res_generic_po W=0.8 L=12 m=1
-RI104 n<4> n<0> sky130_fd_pr__res_generic_po W=0.8 L=6 m=1
-RI134 n<5> n<4> sky130_fd_pr__res_generic_po W=0.8 L=6 m=1
+XRI84 n<0> n<1> sky130_fd_pr__res_generic_po W=0.8 L=1.5 m=1
+XRI62 n<3> RB sky130_fd_pr__res_generic_po W=0.8 L=1.5 m=1
+XRI82 n<2> n<3> sky130_fd_pr__res_generic_po W=0.8 L=1.5 m=1
+XRI85 RA net64 sky130_fd_pr__res_generic_po W=0.8 L=50 m=1
+XRI83 n<1> n<2> sky130_fd_pr__res_generic_po W=0.8 L=1.5 m=1
+XRI116 net64 n<5> sky130_fd_pr__res_generic_po W=0.8 L=12 m=1
+XRI104 n<4> n<0> sky130_fd_pr__res_generic_po W=0.8 L=6 m=1
+XRI134 n<5> n<4> sky130_fd_pr__res_generic_po W=0.8 L=6 m=1
 .ENDS sky130_fd_io__com_res_weak
 
 * Copyright 2020 The SkyWater PDK Authors
@@ -997,14 +997,14 @@ Xe10_q0 n<1> n<2> sky130_fd_io__tk_em1s
 Xe12_q0 n<3> RB sky130_fd_io__tk_em1s
 Xe13_q0 n<4> n<0> sky130_fd_io__tk_em1s
 Xe14_q0 n<5> n<4> sky130_fd_io__tk_em1o
-RI84 n<0> n<1> sky130_fd_pr__res_generic_po W=0.8 L=1.5 m=1
-RI62 n<3> RB sky130_fd_pr__res_generic_po W=0.8 L=1.5 m=1
-RI82 n<2> n<3> sky130_fd_pr__res_generic_po W=0.8 L=1.5 m=1
-RI85 RA net64 sky130_fd_pr__res_generic_po W=0.8 L=50 m=1
-RI83 n<1> n<2> sky130_fd_pr__res_generic_po W=0.8 L=1.5 m=1
-RI116 net64 n<5> sky130_fd_pr__res_generic_po W=0.8 L=12 m=1
-RI104 n<4> n<0> sky130_fd_pr__res_generic_po W=0.8 L=6 m=1
-RI134 n<5> n<4> sky130_fd_pr__res_generic_po W=0.8 L=6 m=1
+XRI84 n<0> n<1> sky130_fd_pr__res_generic_po W=0.8 L=1.5 m=1
+XRI62 n<3> RB sky130_fd_pr__res_generic_po W=0.8 L=1.5 m=1
+XRI82 n<2> n<3> sky130_fd_pr__res_generic_po W=0.8 L=1.5 m=1
+XRI85 RA net64 sky130_fd_pr__res_generic_po W=0.8 L=50 m=1
+XRI83 n<1> n<2> sky130_fd_pr__res_generic_po W=0.8 L=1.5 m=1
+XRI116 net64 n<5> sky130_fd_pr__res_generic_po W=0.8 L=12 m=1
+XRI104 n<4> n<0> sky130_fd_pr__res_generic_po W=0.8 L=6 m=1
+XRI134 n<5> n<4> sky130_fd_pr__res_generic_po W=0.8 L=6 m=1
 .ENDS sky130_fd_io__com_xres_weak_pu
 
 * Copyright 2020 The SkyWater PDK Authors
@@ -3066,7 +3066,7 @@ XI30 nsw_enb PGHS_H PUG_H VPB_DRVR sky130_fd_pr__pfet_g5v0d10v5 m=2 w=3.0 l=0.5
 + mult=1 sa=0.265 sb=0.265 sd=0.28 topography=normal area=0.063 perim=1.14
 XI70 net531 en VCC_IO VCC_IO sky130_fd_pr__pfet_g5v0d10v5 m=4 w=5.0 l=0.5 mult=1
 + sa=0.265 sb=0.265 sd=0.28 topography=normal area=0.063 perim=1.14
-RI221 net420 vr sky130_fd_pr__res_generic_po W=0.75 L=513.445 m=1
+XRI221 net420 vr sky130_fd_pr__res_generic_po W=0.75 L=513.445 m=1
 RI186 SLEW_CTL_H_N[0] mode4b sky130_fd_pr__res_generic_m1 L=0.035 W=1
 RI157 net247 mode2b sky130_fd_pr__res_generic_m1 L=0.035 W=1
 .ENDS sky130_fd_io__gpio_ovtv2_pdpredrvr_strong_leak_fix
@@ -3401,8 +3401,8 @@ Xnand_q0 PUEN_H SLOW_H_N en_fast_h_n VGND_IO VCC_IO sky130_fd_io__com_nand2_dnw
 *.PININFO DRVHI_H:I EN_FAST[3]:I EN_FAST[2]:I EN_FAST[1]:I
 *.PININFO EN_FAST[0]:I PU_H_N:O PUEN_H:I VCC_IO:I VGND_IO:I
 XE1 net30 PU_H_N sky130_fd_io__tk_em1s
-Rrespu1 int_res net30 sky130_fd_pr__res_generic_po W=0.33 L=11 m=1
-Rrespu2 PU_H_N int_res sky130_fd_pr__res_generic_po W=0.33 L=4 m=1
+XRrespu1 int_res net30 sky130_fd_pr__res_generic_po W=0.33 L=11 m=1
+XRrespu2 PU_H_N int_res sky130_fd_pr__res_generic_po W=0.33 L=4 m=1
 Xmnin_fast<3>_q0 net30 DRVHI_H int<3> net017<0> sky130_fd_pr__nfet_g5v0d10v5 m=1
 + w=1.5 l=0.5 mult=1 sa=0.265 sb=0.265 sd=0.28 topography=normal area=0.063
 + perim=1.14
@@ -3460,8 +3460,8 @@ Xmpin_q0 PU_H_N DRVHI_H VCC_IO VCC_IO sky130_fd_pr__pfet_g5v0d10v5 m=3 w=5.0
 *.PININFO DRVHI_H:I EN_FAST[3]:I EN_FAST[2]:I EN_FAST[1]:I
 *.PININFO EN_FAST[0]:I PU_H_N:O PUEN_H:I VCC_IO:I VGND_IO:I
 XE1 net30 PU_H_N sky130_fd_io__tk_em1s
-Rrespu1 int_res net30 sky130_fd_pr__res_generic_po W=0.33 L=11 m=1
-Rrespu2 PU_H_N int_res sky130_fd_pr__res_generic_po W=0.33 L=4 m=1
+XRrespu1 int_res net30 sky130_fd_pr__res_generic_po W=0.33 L=11 m=1
+XRrespu2 PU_H_N int_res sky130_fd_pr__res_generic_po W=0.33 L=4 m=1
 Xmnin_fast<3>_q0 net30 DRVHI_H int<3> net017<0> sky130_fd_pr__nfet_g5v0d10v5 m=1
 + w=1.5 l=0.5 mult=1 sa=0.265 sb=0.265 sd=0.28 topography=normal area=0.063
 + perim=1.14
@@ -5833,8 +5833,8 @@ Xnand_q0 PUEN_H SLOW_H_N en_fast_h_n VGND_IO VCC_IO sky130_fd_io__com_nand2_dnw
 *.PININFO DRVHI_H:I EN_FAST[3]:I EN_FAST[2]:I EN_FAST[1]:I
 *.PININFO EN_FAST[0]:I PU_H_N:O PUEN_H:I VCC_IO:I VGND_IO:I
 XE1 net24 PU_H_N sky130_fd_io__tk_em1s
-Rrespu1 int_res net24 sky130_fd_pr__res_generic_po W=0.33 L=11 m=1
-Rrespu2 PU_H_N int_res sky130_fd_pr__res_generic_po W=0.33 L=4 m=1
+XRrespu1 int_res net24 sky130_fd_pr__res_generic_po W=0.33 L=11 m=1
+XRrespu2 PU_H_N int_res sky130_fd_pr__res_generic_po W=0.33 L=4 m=1
 Xmnin_fast<3>_q0 net24 DRVHI_H int<3> VGND_IO sky130_fd_pr__nfet_g5v0d10v5 m=1
 + w=1.5 l=0.5 mult=1 sa=0.265 sb=0.265 sd=0.28 topography=normal area=0.063
 + perim=1.14
@@ -6318,7 +6318,7 @@ XI18 OUT IN2 VGND VGND sky130_fd_pr__nfet_g5v0d10v5 m=1 w=1.0 l=0.6 mult=1
 * RI234<1> PAD net12 short
 * RI234<2> PAD net12 short
 
-RI175 PAD ROUT sky130_fd_pr__res_generic_po W=2 L=10.07 m=1
+XRI175 PAD ROUT sky130_fd_pr__res_generic_po W=2 L=10.07 m=1
 .ENDS sky130_fd_io__res250only_small
 
 * Copyright 2020 The SkyWater PDK Authors
@@ -6339,7 +6339,7 @@ RI175 PAD ROUT sky130_fd_pr__res_generic_po W=2 L=10.07 m=1
 
 .SUBCKT sky130_fd_io__res75only_small PAD ROUT
 *.PININFO PAD:B ROUT:B
-RI175 PAD ROUT sky130_fd_pr__res_generic_po W=2 L=3.15 m=1
+XRI175 PAD ROUT sky130_fd_pr__res_generic_po W=2 L=3.15 m=1
 .ENDS sky130_fd_io__res75only_small
 
 * Copyright 2020 The SkyWater PDK Authors
@@ -6781,7 +6781,7 @@ RI2 B net8 sky130_fd_pr__res_generic_m2 W=0.66 L=0.01
 
 .SUBCKT sky130_fd_io__sio_tk_tie_r_out_esd A B
 *.PININFO A:B B:B
-Resd_r A B sky130_fd_pr__res_generic_po W=0.5 L=10.2 m=1
+XResd_r A B sky130_fd_pr__res_generic_po W=0.5 L=10.2 m=1
 .ENDS sky130_fd_io__sio_tk_tie_r_out_esd
 
 * Copyright 2020 The SkyWater PDK Authors
@@ -6966,7 +6966,7 @@ Xe2_q0 OUT SPD sky130_fd_io__tk_em1s
 
 .SUBCKT sky130_fd_io__tk_tie_r_out_esd A B
 *.PININFO A:B B:B
-Resd_r A B sky130_fd_pr__res_generic_po W=0.5 L=10.2 m=1
+XResd_r A B sky130_fd_pr__res_generic_po W=0.5 L=10.2 m=1
 .ENDS sky130_fd_io__tk_tie_r_out_esd
 
 * Copyright 2020 The SkyWater PDK Authors
@@ -7168,9 +7168,9 @@ Xpre_n1_q0 g_nclamp g_pdpre SRC_BDY_HVC SRC_BDY_HVC sky130_fd_pr__nfet_g5v0d10v5
 Xclamp_xtor_q0 DRN_HVC g_nclamp SRC_BDY_HVC SRC_BDY_HVC
 + sky130_fd_pr__nfet_g5v0d10v5 m=120 w=20.0 l=0.5 mult=1 sa=0.265 sb=0.265 sd=0.28
 + topography=normal area=0.063 perim=1.14
-Rrc_res g_pdpre net94 sky130_fd_pr__res_generic_po W=0.33 L=470 m=1
-RI38 net90 DRN_HVC sky130_fd_pr__res_generic_po W=0.33 L=700 m=1
-RI37 net94 net90 sky130_fd_pr__res_generic_po W=0.33 L=1550 m=1
+XRrc_res g_pdpre net94 sky130_fd_pr__res_generic_po W=0.33 L=470 m=1
+XRI38 net90 DRN_HVC sky130_fd_pr__res_generic_po W=0.33 L=700 m=1
+XRI37 net94 net90 sky130_fd_pr__res_generic_po W=0.33 L=1550 m=1
 Xpre_p1_q0 g_nclamp g_pdpre DRN_HVC DRN_HVC sky130_fd_pr__pfet_g5v0d10v5 m=50
 + w=7.0 l=0.5 mult=1 sa=0.265 sb=0.265 sd=0.28 topography=normal area=0.063
 + perim=1.14
@@ -7201,9 +7201,9 @@ xI39 SRC_BDY_HVC OGC_HVC sky130_fd_io__condiode
 Xpre_p1_q0 g_nclamp g_pdpre DRN_HVC DRN_HVC sky130_fd_pr__pfet_g5v0d10v5 m=50
 + w=7.0 l=0.5 mult=1 sa=0.265 sb=0.265 sd=0.28 topography=normal area=0.063
 + perim=1.14
-Rrc_res g_pdpre net41 sky130_fd_pr__res_generic_po W=0.33 L=470 m=1
-RI38 net37 DRN_HVC sky130_fd_pr__res_generic_po W=0.33 L=700 m=1
-RI37 net41 net37 sky130_fd_pr__res_generic_po W=0.33 L=1550 m=1
+XRrc_res g_pdpre net41 sky130_fd_pr__res_generic_po W=0.33 L=470 m=1
+XRI38 net37 DRN_HVC sky130_fd_pr__res_generic_po W=0.33 L=700 m=1
+XRI37 net41 net37 sky130_fd_pr__res_generic_po W=0.33 L=1550 m=1
 Xclamp_xtor_q0 DRN_HVC g_nclamp SRC_BDY_HVC SRC_BDY_HVC
 + sky130_fd_pr__nfet_g5v0d10v5 m=120 w=20.0 l=0.5 mult=1 sa=0.265 sb=0.265 sd=0.28
 + topography=normal area=0.063 perim=1.14
@@ -7247,9 +7247,9 @@ xI39 SRC_BDY_HVC VDDIO sky130_fd_io__condiode
 Xpre_p1_q0 g_nclamp g_pdpre DRN_HVC DRN_HVC sky130_fd_pr__pfet_g5v0d10v5 m=50
 + w=7.0 l=0.5 mult=1 sa=0.265 sb=0.265 sd=0.28 topography=normal area=0.063
 + perim=1.14
-Rrc_res g_pdpre net67 sky130_fd_pr__res_generic_po W=0.33 L=470 m=1
-RI38 net63 DRN_HVC sky130_fd_pr__res_generic_po W=0.33 L=700 m=1
-RI37 net67 net63 sky130_fd_pr__res_generic_po W=0.33 L=1550 m=1
+XRrc_res g_pdpre net67 sky130_fd_pr__res_generic_po W=0.33 L=470 m=1
+XRI38 net63 DRN_HVC sky130_fd_pr__res_generic_po W=0.33 L=700 m=1
+XRI37 net67 net63 sky130_fd_pr__res_generic_po W=0.33 L=1550 m=1
 Xclamp_xtor_q0 DRN_HVC g_nclamp SRC_BDY_HVC SRC_BDY_HVC
 + sky130_fd_pr__nfet_g5v0d10v5 m=120 w=20.0 l=0.5 mult=1 sa=0.265 sb=0.265 sd=0.28
 + topography=normal area=0.063 perim=1.14
@@ -7417,7 +7417,7 @@ XI165 ENABLE_VDDIO_LV enable_vddio_lv_n VGND VGND VCCHIB VCCHIB
 XI61 net106 mode_vcchib VGND VDDIO sky130_fd_io__hvsbt_inv_x1
 XI35 VNORMAL_B ENABLE_HV net106 VGND VDDIO sky130_fd_io__hvsbt_nand2
 XI132 net207 net110 VGND sky130_fd_pr__res_generic_nd__hv W=0.29 L=1077.19 m=1
-RI159 net235 net108 sky130_fd_pr__res_generic_po W=0.4 L=713.695 m=1
+XRI159 net235 net108 sky130_fd_pr__res_generic_po W=0.4 L=713.695 m=1
 XI8 net193 pad1 VGND VGND sky130_fd_pr__nfet_g5v0d10v5 m=2 w=5.0 l=0.5 mult=1
 + sa=0.265 sb=0.265 sd=0.28 topography=normal area=0.063 perim=1.14
 XI86 pad1 pad_inv VGND VGND sky130_fd_pr__nfet_g5v0d10v5 m=1 w=3.0 l=0.5 mult=1
@@ -7793,11 +7793,11 @@ XI60 SRC_BDY_LVC2 g_pdpre_lvc2 SRC_BDY_LVC2 SRC_BDY_LVC2 sky130_fd_pr__nfet_01v8
 XI59 SRC_BDY_LVC2 g_pdpre_lvc2 SRC_BDY_LVC2 SRC_BDY_LVC2 sky130_fd_pr__nfet_01v8
 + m=10 w=7.0 l=8.0 mult=1 sa=0.265 sb=0.265 sd=0.28 topography=normal area=0.063
 + perim=1.14
-Rrc_res g_pdpre_lvc1 DRN_LVC1 sky130_fd_pr__res_generic_po W=0.33 L=1950 m=1
-RI44 DRN_LVC2 net161 sky130_fd_pr__res_generic_po W=0.33 L=900 m=1
-RI47 net161 net155 sky130_fd_pr__res_generic_po W=0.33 L=300 m=1
-RI46 g_pdpre_lvc2 net157 sky130_fd_pr__res_generic_po W=0.33 L=200 m=1
-RI45 net157 net155 sky130_fd_pr__res_generic_po W=0.33 L=720 m=1
+XRrc_res g_pdpre_lvc1 DRN_LVC1 sky130_fd_pr__res_generic_po W=0.33 L=1950 m=1
+XRI44 DRN_LVC2 net161 sky130_fd_pr__res_generic_po W=0.33 L=900 m=1
+XRI47 net161 net155 sky130_fd_pr__res_generic_po W=0.33 L=300 m=1
+XRI46 g_pdpre_lvc2 net157 sky130_fd_pr__res_generic_po W=0.33 L=200 m=1
+XRI45 net157 net155 sky130_fd_pr__res_generic_po W=0.33 L=720 m=1
 .ENDS sky130_fd_io__top_ground_lvc_wpad
 
 * Copyright 2020 The SkyWater PDK Authors
@@ -7865,11 +7865,11 @@ XI60 SRC_BDY_LVC2 g_pdpre_lvc2 SRC_BDY_LVC2 SRC_BDY_LVC2 sky130_fd_pr__nfet_01v8
 XI59 SRC_BDY_LVC2 g_pdpre_lvc2 SRC_BDY_LVC2 SRC_BDY_LVC2 sky130_fd_pr__nfet_01v8
 + m=10 w=7.0 l=8.0 mult=1 sa=0.265 sb=0.265 sd=0.28 topography=normal area=0.063
 + perim=1.14
-Rrc_res g_pdpre_lvc1 DRN_LVC1 sky130_fd_pr__res_generic_po W=0.33 L=1950 m=1
-RI44 DRN_LVC2 net161 sky130_fd_pr__res_generic_po W=0.33 L=900 m=1
-RI47 net161 net155 sky130_fd_pr__res_generic_po W=0.33 L=300 m=1
-RI46 g_pdpre_lvc2 net157 sky130_fd_pr__res_generic_po W=0.33 L=200 m=1
-RI45 net157 net155 sky130_fd_pr__res_generic_po W=0.33 L=720 m=1
+XRrc_res g_pdpre_lvc1 DRN_LVC1 sky130_fd_pr__res_generic_po W=0.33 L=1950 m=1
+XRI44 DRN_LVC2 net161 sky130_fd_pr__res_generic_po W=0.33 L=900 m=1
+XRI47 net161 net155 sky130_fd_pr__res_generic_po W=0.33 L=300 m=1
+XRI46 g_pdpre_lvc2 net157 sky130_fd_pr__res_generic_po W=0.33 L=200 m=1
+XRI45 net157 net155 sky130_fd_pr__res_generic_po W=0.33 L=720 m=1
 .ENDS sky130_fd_io__top_power_lvc_wpad
 
 * The following subcircuits were added 10/19/2023 and include cells that were
@@ -8676,8 +8676,8 @@ Xnr3 drvlo_h_n net76 net76 pd_h<2> pden_h_n vcc_io vgnd_io
 *.PININFO drvhi_h:I en_fast<3>:I en_fast<2>:I en_fast<1>:I en_fast<0>:I 
 *.PININFO puen_h:I vcc_io:I vgnd_io:I pu_h_n:O
 XE1 net24 pu_h_n sky130_fd_io__tk_em1s
-Rrespu1 int_res net24 sky130_fd_pr__res_generic_po m=1 w=0.33 l=11
-Rrespu2 pu_h_n int_res sky130_fd_pr__res_generic_po m=1 w=0.33 l=4
+XRrespu1 int_res net24 sky130_fd_pr__res_generic_po m=1 w=0.33 l=11
+XRrespu2 pu_h_n int_res sky130_fd_pr__res_generic_po m=1 w=0.33 l=4
 Xmnin_fast<3> net24 drvhi_h int<3> net013<0> sky130_fd_pr__nfet_g5v0d10v5 m=1 w=1.50 l=0.50 mult=1 
 + sa=265e-3 sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
 Xmnin_fast<2> net24 drvhi_h int<2> net013<1> sky130_fd_pr__nfet_g5v0d10v5 m=1 w=1.50 l=0.50 mult=1 
@@ -9151,40 +9151,40 @@ XI191 net29 vrefgen_en_h vssd vssd sky130_fd_pr__nfet_g5v0d10v5 m=10 w=3.00 l=0.
 + sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
 XI190 net99 vrefgen_en_h net29 vssd sky130_fd_pr__nfet_g5v0d10v5 m=10 w=3.00 l=0.50 mult=1 sa=265e-3 
 + sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-RI163 vref<26> vref<25> sky130_fd_pr__res_generic_nd__hv m=1 w=0.29 l=350.09
-RI158 vref<28> vref<27> sky130_fd_pr__res_generic_nd__hv m=1 w=0.29 l=350.09
-RI192 net99 net37 sky130_fd_pr__res_generic_nd__hv m=1 w=0.29 l=2477.5
-RI209 vref<7> vref<8> sky130_fd_pr__res_generic_nd__hv m=1 w=0.29 l=350.09
-RI162 vref<27> vref<26> sky130_fd_pr__res_generic_nd__hv m=1 w=0.29 l=350.09
-RI197 vref<18> vref<19> sky130_fd_pr__res_generic_nd__hv m=1 w=0.29 l=350.09
-RI160 vref<30> vref<29> sky130_fd_pr__res_generic_nd__hv m=1 w=0.29 l=350.09
-RI161 vref<31> vref<30> sky130_fd_pr__res_generic_nd__hv m=1 w=0.29 l=350.09
-RI196 vref<17> vref<18> sky130_fd_pr__res_generic_nd__hv m=1 w=0.29 l=350.09
-RI213 vref<2> vref<3> sky130_fd_pr__res_generic_nd__hv m=1 w=0.29 l=350.09
-RI198 vref<19> vref<20> sky130_fd_pr__res_generic_nd__hv m=1 w=0.29 l=350.09
-RI157 net81 vref<31> sky130_fd_pr__res_generic_nd__hv m=1 w=0.29 l=350.09
-RI215 vref<4> vref<5> sky130_fd_pr__res_generic_nd__hv m=1 w=0.29 l=350.09
-RI199 vref<20> vref<21> sky130_fd_pr__res_generic_nd__hv m=1 w=0.29 l=350.09
-RI201 vref<16> vref<15> sky130_fd_pr__res_generic_nd__hv m=1 w=0.29 l=350.09
-RI212 vref<1> vref<2> sky130_fd_pr__res_generic_nd__hv m=1 w=0.29 l=350.09
-RI195 vref<21> vref<22> sky130_fd_pr__res_generic_nd__hv m=1 w=0.29 l=350.09
-RI193 vref<23> vref<24> sky130_fd_pr__res_generic_nd__hv m=1 w=0.29 l=350.09
-RI194 vref<22> vref<23> sky130_fd_pr__res_generic_nd__hv m=1 w=0.29 l=350.09
-RI207 vref<10> vref<9> sky130_fd_pr__res_generic_nd__hv m=1 w=0.29 l=350.09
-RI164 vref<25> vref<24> sky130_fd_pr__res_generic_nd__hv m=1 w=0.29 l=350.09
-RI204 vref<14> vref<13> sky130_fd_pr__res_generic_nd__hv m=1 w=0.29 l=350.09
-RI205 vref<15> vref<14> sky130_fd_pr__res_generic_nd__hv m=1 w=0.29 l=350.09
-RI206 vref<11> vref<10> sky130_fd_pr__res_generic_nd__hv m=1 w=0.29 l=350.09
-RI159 vref<29> vref<28> sky130_fd_pr__res_generic_nd__hv m=1 w=0.29 l=350.09
-RI200 vref<16> vref<17> sky130_fd_pr__res_generic_nd__hv m=1 w=0.29 l=350.09
-RI214 vref<3> vref<4> sky130_fd_pr__res_generic_nd__hv m=1 w=0.29 l=350.09
-RI378 net37 vref<0> sky130_fd_pr__res_generic_nd__hv m=1 w=0.29 l=2477.5
-RI216 vref<0> vref<1> sky130_fd_pr__res_generic_nd__hv m=1 w=0.29 l=350.09
-RI210 vref<6> vref<7> sky130_fd_pr__res_generic_nd__hv m=1 w=0.29 l=350.09
-RI211 vref<5> vref<6> sky130_fd_pr__res_generic_nd__hv m=1 w=0.29 l=350.09
-RI202 vref<12> vref<11> sky130_fd_pr__res_generic_nd__hv m=1 w=0.29 l=350.09
-RI208 vref<9> vref<8> sky130_fd_pr__res_generic_nd__hv m=1 w=0.29 l=350.09
-RI203 vref<13> vref<12> sky130_fd_pr__res_generic_nd__hv m=1 w=0.29 l=350.09
+XRI163 vref<26> vref<25> vssd sky130_fd_pr__res_generic_nd__hv m=1 w=0.29 l=350.09
+XRI158 vref<28> vref<27> vssd sky130_fd_pr__res_generic_nd__hv m=1 w=0.29 l=350.09
+XRI192 net99 net37 vssd sky130_fd_pr__res_generic_nd__hv m=1 w=0.29 l=2477.5
+XRI209 vref<7> vref<8> vssd sky130_fd_pr__res_generic_nd__hv m=1 w=0.29 l=350.09
+XRI162 vref<27> vref<26> vssd sky130_fd_pr__res_generic_nd__hv m=1 w=0.29 l=350.09
+XRI197 vref<18> vref<19> vssd sky130_fd_pr__res_generic_nd__hv m=1 w=0.29 l=350.09
+XRI160 vref<30> vref<29> vssd sky130_fd_pr__res_generic_nd__hv m=1 w=0.29 l=350.09
+XRI161 vref<31> vref<30> vssd sky130_fd_pr__res_generic_nd__hv m=1 w=0.29 l=350.09
+XRI196 vref<17> vref<18> vssd sky130_fd_pr__res_generic_nd__hv m=1 w=0.29 l=350.09
+XRI213 vref<2> vref<3> vssd sky130_fd_pr__res_generic_nd__hv m=1 w=0.29 l=350.09
+XRI198 vref<19> vref<20> vssd sky130_fd_pr__res_generic_nd__hv m=1 w=0.29 l=350.09
+XRI157 net81 vref<31> vssd sky130_fd_pr__res_generic_nd__hv m=1 w=0.29 l=350.09
+XRI215 vref<4> vref<5> vssd sky130_fd_pr__res_generic_nd__hv m=1 w=0.29 l=350.09
+XRI199 vref<20> vref<21> vssd sky130_fd_pr__res_generic_nd__hv m=1 w=0.29 l=350.09
+XRI201 vref<16> vref<15> vssd sky130_fd_pr__res_generic_nd__hv m=1 w=0.29 l=350.09
+XRI212 vref<1> vref<2> vssd sky130_fd_pr__res_generic_nd__hv m=1 w=0.29 l=350.09
+XRI195 vref<21> vref<22> vssd sky130_fd_pr__res_generic_nd__hv m=1 w=0.29 l=350.09
+XRI193 vref<23> vref<24> vssd sky130_fd_pr__res_generic_nd__hv m=1 w=0.29 l=350.09
+XRI194 vref<22> vref<23> vssd sky130_fd_pr__res_generic_nd__hv m=1 w=0.29 l=350.09
+XRI207 vref<10> vref<9> vssd sky130_fd_pr__res_generic_nd__hv m=1 w=0.29 l=350.09
+XRI164 vref<25> vref<24> vssd sky130_fd_pr__res_generic_nd__hv m=1 w=0.29 l=350.09
+XRI204 vref<14> vref<13> vssd sky130_fd_pr__res_generic_nd__hv m=1 w=0.29 l=350.09
+XRI205 vref<15> vref<14> vssd sky130_fd_pr__res_generic_nd__hv m=1 w=0.29 l=350.09
+XRI206 vref<11> vref<10> vssd sky130_fd_pr__res_generic_nd__hv m=1 w=0.29 l=350.09
+XRI159 vref<29> vref<28> vssd sky130_fd_pr__res_generic_nd__hv m=1 w=0.29 l=350.09
+XRI200 vref<16> vref<17> vssd sky130_fd_pr__res_generic_nd__hv m=1 w=0.29 l=350.09
+XRI214 vref<3> vref<4> vssd sky130_fd_pr__res_generic_nd__hv m=1 w=0.29 l=350.09
+XRI378 net37 vref<0> vssd sky130_fd_pr__res_generic_nd__hv m=1 w=0.29 l=2477.5
+XRI216 vref<0> vref<1> vssd sky130_fd_pr__res_generic_nd__hv m=1 w=0.29 l=350.09
+XRI210 vref<6> vref<7> vssd sky130_fd_pr__res_generic_nd__hv m=1 w=0.29 l=350.09
+XRI211 vref<5> vref<6> vssd sky130_fd_pr__res_generic_nd__hv m=1 w=0.29 l=350.09
+XRI202 vref<12> vref<11> vssd sky130_fd_pr__res_generic_nd__hv m=1 w=0.29 l=350.09
+XRI208 vref<9> vref<8> vssd sky130_fd_pr__res_generic_nd__hv m=1 w=0.29 l=350.09
+XRI203 vref<13> vref<12> vssd sky130_fd_pr__res_generic_nd__hv m=1 w=0.29 l=350.09
 .ENDS
 
 .SUBCKT sky130_fd_io__gpiovrefv2_ctl enable_h hld_h_n sel<4> sel<3> sel<2> sel<1> 
@@ -9247,9 +9247,9 @@ RI1 g_pad g_core sky130_fd_pr__res_generic_m1
 *.PININFO drn_hvc:B ogc_hvc:B src_bdy_hvc:B
 Xpre_p1 g_nclamp g_pdpre drn_hvc drn_hvc sky130_fd_pr__pfet_g5v0d10v5 m=50 w=7.00 l=0.50 mult=1 
 + sa=265e-3 sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-Rrc_res g_pdpre net39 sky130_fd_pr__res_generic_po m=1 w=0.33 l=470
-RI38 net35 drn_hvc sky130_fd_pr__res_generic_po m=1 w=0.33 l=700
-RI37 net39 net35 sky130_fd_pr__res_generic_po m=1 w=0.33 l=1550
+XRrc_res g_pdpre net39 sky130_fd_pr__res_generic_po m=1 w=0.33 l=470
+XRI38 net35 drn_hvc sky130_fd_pr__res_generic_po m=1 w=0.33 l=700
+XRI37 net39 net35 sky130_fd_pr__res_generic_po m=1 w=0.33 l=1550
 Xclamp_xtor drn_hvc g_nclamp src_bdy_hvc src_bdy_hvc sky130_fd_pr__nfet_g5v0d10v5 m=120 w=20.0 l=0.50 
 + mult=1 sa=265e-3 sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
 Xpre_n1 g_nclamp g_pdpre src_bdy_hvc src_bdy_hvc sky130_fd_pr__nfet_g5v0d10v5 m=15 w=7.00 l=0.50 mult=1 
@@ -9266,11 +9266,11 @@ Xcxtor2 drn_hvc g_nclamp src_bdy_hvc src_bdy_hvc sky130_fd_pr__nfet_g5v0d10v5 m=
 + src_bdy_lvc1 src_bdy_lvc2 vssd
 *.PININFO bdy2_b2b:B drn_lvc1:B drn_lvc2:B ogc_lvc:B src_bdy_lvc1:B 
 *.PININFO src_bdy_lvc2:B vssd:B
-RI44 drn_lvc2 net66 sky130_fd_pr__res_generic_po m=1 w=0.33 l=900
-RI47 net66 net60 sky130_fd_pr__res_generic_po m=1 w=0.33 l=300
-RI46 g_pdpre_lvc2 net62 sky130_fd_pr__res_generic_po m=1 w=0.33 l=200
-RI45 net62 net60 sky130_fd_pr__res_generic_po m=1 w=0.33 l=720
-Rrc_res g_pdpre_lvc1 drn_lvc1 sky130_fd_pr__res_generic_po m=1 w=0.33 l=1950
+XRI44 drn_lvc2 net66 sky130_fd_pr__res_generic_po m=1 w=0.33 l=900
+XRI47 net66 net60 sky130_fd_pr__res_generic_po m=1 w=0.33 l=300
+XRI46 g_pdpre_lvc2 net62 sky130_fd_pr__res_generic_po m=1 w=0.33 l=200
+XRI45 net62 net60 sky130_fd_pr__res_generic_po m=1 w=0.33 l=720
+XRrc_res g_pdpre_lvc1 drn_lvc1 sky130_fd_pr__res_generic_po m=1 w=0.33 l=1950
 Xncap src_bdy_lvc1 g_pdpre_lvc1 src_bdy_lvc1 src_bdy_lvc1 sky130_fd_pr__nfet_01v8 m=15 w=7.00 
 + l=8.00 mult=1 sa=265e-3 sb=265e-3 sd=280e-3 topography=normal area=0.063 
 + perim=1.14
@@ -9310,7 +9310,7 @@ Xesd bdy2_b2b src_bdy_lvc1 vssd sky130_fd_io__gnd2gnd_120x2_lv_isosub
 
 .SUBCKT sky130_fd_io__top_lvclamp drn_lvc ogc_lvc src_bdy_lvc
 *.PININFO drn_lvc:B ogc_lvc:B src_bdy_lvc:B
-Rrc_res g_pdpre_lvc1 drn_lvc sky130_fd_pr__res_generic_po m=1 w=0.33 l=1950
+XRrc_res g_pdpre_lvc1 drn_lvc sky130_fd_pr__res_generic_po m=1 w=0.33 l=1950
 Xncap src_bdy_lvc g_pdpre_lvc1 src_bdy_lvc src_bdy_lvc sky130_fd_pr__nfet_01v8 m=6 w=7.00 
 + l=8.00 mult=1 sa=265e-3 sb=265e-3 sd=280e-3 topography=normal area=0.063 
 + perim=1.14
@@ -9339,9 +9339,9 @@ RI1 pad core sky130_fd_pr__res_generic_m1
 *.PININFO vssio:B vssio_q:B vswitch:B
 Xpre_p1 g_nclamp g_pdpre drn_hvc drn_hvc sky130_fd_pr__pfet_g5v0d10v5 m=50 w=7.00 l=0.50 mult=1 
 + sa=265e-3 sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-Rrc_res g_pdpre net67 sky130_fd_pr__res_generic_po m=1 w=0.33 l=470
-RI38 net63 drn_hvc sky130_fd_pr__res_generic_po m=1 w=0.33 l=700
-RI37 net67 net63 sky130_fd_pr__res_generic_po m=1 w=0.33 l=1550
+XRrc_res g_pdpre net67 sky130_fd_pr__res_generic_po m=1 w=0.33 l=470
+XRI38 net63 drn_hvc sky130_fd_pr__res_generic_po m=1 w=0.33 l=700
+XRI37 net67 net63 sky130_fd_pr__res_generic_po m=1 w=0.33 l=1550
 Xclamp_xtor drn_hvc g_nclamp src_bdy_hvc src_bdy_hvc sky130_fd_pr__nfet_g5v0d10v5 m=120 w=20.0 l=0.50 
 + mult=1 sa=265e-3 sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
 Xpre_n1 g_nclamp g_pdpre src_bdy_hvc src_bdy_hvc sky130_fd_pr__nfet_g5v0d10v5 m=15 w=7.00 l=0.50 mult=1 
@@ -9472,7 +9472,7 @@ XI6 vddd vddd vddd vddd sky130_fd_pr__pfet_g5v0d10v5 m=1 w=1.50 l=0.50 mult=1 sa
 + sd=280e-3 topography=normal area=0.063 perim=1.14
 XI3 vddd vddd vddd vddd sky130_fd_pr__pfet_g5v0d10v5 m=1 w=1.50 l=0.50 mult=1 sa=265e-3 sb=265e-3 
 + sd=280e-3 topography=normal area=0.063 perim=1.14
-RI25 net88 vddio_r sky130_fd_pr__res_generic_nd__hv m=1 w=0.3 l=278.07
+XRI25 net88 vddio_r vssa sky130_fd_pr__res_generic_nd__hv m=1 w=0.3 l=278.07
 .ENDS
 
 .SUBCKT sky130_fd_io__pwrdet_vddd out vddd vddio_q vssa
@@ -9492,12 +9492,12 @@ XI20 vddio_q vddio_q vddio_q vddio_q sky130_fd_pr__pfet_g5v0d10v5 m=1 w=1.50 l=0
 + sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
 XI19 vddio_q vddio_q vddio_q vddio_q sky130_fd_pr__pfet_g5v0d10v5 m=1 w=1.50 l=0.50 mult=1 sa=265e-3 
 + sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-RI299 vssa vssa sky130_fd_pr__res_generic_po m=1 w=0.33 l=15.635
-RI2 p0 net138 sky130_fd_pr__res_generic_nd__hv m=1 w=0.3 l=3150
-RI3 net132 vddio_q sky130_fd_pr__res_generic_nd__hv m=1 w=0.3 l=1340
-RI12 vddd vddd sky130_fd_pr__res_generic_nd__hv m=1 w=0.3 l=69.52
-RI9 net138 net132 sky130_fd_pr__res_generic_po m=1 w=0.33 l=1950
-RI11 net129 net100 sky130_fd_pr__res_generic_nd__hv m=1 w=0.3 l=69.52
+XRI299 vssa vssa sky130_fd_pr__res_generic_po m=1 w=0.33 l=15.635
+XRI2 p0 net138 vssa sky130_fd_pr__res_generic_nd__hv m=1 w=0.3 l=3150
+XRI3 net132 vddio_q vssa sky130_fd_pr__res_generic_nd__hv m=1 w=0.3 l=1340
+XRI12 vddd vddd vssa sky130_fd_pr__res_generic_nd__hv m=1 w=0.3 l=69.52
+XRI9 net138 net132 sky130_fd_pr__res_generic_po m=1 w=0.33 l=1950
+XRI11 net129 net100 vssa sky130_fd_pr__res_generic_nd__hv m=1 w=0.3 l=69.52
 XI294 net194 n2 vssa vssa sky130_fd_pr__nfet_g5v0d10v5 m=1 w=1.00 l=4.00 mult=1 sa=265e-3 sb=265e-3 
 + sd=280e-3 topography=normal area=0.063 perim=1.14
 XI296 out net194 vssa vssa sky130_fd_pr__nfet_g5v0d10v5 m=1 w=1.00 l=2.00 mult=1 sa=265e-3 sb=265e-3 
@@ -10077,36 +10077,36 @@ Xhld_blk hld_h_n hld_i_h_n hld_i_vpwr od_h vcc_io vgnd vpb vpwr
 
 .SUBCKT sky130_fd_io__refgen_opamp_stage_1_res b r1 r2 vgnd
 *.PININFO vgnd:I b:B r1:B r2:B
-RI345 net61 net62 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=8.675 isHV=TRUE
-RI1 net58 net61 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=8.675 isHV=TRUE
-RI2 net55 net58 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=8.675 isHV=TRUE
-RI3 r1 net49 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=8.675 isHV=TRUE
-RI4 net49 net55 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=8.675 isHV=TRUE
-RI5 net46 net40 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=8.675 isHV=TRUE
-RI6 net43 net46 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=8.675 isHV=TRUE
-RI7 net40 net37 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=8.675 isHV=TRUE
-RI8 net37 net34 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=8.675 isHV=TRUE
-RI9 net34 net62 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=8.675 isHV=TRUE
-RI10 net31 net5 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=8.675 isHV=TRUE
-RI11 net28 net31 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=8.675 isHV=TRUE
-RI12 net25 net28 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=8.675 isHV=TRUE
-RI13 r2 net19 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=8.675 isHV=TRUE
-RI14 net19 net25 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=8.675 isHV=TRUE
-RI15 net16 net10 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=8.675 isHV=TRUE
-RI16 net43 net16 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=8.675 isHV=TRUE
-RI17 net10 net7 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=8.675 isHV=TRUE
-RI18 net7 net4 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=8.675 isHV=TRUE
-RI19 net4 net5 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=8.675 isHV=TRUE
-RI36 vgnd vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=8.675 isHV=TRUE
-RI35 vgnd vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=8.675 isHV=TRUE
-RI34 vgnd vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=8.675 isHV=TRUE
-RI33 vgnd vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=8.675 isHV=TRUE
-RI32 vgnd vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=8.675 isHV=TRUE
-RI37 vgnd vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=8.675 isHV=TRUE
-RI38 vgnd vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=8.675 isHV=TRUE
-RI39 vgnd vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=8.675 isHV=TRUE
-RI40 vgnd vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=8.675 isHV=TRUE
-RI41 vgnd vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=8.675 isHV=TRUE
+XRI345 net61 net62 vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=8.675
+XRI1 net58 net61 vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=8.675
+XRI2 net55 net58 vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=8.675
+XRI3 r1 net49 vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=8.675
+XRI4 net49 net55 vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=8.675
+XRI5 net46 net40 vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=8.675
+XRI6 net43 net46 vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=8.675
+XRI7 net40 net37 vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=8.675
+XRI8 net37 net34 vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=8.675
+XRI9 net34 net62 vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=8.675
+XRI10 net31 net5 vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=8.675
+XRI11 net28 net31 vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=8.675
+XRI12 net25 net28 vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=8.675
+XRI13 r2 net19 vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=8.675
+XRI14 net19 net25 vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=8.675
+XRI15 net16 net10 vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=8.675
+XRI16 net43 net16 vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=8.675
+XRI17 net10 net7 vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=8.675
+XRI18 net7 net4 vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=8.675
+XRI19 net4 net5 vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=8.675
+XRI36 vgnd vgnd vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=8.675
+XRI35 vgnd vgnd vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=8.675
+XRI34 vgnd vgnd vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=8.675
+XRI33 vgnd vgnd vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=8.675
+XRI32 vgnd vgnd vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=8.675
+XRI37 vgnd vgnd vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=8.675
+XRI38 vgnd vgnd vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=8.675
+XRI39 vgnd vgnd vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=8.675
+XRI40 vgnd vgnd vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=8.675
+XRI41 vgnd vgnd vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=8.675
 .ENDS
 
 .SUBCKT sky130_fd_io__refgen_opamp_stage_1 en_inpop_h ibuf_sel_h_n inn inp ngate 
@@ -10183,14 +10183,14 @@ XI313 r1 net52 sky130_fd_io__refgen_em1o
 XI312 net55 net43 sky130_fd_io__refgen_em1o
 XI311 net43 net37 sky130_fd_io__refgen_em1o
 XI467 net37 r0 sky130_fd_io__refgen_em1o
-RI316 net40 net55 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075 isHV=TRUE
-RR<13> r1 net52 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075 isHV=TRUE
-RR<12> net52 net49 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075 isHV=TRUE
-RR<11> net49 net46 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075 isHV=TRUE
-RR<4> net55 net43 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075 isHV=TRUE
-RI317<1> net46 net40 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075 isHV=TRUE
-RR<1> net43 net37 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075 isHV=TRUE
-RR<0> net37 r0 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075 isHV=TRUE
+XRI316 net40 net55 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075
+XRR<13> r1 net52 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075
+XRR<12> net52 net49 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075
+XRR<11> net49 net46 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075
+XRR<4> net55 net43 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075
+XRI317<1> net46 net40 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075
+XRR<1> net43 net37 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075
+XRR<0> net37 r0 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075
 .ENDS
 
 .SUBCKT sky130_fd_io__refgen_res_ntwk_d r0 r1 vnb
@@ -10201,14 +10201,14 @@ XI313 r1 net52 sky130_fd_io__refgen_em1o
 XI312 net55 net43 sky130_fd_io__refgen_em1o
 XI311 net43 net37 sky130_fd_io__refgen_em1o
 XI467 net37 r0 sky130_fd_io__refgen_em1o
-RI316 net40 net55 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075 isHV=TRUE
-RR<13> r1 net52 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075 isHV=TRUE
-RR<12> net52 net49 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075 isHV=TRUE
-RR<11> net49 net46 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075 isHV=TRUE
-RR<4> net55 net43 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075 isHV=TRUE
-RI317<1> net46 net40 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075 isHV=TRUE
-RR<1> net43 net37 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075 isHV=TRUE
-RR<0> net37 r0 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075 isHV=TRUE
+XRI316 net40 net55 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075
+XRR<13> r1 net52 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075
+XRR<12> net52 net49 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075
+XRR<11> net49 net46 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075
+XRR<4> net55 net43 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075
+XRI317<1> net46 net40 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075
+XRR<1> net43 net37 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075
+XRR<0> net37 r0 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075
 .ENDS
 
 .SUBCKT sky130_fd_io__refgen_res_ntwk_g r0 r1 vnb
@@ -10219,20 +10219,20 @@ XI325 net62 net59 sky130_fd_io__refgen_em1o
 XI324 net65 net62 sky130_fd_io__refgen_em1o
 XI323 r1 net65 sky130_fd_io__refgen_em1o
 XI467 net44 net41 sky130_fd_io__refgen_em1o
-RR1<0> net53 r0 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075 isHV=TRUE
-RR1<5> net47 net77 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075 isHV=TRUE
-RR1<9> net73 net74 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075 isHV=TRUE
-RR1<8> net74 net71 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075 isHV=TRUE
-RR1<10> net59 net73 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5.955 isHV=TRUE
-RR1<13> r1 net65 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075 isHV=TRUE
-RR1<12> net65 net62 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075 isHV=TRUE
-RR1<11> net62 net59 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075 isHV=TRUE
-RR1<7> net71 net56 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075 isHV=TRUE
-RR1<1> net41 net53 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075 isHV=TRUE
-RR1<4> net77 net50 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075 isHV=TRUE
-RR1<6> net56 net47 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075 isHV=TRUE
-RR1<3> net50 net44 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075 isHV=TRUE
-RR1<2> net44 net41 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075 isHV=TRUE
+XRR1<0> net53 r0 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075
+XRR1<5> net47 net77 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075
+XRR1<9> net73 net74 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075
+XRR1<8> net74 net71 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075
+XRR1<10> net59 net73 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5.955
+XRR1<13> r1 net65 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075
+XRR1<12> net65 net62 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075
+XRR1<11> net62 net59 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075
+XRR1<7> net71 net56 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075
+XRR1<1> net41 net53 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075
+XRR1<4> net77 net50 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075
+XRR1<6> net56 net47 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075
+XRR1<3> net50 net44 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075
+XRR1<2> net44 net41 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075
 .ENDS
 
 .SUBCKT sky130_fd_io__refgen_res_ntwk_h r0 r1 vnb
@@ -10243,20 +10243,20 @@ XI325 net62 net59 sky130_fd_io__refgen_em1o
 XI324 net65 net62 sky130_fd_io__refgen_em1o
 XI323 r1 net65 sky130_fd_io__refgen_em1o
 XI467 net44 net41 sky130_fd_io__refgen_em1o
-RR1<0> net53 r0 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075 isHV=TRUE
-RR1<5> net47 net77 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075 isHV=TRUE
-RR1<9> net73 net74 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075 isHV=TRUE
-RR1<8> net74 net71 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075 isHV=TRUE
-RR1<10> net59 net73 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5.955 isHV=TRUE
-RR1<13> r1 net65 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075 isHV=TRUE
-RR1<12> net65 net62 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075 isHV=TRUE
-RR1<11> net62 net59 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075 isHV=TRUE
-RR1<7> net71 net56 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075 isHV=TRUE
-RR1<1> net41 net53 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075 isHV=TRUE
-RR1<4> net77 net50 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075 isHV=TRUE
-RR1<6> net56 net47 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075 isHV=TRUE
-RR1<3> net50 net44 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075 isHV=TRUE
-RR1<2> net44 net41 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075 isHV=TRUE
+XRR1<0> net53 r0 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075
+XRR1<5> net47 net77 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075
+XRR1<9> net73 net74 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075
+XRR1<8> net74 net71 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075
+XRR1<10> net59 net73 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5.955
+XRR1<13> r1 net65 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075
+XRR1<12> net65 net62 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075
+XRR1<11> net62 net59 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075
+XRR1<7> net71 net56 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075
+XRR1<1> net41 net53 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075
+XRR1<4> net77 net50 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075
+XRR1<6> net56 net47 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075
+XRR1<3> net50 net44 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075
+XRR1<2> net44 net41 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075
 .ENDS
 
 .SUBCKT sky130_fd_io__refgen_res_ntwk_i r0 r1 vnb
@@ -10267,20 +10267,20 @@ XI325 net62 net59 sky130_fd_io__refgen_em1o
 XI324 net65 net62 sky130_fd_io__refgen_em1o
 XI323 r1 net65 sky130_fd_io__refgen_em1o
 XI467 net44 net41 sky130_fd_io__refgen_em1o
-RR1<0> net53 r0 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075 isHV=TRUE
-RR1<5> net47 net77 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075 isHV=TRUE
-RR1<9> net73 net74 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075 isHV=TRUE
-RR1<8> net74 net71 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075 isHV=TRUE
-RR1<10> net59 net73 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5.955 isHV=TRUE
-RR1<13> r1 net65 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075 isHV=TRUE
-RR1<12> net65 net62 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075 isHV=TRUE
-RR1<11> net62 net59 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075 isHV=TRUE
-RR1<7> net71 net56 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075 isHV=TRUE
-RR1<1> net41 net53 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075 isHV=TRUE
-RR1<4> net77 net50 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075 isHV=TRUE
-RR1<6> net56 net47 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075 isHV=TRUE
-RR1<3> net50 net44 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075 isHV=TRUE
-RR1<2> net44 net41 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075 isHV=TRUE
+XRR1<0> net53 r0 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075
+XRR1<5> net47 net77 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075
+XRR1<9> net73 net74 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075
+XRR1<8> net74 net71 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075
+XRR1<10> net59 net73 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5.955
+XRR1<13> r1 net65 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075
+XRR1<12> net65 net62 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075
+XRR1<11> net62 net59 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075
+XRR1<7> net71 net56 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075
+XRR1<1> net41 net53 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075
+XRR1<4> net77 net50 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075
+XRR1<6> net56 net47 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075
+XRR1<3> net50 net44 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075
+XRR1<2> net44 net41 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075
 .ENDS
 
 .SUBCKT sky130_fd_io__refgen_in_lpf ibuf_sel_h_n in out vcc_a vgnd
@@ -10327,16 +10327,16 @@ XI80 net100 net73 net100 vgnd sky130_fd_pr__nfet_g5v0d10v5native m=2 w=10.0 l=4.
 + sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
 XI75 net118 net57 net118 vgnd sky130_fd_pr__nfet_g5v0d10v5native m=2 w=10.0 l=4.00 mult=1 sa=265e-3 
 + sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-RI15 net79 net77 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=24.395 isHV=TRUE
-RI14 net81 net79 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=24.395 isHV=TRUE
-RI13 net83 net81 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=24.395 isHV=TRUE
-RI12 net85 net83 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=24.395 isHV=TRUE
-RI11 net87 net85 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075 isHV=TRUE
-RI10 net87 net89 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075 isHV=TRUE
-RI9 net89 net91 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=24.395 isHV=TRUE
-RI8 net91 net95 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=24.395 isHV=TRUE
-RI7 net95 net97 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=24.395 isHV=TRUE
-RI6 net97 in sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=24.395 isHV=TRUE
+XRI15 net79 net77 vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=24.395
+XRI14 net81 net79 vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=24.395
+XRI13 net83 net81 vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=24.395
+XRI12 net85 net83 vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=24.395
+XRI11 net87 net85 vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075
+XRI10 net87 net89 vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075
+XRI9 net89 net91 vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=24.395
+XRI8 net91 net95 vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=24.395
+XRI7 net95 net97 vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=24.395
+XRI6 net97 in vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=24.395
 .ENDS
 
 .SUBCKT sky130_fd_io__refgen_ls in in_n out vcc_io vgnd
@@ -10371,19 +10371,19 @@ XI326 ibuf_sel_h_n in_lpf vinref vcc_a vgnd sky130_fd_io__refgen_in_lpf
 XI343 ibuf_sel_h_n ibuf_sel_h net101 vcc_io vgnd sky130_fd_io__refgen_ls
 XMP net76 net101 vcc_io vcc_io sky130_fd_pr__pfet_g5v0d10v5 m=10 w=1.00 l=0.60 mult=1 sa=265e-3 
 + sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-RI340 net143 net146 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075 isHV=TRUE
-RI339 net140 net143 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075 isHV=TRUE
-RI338 net137 net140 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075 isHV=TRUE
-RI337 net134 net137 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075 isHV=TRUE
-RI336 vgnd net134 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075 isHV=TRUE
-RI6 vgnd vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=24.395 isHV=TRUE
-RI335 vcc_io vcc_io sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075 isHV=TRUE
-RI334 vcc_io vcc_io sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075 isHV=TRUE
-RI333 vcc_io vcc_io sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075 isHV=TRUE
-RI332 vcc_io vcc_io sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075 isHV=TRUE
-RI331 vcc_io vcc_io sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075 isHV=TRUE
-RI330 vcc_io vcc_io sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075 isHV=TRUE
-RI11 vcc_io vcc_io sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075 isHV=TRUE
+XRI340 net143 net146 vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075
+XRI339 net140 net143 vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075
+XRI338 net137 net140 vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075
+XRI337 net134 net137 vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075
+XRI336 vgnd net134 vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075
+XRI6 vgnd vgnd vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=24.395
+XRI335 vcc_io vcc_io vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075
+XRI334 vcc_io vcc_io vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075
+XRI333 vcc_io vcc_io vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075
+XRI332 vcc_io vcc_io vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075
+XRI331 vcc_io vcc_io vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075
+XRI330 vcc_io vcc_io vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075
+XRI11 vcc_io vcc_io vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=18.075
 XI489 net153 sel_vcc_io_0p4 vgnd vgnd sky130_fd_pr__nfet_g5v0d10v5 m=8 w=5.00 l=0.50 mult=1 sa=265e-3 
 + sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
 XI511 net149 sel_vcc_io vgnd vgnd sky130_fd_pr__nfet_g5v0d10v5 m=2 w=5.00 l=0.60 mult=1 sa=265e-3 
@@ -10532,94 +10532,94 @@ Xlogic en_inpop_h en_outop_h en_outop_h_n ibuf_sel_h ibuf_sel_h_n sel_vcc_io
 *.PININFO res_tap<8>:O res_tap<7>:O res_tap<6>:O res_tap<5>:O res_tap<4>:O 
 *.PININFO res_tap<3>:O res_tap<2>:O res_tap<1>:O vohref_0p5:O fb_out:B 
 *.PININFO resgnd:B vgnd:B
-RI80 res_tap<8> fb_out sky130_fd_pr__res_generic_m1
-RI0<17> int1<1> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI0<16> int1<2> int1<1> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI0<15> int1<3> int1<2> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI0<14> int1<4> int1<3> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI0<13> int1<5> int1<4> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI0<12> int1<6> int1<5> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI0<11> int1<7> int1<6> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI0<10> int1<8> int1<7> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI0<9> int1<9> int1<8> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI0<8> int1<10> int1<9> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI0<7> int1<11> int1<10> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI0<6> int1<12> int1<11> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI0<5> int1<13> int1<12> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI0<4> int1<14> int1<13> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI0<3> int1<15> int1<14> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI0<2> int1<16> int1<15> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI0<1> int1<17> int1<16> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI0<0> res_tap<1> int1<17> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI68<1> int3 res_tap<21> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI68<0> res_tap<3> int3 sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI63 res_tap<21> net63 sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI62 res_tap<21> net63 sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI61 res_tap<2> res_tap<11> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI60 res_tap<2> res_tap<11> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI59 res_tap<2> res_tap<11> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI58 res_tap<2> res_tap<11> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI65 net63 res_tap<2> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI66 net63 res_tap<2> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI64 net63 res_tap<2> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI67 net63 res_tap<2> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI50<8> int2<1> res_tap<1> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI50<7> int2<2> int2<1> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI50<6> int2<3> int2<2> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI50<5> int2<4> int2<3> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI50<4> int2<5> int2<4> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI50<3> int2<6> int2<5> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI50<2> int2<7> int2<6> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI50<1> int2<8> int2<7> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI50<0> res_tap<11> int2<8> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI69 net54 res_tap<4> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI71 vohref_0p5 net54 sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI72 vohref_0p5 net54 sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI73 res_tap<41> vohref_0p5 sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI74 res_tap<41> vohref_0p5 sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI75<6> int5<1> res_tap<41> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI75<5> int5<2> int5<1> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI75<4> int5<3> int5<2> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI75<3> int5<4> int5<3> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI75<2> int5<5> int5<4> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI75<1> int5<6> int5<5> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI75<0> res_tap<5> int5<6> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI76<5> int4<1> res_tap<3> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI76<4> int4<2> int4<1> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI76<3> int4<3> int4<2> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI76<2> int4<4> int4<3> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI76<1> int4<5> int4<4> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI76<0> res_tap<4> int4<5> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI77<4> int6<1> res_tap<5> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI77<3> int6<2> int6<1> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI77<2> int6<3> int6<2> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI77<1> int6<4> int6<3> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI77<0> res_tap<6> int6<4> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI78<9> int7<1> res_tap<6> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI78<8> int7<2> int7<1> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI78<7> int7<3> int7<2> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI78<6> int7<4> int7<3> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI78<5> int7<5> int7<4> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI78<4> int7<6> int7<5> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI78<3> int7<7> int7<6> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI78<2> int7<8> int7<7> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI78<1> int7<9> int7<8> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI78<0> res_tap<7> int7<9> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI79<14> int8<1> res_tap<7> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI79<13> int8<2> int8<1> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI79<12> int8<3> int8<2> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI79<11> int8<4> int8<3> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI79<10> int8<5> int8<4> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI79<9> int8<6> int8<5> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI79<8> int8<7> int8<6> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI79<7> int8<8> int8<7> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI79<6> int8<9> int8<8> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI79<5> int8<10> int8<9> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI79<4> int8<11> int8<10> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI79<3> int8<12> int8<11> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI79<2> int8<13> int8<12> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI79<1> int8<14> int8<13> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
-RI79<0> res_tap<8> int8<14> sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465 isHV=FALSE
+XRI80 res_tap<8> fb_out sky130_fd_pr__res_generic_m1
+XRI0<17> int1<1> vgnd vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI0<16> int1<2> int1<1> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI0<15> int1<3> int1<2> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI0<14> int1<4> int1<3> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI0<13> int1<5> int1<4> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI0<12> int1<6> int1<5> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI0<11> int1<7> int1<6> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI0<10> int1<8> int1<7> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI0<9> int1<9> int1<8> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI0<8> int1<10> int1<9> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI0<7> int1<11> int1<10> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI0<6> int1<12> int1<11> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI0<5> int1<13> int1<12> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI0<4> int1<14> int1<13> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI0<3> int1<15> int1<14> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI0<2> int1<16> int1<15> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI0<1> int1<17> int1<16> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI0<0> res_tap<1> int1<17> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI68<1> int3 res_tap<21> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI68<0> res_tap<3> int3 vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI63 res_tap<21> net63 vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI62 res_tap<21> net63 vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI61 res_tap<2> res_tap<11> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI60 res_tap<2> res_tap<11> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI59 res_tap<2> res_tap<11> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI58 res_tap<2> res_tap<11> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI65 net63 res_tap<2> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI66 net63 res_tap<2> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI64 net63 res_tap<2> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI67 net63 res_tap<2> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI50<8> int2<1> res_tap<1> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI50<7> int2<2> int2<1> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI50<6> int2<3> int2<2> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI50<5> int2<4> int2<3> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI50<4> int2<5> int2<4> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI50<3> int2<6> int2<5> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI50<2> int2<7> int2<6> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI50<1> int2<8> int2<7> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI50<0> res_tap<11> int2<8> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI69 net54 res_tap<4> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI71 vohref_0p5 net54 vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI72 vohref_0p5 net54 vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI73 res_tap<41> vohref_0p5 vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI74 res_tap<41> vohref_0p5 vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI75<6> int5<1> res_tap<41> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI75<5> int5<2> int5<1> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI75<4> int5<3> int5<2> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI75<3> int5<4> int5<3> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI75<2> int5<5> int5<4> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI75<1> int5<6> int5<5> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI75<0> res_tap<5> int5<6> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI76<5> int4<1> res_tap<3> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI76<4> int4<2> int4<1> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI76<3> int4<3> int4<2> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI76<2> int4<4> int4<3> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI76<1> int4<5> int4<4> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI76<0> res_tap<4> int4<5> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI77<4> int6<1> res_tap<5> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI77<3> int6<2> int6<1> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI77<2> int6<3> int6<2> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI77<1> int6<4> int6<3> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI77<0> res_tap<6> int6<4> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI78<9> int7<1> res_tap<6> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI78<8> int7<2> int7<1> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI78<7> int7<3> int7<2> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI78<6> int7<4> int7<3> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI78<5> int7<5> int7<4> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI78<4> int7<6> int7<5> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI78<3> int7<7> int7<6> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI78<2> int7<8> int7<7> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI78<1> int7<9> int7<8> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI78<0> res_tap<7> int7<9> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI79<14> int8<1> res_tap<7> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI79<13> int8<2> int8<1> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI79<12> int8<3> int8<2> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI79<11> int8<4> int8<3> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI79<10> int8<5> int8<4> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI79<9> int8<6> int8<5> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI79<8> int8<7> int8<6> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI79<7> int8<8> int8<7> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI79<6> int8<9> int8<8> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI79<5> int8<10> int8<9> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI79<4> int8<11> int8<10> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI79<3> int8<12> int8<11> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI79<2> int8<13> int8<12> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI79<1> int8<14> int8<13> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+XRI79<0> res_tap<8> int8<14> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
 .ENDS
 
 .SUBCKT sky130_fd_io__refgen_out_resblk fb_out res_stack res_tap<7> res_tap<6> 
@@ -10711,67 +10711,67 @@ XMopt net0166 ngate vgnd vgnd sky130_fd_pr__nfet_g5v0d10v5 m=2 w=5.00 l=1.00 mul
 + sd=280e-3 topography=normal area=0.063 perim=1.14
 XM<1> ngate ngate vgnd vgnd sky130_fd_pr__nfet_g5v0d10v5 m=2 w=5.00 l=1.00 mult=1 sa=265e-3 sb=265e-3 
 + sd=280e-3 topography=normal area=0.063 perim=1.14
-RI298 net236 net111 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
-RI299 net234 net236 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
-RI300 net232 net234 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
-RI301 net230 net232 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
-RI302 net229 net230 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
-RI303 net227 net228 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
-RI304 net228 net226 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
-RI305 net226 net224 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
-RI306 net224 net222 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
-RI307 net222 net229 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
-RI308 net216 net227 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
-RI309 net214 net216 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
-RI310 net212 net214 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
-RI311 net210 net212 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
-RI312 net209 net210 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
-RI313 net207 net208 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
-RI314 net208 net206 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
-RI315 net206 net204 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
-RI316 net204 net202 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
-RI317 net202 net209 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
-RI318 net196 net207 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
-RI319 net194 net196 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
-RI320 net192 net194 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
-RI321 net190 net192 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
-RI322 net189 net190 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
-RI323 ngate net188 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
-RI324 net188 net186 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
-RI325 net186 net184 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
-RI326 net184 net182 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
-RI327 net182 net189 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
-RI267 net176 net113 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
-RI266 net174 net176 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
-RI265 net172 net174 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
-RI264 net170 net172 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
-RI263 net169 net170 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
-RI262 net167 net168 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
-RI261 net168 net166 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
-RI260 net166 net164 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
-RI259 net164 net162 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
-RI258 net162 net169 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
-RI257 net156 net167 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
-RI256 net154 net156 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
-RI255 net152 net154 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
-RI254 net150 net152 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
-RI253 net149 net150 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
-RI252 net147 net148 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
-RI251 net148 net146 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
-RI250 net146 net144 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
-RI249 net144 net142 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
-RI248 net142 net149 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
-RI247 net136 net147 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
-RI246 net134 net136 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
-RI245 net132 net134 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
-RI244 net130 net132 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
-RI243 net129 net130 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
-RI242 net111 net128 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
-RI241 net128 net126 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
-RI240 net126 net124 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
-RI239 net124 net122 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
-RI238 net122 net129 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
-RI237 net113 net113 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
+XRI298 net236 net111 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
+XRI299 net234 net236 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
+XRI300 net232 net234 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
+XRI301 net230 net232 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
+XRI302 net229 net230 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
+XRI303 net227 net228 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
+XRI304 net228 net226 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
+XRI305 net226 net224 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
+XRI306 net224 net222 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
+XRI307 net222 net229 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
+XRI308 net216 net227 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
+XRI309 net214 net216 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
+XRI310 net212 net214 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
+XRI311 net210 net212 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
+XRI312 net209 net210 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
+XRI313 net207 net208 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
+XRI314 net208 net206 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
+XRI315 net206 net204 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
+XRI316 net204 net202 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
+XRI317 net202 net209 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
+XRI318 net196 net207 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
+XRI319 net194 net196 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
+XRI320 net192 net194 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
+XRI321 net190 net192 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
+XRI322 net189 net190 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
+XRI323 ngate net188 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
+XRI324 net188 net186 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
+XRI325 net186 net184 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
+XRI326 net184 net182 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
+XRI327 net182 net189 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
+XRI267 net176 net113 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
+XRI266 net174 net176 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
+XRI265 net172 net174 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
+XRI264 net170 net172 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
+XRI263 net169 net170 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
+XRI262 net167 net168 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
+XRI261 net168 net166 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
+XRI260 net166 net164 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
+XRI259 net164 net162 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
+XRI258 net162 net169 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
+XRI257 net156 net167 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
+XRI256 net154 net156 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
+XRI255 net152 net154 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
+XRI254 net150 net152 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
+XRI253 net149 net150 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
+XRI252 net147 net148 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
+XRI251 net148 net146 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
+XRI250 net146 net144 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
+XRI249 net144 net142 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
+XRI248 net142 net149 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
+XRI247 net136 net147 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
+XRI246 net134 net136 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
+XRI245 net132 net134 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
+XRI244 net130 net132 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
+XRI243 net129 net130 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
+XRI242 net111 net128 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
+XRI241 net128 net126 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
+XRI240 net126 net124 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
+XRI239 net124 net122 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
+XRI238 net122 net129 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
+XRI237 net113 net113 sky130_fd_pr__res_generic_po m=1 w=0.33 l=18.68
 .ENDS
 
 .SUBCKT sky130_fd_io__refgen_opamp_1 biasen_n en_outop_h_n ibuf_sel_h_n inn inp 
@@ -10820,14 +10820,14 @@ XI111 net091 vgnd sky130_fd_io__refgen_em1o
 XI110 net093 vgnd sky130_fd_io__refgen_em1o
 XI104 net095 vgnd sky130_fd_io__refgen_em1o
 XI100 net097 vgnd sky130_fd_io__refgen_em1o
-RI88 net106 net109 sky130_fd_pr__res_generic_nd__hv m=1 w=0.4 l=21.71 isHV=TRUE
-RI79 net97 net106 sky130_fd_pr__res_generic_nd__hv m=1 w=0.4 l=21.71 isHV=TRUE
-RI89 net109 net103 sky130_fd_pr__res_generic_nd__hv m=1 w=0.4 l=21.71 isHV=TRUE
-RI90 net103 net100 sky130_fd_pr__res_generic_nd__hv m=1 w=0.4 l=21.71 isHV=TRUE
-RI87 net94 net97 sky130_fd_pr__res_generic_nd__hv m=1 w=0.4 l=17.375 isHV=TRUE
-RI24 net44 net94 sky130_fd_pr__res_generic_nd__hv m=1 w=0.4 l=17.375 isHV=TRUE
-RI96 vgnd vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.4 l=21.71 isHV=TRUE
-RI91 out out sky130_fd_pr__res_generic_nd__hv m=1 w=0.4 l=21.71 isHV=TRUE
+XRI88 net106 net109 vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.4 l=21.71
+XRI79 net97 net106 vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.4 l=21.71
+XRI89 net109 net103 vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.4 l=21.71
+XRI90 net103 net100 vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.4 l=21.71
+XRI87 net94 net97 vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.4 l=17.375
+XRI24 net44 net94 vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.4 l=17.375
+XRI96 vgnd vgnd vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.4 l=21.71
+XRI91 out out vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.4 l=21.71
 XI67 mid net60 mid mid sky130_fd_pr__nfet_g5v0d10v5native m=4 w=10.0 l=2.00 mult=1 sa=265e-3 sb=265e-3 
 + sd=280e-3 topography=normal area=0.063 perim=1.14
 XI483 mid net54 mid mid sky130_fd_pr__nfet_g5v0d10v5native m=4 w=10.0 l=4.00 mult=1 sa=265e-3 sb=265e-3 
@@ -11203,9 +11203,9 @@ RI8 net16 nwellRing sky130_fd_pr__res_generic_m1
 
 .SUBCKT sky130_fd_io__sio_res250only_small_esd pad rout
 *.PININFO pad:B rout:B
-RI175 net12 net16 sky130_fd_pr__res_generic_po m=1 w=2 l=10.07
-RI229 net16 rout sky130_fd_pr__res_generic_po m=1 w=2 l=0.17
-RI228 pad net12 sky130_fd_pr__res_generic_po m=1 w=2 l=0.17
+XRI175 net12 net16 sky130_fd_pr__res_generic_po m=1 w=2 l=10.07
+XRI229 net16 rout sky130_fd_pr__res_generic_po m=1 w=2 l=0.17
+XRI228 pad net12 sky130_fd_pr__res_generic_po m=1 w=2 l=0.17
 RI237<1> net16 rout sky130_fd_pr__res_generic_m1
 RI237<2> net16 rout sky130_fd_pr__res_generic_m1
 RI234<1> pad net12 sky130_fd_pr__res_generic_m1
@@ -11515,9 +11515,9 @@ XI47 int<3> int<1> vpwr_ka vpb_ka sky130_fd_pr__pfet_g5v0d10v5 m=1 w=1.00 l=0.80
 *.PININFO vnb:I r0:B r1:B
 XI241 r0 net14 sky130_fd_io__sio_tk_em1s
 XI240 net22 r1 sky130_fd_io__sio_tk_em1o
-RI248 r0 net14 sky130_fd_pr__res_generic_nd__hv m=1 w=0.68 l=1.53 isHV=TRUE
-RI238 net22 r1 sky130_fd_pr__res_generic_nd__hv m=1 w=0.68 l=1.53 isHV=TRUE
-RI237 net14 net22 sky130_fd_pr__res_generic_nd__hv m=1 w=0.68 l=8.405 isHV=TRUE
+XRI248 r0 net14 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.68 l=1.53
+XRI238 net22 r1 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.68 l=1.53
+XRI237 net14 net22 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.68 l=8.405
 .ENDS
 
 .SUBCKT sky130_fd_io__sio_in_diff_res_9k r0 r1 vnb
@@ -11530,14 +11530,14 @@ Xe7 net9 net033 sky130_fd_io__sio_tk_em1s
 Xe6 net11 net9 sky130_fd_io__sio_tk_em1s
 Xe5 net13 net11 sky130_fd_io__sio_tk_em1s
 Xe8 r0 net37 sky130_fd_io__sio_tk_em1o
-Rr8 net9 net033 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=3 isHV=TRUE
-Rr7 net11 net9 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=3 isHV=TRUE
-Rr6 net13 net11 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=3 isHV=TRUE
-Rr4 net19 net15 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=3 isHV=TRUE
-Rr3 net033 r1 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=4 isHV=TRUE
-Rr5 net15 net13 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=3 isHV=TRUE
-Rrbase r0 net37 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=20 isHV=TRUE
-Rr2 net37 net19 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=3 isHV=TRUE
+XRr8 net9 net033 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=3
+XRr7 net11 net9 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=3
+XRr6 net13 net11 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=3
+XRr4 net19 net15 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=3
+XRr3 net033 r1 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=4
+XRr5 net15 net13 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=3
+XRrbase r0 net37 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=20
+XRr2 net37 net19 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=3
 .ENDS
 
 .SUBCKT sky130_fd_io__sio_in_diff_res_40k r0 r1 vnb
@@ -11561,24 +11561,24 @@ Xe8 net58 net38 sky130_fd_io__sio_tk_em1s
 Xe20 net053 vnb sky130_fd_io__sio_tk_em1s
 Xe19 net051 vnb sky130_fd_io__sio_tk_em1s
 Xe17 r0 net050 sky130_fd_io__sio_tk_em1s
-Rdummy1 net050 net0140 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=20.8 isHV=TRUE
-Rdummy2 net051 net053 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=20.8 isHV=TRUE
-Rr15 net42 r1 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=20.8 isHV=TRUE
-Rr14 net44 net42 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=20.8 isHV=TRUE
-Rr13 net32 net44 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=7 isHV=TRUE
-Rr12 net46 net32 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=12.4 isHV=TRUE
-Rr11 net48 net46 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=10.4 isHV=TRUE
-Rr10 net50 net48 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=8 isHV=TRUE
-Rr9 net34 net50 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=7 isHV=TRUE
-Rr8 net36 net34 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=8.4 isHV=TRUE
-Rr7 net52 net36 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=8.4 isHV=TRUE
-Rr6 net54 net52 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=7 isHV=TRUE
-Rr5 net56 net54 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=8 isHV=TRUE
-Rr4 net38 net56 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=10.4 isHV=TRUE
-Rr3 net58 net38 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=12.4 isHV=TRUE
-Rr2 net60 net58 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=7 isHV=TRUE
-Rr16 net62 net60 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=20.8 isHV=TRUE
-Rrbase r0 net62 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=20.8 isHV=TRUE
+XRdummy1 net050 net0140 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=20.8
+XRdummy2 net051 net053 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=20.8
+XRr15 net42 r1 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=20.8
+XRr14 net44 net42 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=20.8
+XRr13 net32 net44 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=7
+XRr12 net46 net32 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=12.4
+XRr11 net48 net46 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=10.4
+XRr10 net50 net48 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=8
+XRr9 net34 net50 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=7
+XRr8 net36 net34 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=8.4
+XRr7 net52 net36 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=8.4
+XRr6 net54 net52 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=7
+XRr5 net56 net54 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=8
+XRr4 net38 net56 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=10.4
+XRr3 net58 net38 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=12.4
+XRr2 net60 net58 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=7
+XRr16 net62 net60 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=20.8
+XRrbase r0 net62 vnb sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=20.8
 .ENDS
 
 .SUBCKT sky130_fd_io__sio_in_diff_sub ie_diff_n ie_diff_sel_h nbias out_a out_a_hv 
@@ -11599,7 +11599,7 @@ XI1810 net111 vgnd sky130_fd_io__tk_em1o
 Xr1b vcc_ioq n1aa vgnd sky130_fd_io__sio_in_diff_res_9k
 XI1787 vcc_ioq n1bb vgnd sky130_fd_io__sio_in_diff_res_9k
 Xrcasc vcc_ioq net134 vgnd sky130_fd_io__sio_in_diff_res_40k
-RI1725 vgnd vgnd sky130_fd_pr__res_generic_po m=1 w=0.33 l=5.685
+XRI1725 vgnd vgnd sky130_fd_pr__res_generic_po m=1 w=0.33 l=5.685
 Xpdummy2 n1bb vcc_ioq pcasc vcc_ioq sky130_fd_pr__pfet_g5v0d10v5 m=1 w=1.50 l=0.50 mult=1 sa=265e-3 
 + sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
 XI1690 net123 pcasc n1aa vcc_ioq sky130_fd_pr__pfet_g5v0d10v5 m=2 w=1.50 l=0.50 mult=1 sa=20 sb=20 
@@ -11718,36 +11718,36 @@ Xo9 net118 net116 sky130_fd_io__sio_tk_em1o
 Xo11 net119 net114 sky130_fd_io__sio_tk_em1o
 Xo22 net88 net112 sky130_fd_io__sio_tk_em1o
 Xos3 net92 net110 sky130_fd_io__sio_tk_em1o
-Rres10k8 net124 net130 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=25.315 isHV=TRUE
-Rres10k10 net121 net120 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=25.315 isHV=TRUE
-Rres2k9 net118 net116 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5.785 isHV=TRUE
-Rres2k8 net116 net94 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5.785 isHV=TRUE
-Rres2k4 net100 net108 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5.785 isHV=TRUE
-Rres2k3 net108 net102 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5.785 isHV=TRUE
-Rres10k5 net122 net132 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=25.315 isHV=TRUE
-Rres2k6 net96 net101 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=6.43 isHV=TRUE
-Rres2k5 net101 net100 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5.785 isHV=TRUE
-Rres2k2 net102 net106 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5.785 isHV=TRUE
-Rres10k6 net128 net132 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=25.315 isHV=TRUE
-Rres10k2 net134 net114 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=25.315 isHV=TRUE
-Rres10k11 net112 net121 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=25.315 isHV=TRUE
-Rres10k7 net130 net128 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=25.315 isHV=TRUE
-Rres2k7 net94 net96 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=6.43 isHV=TRUE
-Rres2k10 net119 net118 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5.785 isHV=TRUE
-Rres10k3 net134 net136 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=25.315 isHV=TRUE
-Rres10k1 net114 net119 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=25.315 isHV=TRUE
-Rres2k1 net106 net104 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5.785 isHV=TRUE
-Rres10k4 net136 net122 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=25.315 isHV=TRUE
-Rres10k9 net120 net124 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=25.315 isHV=TRUE
-Rdummy2 vpwr vpwr sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=25.315 isHV=TRUE
-Rdummy1 vpwr vpwr sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=25.315 isHV=TRUE
-Reres1 net104 net90 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=4 isHV=TRUE
-Rdummy3 vpwr vpwr sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=25.315 isHV=TRUE
-Reres3 net92 net110 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=3.705 isHV=TRUE
-Rres10k13 ngate net88 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=25.315 isHV=TRUE
-Rres10k12 net88 net112 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=25.315 isHV=TRUE
-Rdummy4 vgnd vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=25.315 isHV=TRUE
-Reres2 net90 net92 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=4 isHV=TRUE
+XRres10k8 net124 net130 vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=25.315
+XRres10k10 net121 net120 vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=25.315
+XRres2k9 net118 net116 vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5.785
+XRres2k8 net116 net94 vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5.785
+XRres2k4 net100 net108 vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5.785
+XRres2k3 net108 net102 vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5.785
+XRres10k5 net122 net132 vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=25.315
+XRres2k6 net96 net101 vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=6.43
+XRres2k5 net101 net100 vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5.785
+XRres2k2 net102 net106 vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5.785
+XRres10k6 net128 net132 vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=25.315
+XRres10k2 net134 net114 vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=25.315
+XRres10k11 net112 net121 vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=25.315
+XRres10k7 net130 net128 vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=25.315
+XRres2k7 net94 net96 vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=6.43
+XRres2k10 net119 net118 vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5.785
+XRres10k3 net134 net136 vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=25.315
+XRres10k1 net114 net119 vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=25.315
+XRres2k1 net106 net104 vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5.785
+XRres10k4 net136 net122 vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=25.315
+XRres10k9 net120 net124 vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=25.315
+XRdummy2 vpwr vpwr vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=25.315
+XRdummy1 vpwr vpwr vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=25.315
+XReres1 net104 net90 vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=4
+XRdummy3 vpwr vpwr vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=25.315
+XReres3 net92 net110 vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=3.705
+XRres10k13 ngate net88 vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=25.315
+XRres10k12 net88 net112 vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=25.315
+XRdummy4 vgnd vgnd vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=25.315
+XReres2 net90 net92 vgnd sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=4
 XI187 net110 ie_diff_sel_n vpwr vpwr sky130_fd_pr__pfet_01v8 m=2 w=5.00 l=0.25 mult=1 sa=265e-3 
 + sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
 .ENDS
@@ -11756,8 +11756,8 @@ XI187 net110 ie_diff_sel_n vpwr vpwr sky130_fd_pr__pfet_01v8 m=2 w=5.00 l=0.25 m
 + vpwr
 *.PININFO ie_diff_sel_h_n:I ie_diff_sel_n:I vcc_io:I vgnd:I vpwr:I ngate:B
 XI235 ie_diff_sel_n nbias vgnd vpwr sky130_fd_io__sio_biasgen_res
-RI322 net_152 pbias sky130_fd_pr__res_generic_nd m=1 w=0.33 l=43.375 isHV=FALSE
-RI300 vgnd fb sky130_fd_pr__res_generic_nd m=1 w=0.33 l=173.5 isHV=FALSE
+XRI322 net_152 pbias vgnd sky130_fd_pr__res_generic_nd m=1 w=0.33 l=43.375
+XRI300 vgnd fb vgnd sky130_fd_pr__res_generic_nd m=1 w=0.33 l=173.5
 XI344 vpwr_3 vpwr_3 vpwr_2 vpwr_2 sky130_fd_pr__nfet_g5v0d10v5native m=1 w=1.00 l=0.90 mult=1 sa=265e-3 
 + sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
 XI345 vpwr_2 vpwr_2 vpwr_1 vpwr_1 sky130_fd_pr__nfet_g5v0d10v5native m=1 w=1.00 l=0.90 mult=1 sa=265e-3 
@@ -12528,8 +12528,8 @@ XI54 net192 bias_g vgnd_io vgnd_io sky130_fd_pr__nfet_g5v0d10v5 m=1 w=0.42 l=4.0
 *.PININFO drvhi_h:I en_fast<3>:I en_fast<2>:I en_fast<1>:I en_fast<0>:I 
 *.PININFO puen_h:I vcc_io:I vgnd_io:I pu_h_n:O
 XE1 net024 pu_h_n sky130_fd_io__sio_tk_em1s
-Rrespu1 int_res net024 sky130_fd_pr__res_generic_po m=1 w=0.33 l=11
-Rrespu2 pu_h_n int_res sky130_fd_pr__res_generic_po m=1 w=0.33 l=4
+XRrespu1 int_res net024 sky130_fd_pr__res_generic_po m=1 w=0.33 l=11
+XRrespu2 pu_h_n int_res sky130_fd_pr__res_generic_po m=1 w=0.33 l=4
 Xmnin_fast<3> net024 drvhi_h int<3> net013<0> sky130_fd_pr__nfet_g5v0d10v5 m=1 w=1.50 l=0.50 mult=1 
 + sa=265e-3 sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
 Xmnin_fast<2> net024 drvhi_h int<2> net013<1> sky130_fd_pr__nfet_g5v0d10v5 m=1 w=1.50 l=0.50 mult=1 
@@ -13081,7 +13081,7 @@ Xpghs12 net50 padlo vpb_drvr vpb_drvr sky130_fd_pr__pfet_g5v0d10v5 m=1 w=3.00 l=
 
 .SUBCKT sky130_fd_io__res75only_noshorts_nometal pad rout
 *.PININFO pad:B rout:B
-RI175 pad rout sky130_fd_pr__res_generic_po m=1 w=4 l=6.06
+XRI175 pad rout sky130_fd_pr__res_generic_po m=1 w=4 l=6.06
 .ENDS
 
 .SUBCKT sky130_fd_io__sio_hotswap force_h<1> od_h oe_hs_h p2g pad pghs_h pug_h<5> 
@@ -13112,7 +13112,7 @@ RI225 pghs_h p1g sky130_fd_pr__res_generic_m1
 
 .SUBCKT sky130_fd_io__sio_tk_tie_r300 a b
 *.PININFO a:B b:B
-Rr1 a b sky130_fd_pr__res_generic_po m=1 w=0.5 l=3
+XRr1 a b sky130_fd_pr__res_generic_po m=1 w=0.5 l=3
 .ENDS
 
 .SUBCKT sky130_fd_io__sio_tk_tie_r a b
@@ -13224,7 +13224,7 @@ XI48 pu_h_n<2> pghs_h<2> pug<2> vpb_drvr sky130_fd_pr__pfet_g5v0d10v5 m=2 w=5.00
 .SUBCKT sky130_fd_io__sio_com_res_strong_slow ra rb vgnd_io
 *.PININFO vgnd_io:I ra:B rb:B
 XE1 ra rb sky130_fd_io__sio_tk_em1o
-Rr1 rb ra sky130_fd_pr__res_generic_po m=1 w=2 l=10
+XRr1 rb ra sky130_fd_pr__res_generic_po m=1 w=2 l=10
 .ENDS
 
 .SUBCKT sky130_fd_io__sio_pddrvr_unit nd ngin ns
@@ -13276,14 +13276,14 @@ Xe10 n<1> n<2> sky130_fd_io__sio_tk_em1s
 Xe12 n<3> rb sky130_fd_io__sio_tk_em1s
 Xe13 n<4> n<0> sky130_fd_io__sio_tk_em1s
 Xe14 n<5> n<4> sky130_fd_io__sio_tk_em1o
-RI84 n<0> n<1> sky130_fd_pr__res_generic_po m=1 w=0.8 l=1.5
-RI62 n<3> rb sky130_fd_pr__res_generic_po m=1 w=0.8 l=1.5
-RI82 n<2> n<3> sky130_fd_pr__res_generic_po m=1 w=0.8 l=1.5
-RI85 ra net64 sky130_fd_pr__res_generic_po m=1 w=0.8 l=50
-RI83 n<1> n<2> sky130_fd_pr__res_generic_po m=1 w=0.8 l=1.5
-RI116 net64 n<5> sky130_fd_pr__res_generic_po m=1 w=0.8 l=12
-RI104 n<4> n<0> sky130_fd_pr__res_generic_po m=1 w=0.8 l=6
-RI134 n<5> n<4> sky130_fd_pr__res_generic_po m=1 w=0.8 l=6
+XRI84 n<0> n<1> sky130_fd_pr__res_generic_po m=1 w=0.8 l=1.5
+XRI62 n<3> rb sky130_fd_pr__res_generic_po m=1 w=0.8 l=1.5
+XRI82 n<2> n<3> sky130_fd_pr__res_generic_po m=1 w=0.8 l=1.5
+XRI85 ra net64 sky130_fd_pr__res_generic_po m=1 w=0.8 l=50
+XRI83 n<1> n<2> sky130_fd_pr__res_generic_po m=1 w=0.8 l=1.5
+XRI116 net64 n<5> sky130_fd_pr__res_generic_po m=1 w=0.8 l=12
+XRI104 n<4> n<0> sky130_fd_pr__res_generic_po m=1 w=0.8 l=6
+XRI134 n<5> n<4> sky130_fd_pr__res_generic_po m=1 w=0.8 l=6
 .ENDS
 
 .SUBCKT sky130_fd_io__sio_pudrvr_strong_slow pad pu_h_n vcc_io vgnd_io vpb_drvr
@@ -13386,12 +13386,12 @@ Xdummy vgnd vgnd vgnd vgnd sky130_fd_pr__nfet_g5v0d10v5 m=1 w=5.00 l=0.50 mult=1
 + sd=280e-3 topography=normal area=0.063 perim=1.14
 XI334 ngate vreg_en_n vgnd vgnd sky130_fd_pr__nfet_g5v0d10v5 m=1 w=5.00 l=0.50 mult=1 sa=265e-3 
 + sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-RI205 net66 net74 sky130_fd_pr__res_generic_po m=1 w=0.33 l=244.78
-RI199 net74 net72 sky130_fd_pr__res_generic_po m=1 w=0.33 l=282
-RR<0> net64 net70 sky130_fd_pr__res_generic_po m=1 w=0.33 l=253.63
-RI200 ngate net66 sky130_fd_pr__res_generic_po m=1 w=0.33 l=236.52
-RI203 net66 net66 sky130_fd_pr__res_generic_po m=1 w=0.33 l=47.06
-RI202 net72 net64 sky130_fd_pr__res_generic_po m=1 w=0.33 l=139.79
+XRI205 net66 net74 sky130_fd_pr__res_generic_po m=1 w=0.33 l=244.78
+XRI199 net74 net72 sky130_fd_pr__res_generic_po m=1 w=0.33 l=282
+XRR<0> net64 net70 sky130_fd_pr__res_generic_po m=1 w=0.33 l=253.63
+XRI200 ngate net66 sky130_fd_pr__res_generic_po m=1 w=0.33 l=236.52
+XRI203 net66 net66 sky130_fd_pr__res_generic_po m=1 w=0.33 l=47.06
+XRI202 net72 net64 sky130_fd_pr__res_generic_po m=1 w=0.33 l=139.79
 .ENDS
 
 .SUBCKT sky130_fd_io__sio_opamp_stage_c_c_res b r1 r2
@@ -13400,34 +13400,34 @@ XI111 net36 r2 sky130_fd_io__sio_tk_em1s
 XI474 net36 net41 sky130_fd_io__sio_tk_em1s
 XI112 net40 net41 sky130_fd_io__sio_tk_em1o
 XI113 net40 r1 sky130_fd_io__sio_tk_em1o
-RI91 net124 net76 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5 isHV=TRUE
-RI54 r1 net49 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5 isHV=TRUE
-RI89 net118 net109 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5 isHV=TRUE
-RI88 net115 net124 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5 isHV=TRUE
-RI55 net41 net46 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5 isHV=TRUE
-RI90 net109 net52 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5 isHV=TRUE
-RI86 net106 net118 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5 isHV=TRUE
-RI98 net103 net36 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5 isHV=TRUE
-RI97 net100 net36 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5 isHV=TRUE
-RI110 net41 net88 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5 isHV=TRUE
-RI109 r2 net91 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5 isHV=TRUE
-RI108 net91 net82 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5 isHV=TRUE
-RI107 net88 net85 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5 isHV=TRUE
-RI106 net85 net73 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5 isHV=TRUE
-RI105 net82 net79 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5 isHV=TRUE
-RI104 net79 net67 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5 isHV=TRUE
-RI92 net76 net58 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5 isHV=TRUE
-RI103 net73 net70 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5 isHV=TRUE
-RI102 net70 net61 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5 isHV=TRUE
-RI101 net67 net64 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5 isHV=TRUE
-RI100 net64 net100 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5 isHV=TRUE
-RI99 net61 net103 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5 isHV=TRUE
-RI95 net58 net40 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5 isHV=TRUE
-RI94 net55 net40 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5 isHV=TRUE
-RI93 net52 net55 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5 isHV=TRUE
-RI85 net49 net106 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5 isHV=TRUE
-RI84 net46 net43 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5 isHV=TRUE
-RI87 net43 net115 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5 isHV=TRUE
+XRI91 net124 net76 b sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5
+XRI54 r1 net49 b sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5
+XRI89 net118 net109 b sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5
+XRI88 net115 net124 b sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5
+XRI55 net41 net46 b sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5
+XRI90 net109 net52 b sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5
+XRI86 net106 net118 b sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5
+XRI98 net103 net36 b sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5
+XRI97 net100 net36 b sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5
+XRI110 net41 net88 b sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5
+XRI109 r2 net91 b sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5
+XRI108 net91 net82 b sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5
+XRI107 net88 net85 b sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5
+XRI106 net85 net73 b sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5
+XRI105 net82 net79 b sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5
+XRI104 net79 net67 b sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5
+XRI92 net76 net58 b sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5
+XRI103 net73 net70 b sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5
+XRI102 net70 net61 b sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5
+XRI101 net67 net64 b sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5
+XRI100 net64 net100 b sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5
+XRI99 net61 net103 b sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5
+XRI95 net58 net40 b sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5
+XRI94 net55 net40 b sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5
+XRI93 net52 net55 b sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5
+XRI85 net49 net106 b sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5
+XRI84 net46 net43 b sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5
+XRI87 net43 net115 b sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=5
 .ENDS
 
 .SUBCKT sky130_fd_io__sio_opamp_stage_c_c en_hicc inn inp ngate out vcc vgnd vnb 
@@ -13687,30 +13687,30 @@ Xdummy vgnd_io vgnd_io vgnd_io vgnd_io sky130_fd_pr__nfet_g5v0d10v5 m=1 w=5.00 l
 XI112 net40 net43 sky130_fd_io__tk_em1o
 XI114 net40 r1 sky130_fd_io__tk_em1o
 XI474 r2 net43 sky130_fd_io__tk_em1o
-RI126 net114 net45 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=4.4 isHV=TRUE
-RI54 r1 net48 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=4.4 isHV=TRUE
-RI89 net108 net102 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=4.4 isHV=TRUE
-RI125 net43 net63 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=4.4 isHV=TRUE
-RI90 net102 net51 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=4.4 isHV=TRUE
-RI130 net99 net96 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=4.4 isHV=TRUE
-RI129 net96 net69 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=4.4 isHV=TRUE
-RI86 net93 net108 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=4.4 isHV=TRUE
-RI121 net90 net84 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=4.4 isHV=TRUE
-RI124 net43 net72 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=4.4 isHV=TRUE
-RI123 net84 net81 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=4.4 isHV=TRUE
-RI122 net81 net75 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=4.4 isHV=TRUE
-RI120 net78 net66 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=4.4 isHV=TRUE
-RI119 net75 net78 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=4.4 isHV=TRUE
-RI118 net72 net90 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=4.4 isHV=TRUE
-RI132 net69 r2 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=4.4 isHV=TRUE
-RI117 net66 net40 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=4.4 isHV=TRUE
-RI131 net63 net54 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=4.4 isHV=TRUE
-RI115 net60 net40 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=4.4 isHV=TRUE
-RI94 net57 net60 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=4.4 isHV=TRUE
-RI128 net54 net114 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=4.4 isHV=TRUE
-RI93 net51 net57 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=4.4 isHV=TRUE
-RI85 net48 net93 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=4.4 isHV=TRUE
-RI127 net45 net99 sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=4.4 isHV=TRUE
+XRI126 net114 net45 b sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=4.4
+XRI54 r1 net48 b sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=4.4
+XRI89 net108 net102 b sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=4.4
+XRI125 net43 net63 b sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=4.4
+XRI90 net102 net51 b sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=4.4
+XRI130 net99 net96 b sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=4.4
+XRI129 net96 net69 b sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=4.4
+XRI86 net93 net108 b sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=4.4
+XRI121 net90 net84 b sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=4.4
+XRI124 net43 net72 b sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=4.4
+XRI123 net84 net81 b sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=4.4
+XRI122 net81 net75 b sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=4.4
+XRI120 net78 net66 b sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=4.4
+XRI119 net75 net78 b sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=4.4
+XRI118 net72 net90 b sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=4.4
+XRI132 net69 r2 b sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=4.4
+XRI117 net66 net40 b sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=4.4
+XRI131 net63 net54 b sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=4.4
+XRI115 net60 net40 b sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=4.4
+XRI94 net57 net60 b sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=4.4
+XRI128 net54 net114 b sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=4.4
+XRI93 net51 net57 b sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=4.4
+XRI85 net48 net93 b sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=4.4
+XRI127 net45 net99 b sky130_fd_pr__res_generic_nd__hv m=1 w=0.33 l=4.4
 .ENDS
 
 .SUBCKT sky130_fd_io__sio_pudrvr_reg_csw drvhi_h puen_reg_h slow_h_n vcc_io vgnd_io 
@@ -13805,7 +13805,7 @@ XI430 lvpsw_s vgnd_io vgnd_io vgnd_io sky130_fd_pr__nfet_g5v0d10v5 m=1 w=5.00 l=
 .SUBCKT sky130_fd_io__sio_pudrvr_esd_res pad rout
 *.PININFO pad:B rout:B
 XI2 pad rout sky130_fd_io__sio_tk_em1s
-RI175 pad rout sky130_fd_pr__res_generic_po m=1 w=2 l=10.41
+XRI175 pad rout sky130_fd_pr__res_generic_po m=1 w=2 l=10.41
 .ENDS
 
 .SUBCKT sky130_fd_io__sio_pudrvr_reg_pu drvhi_h nghs_h pad pghs_h pu_h_n<1> 
@@ -14070,15 +14070,15 @@ XSIO_PAIR<0> dm0<2> dm0<1> dm0<0> enable_h hld_h_n<0> hld_ovr<0> ibuf_sel<0>
 
 .SUBCKT sky130_fd_io__tp1_res a b
 *.PININFO a:B b:B
-RI21 a net27 sky130_fd_pr__res_generic_po m=1 w=0.4 l=112
-RI0 net27 net23 sky130_fd_pr__res_generic_po m=1 w=0.4 l=112
-RI1 net25 net17 sky130_fd_pr__res_generic_po m=1 w=0.4 l=112
-RI2 net23 net25 sky130_fd_pr__res_generic_po m=1 w=0.4 l=112
-RI3 net21 net19 sky130_fd_pr__res_generic_po m=1 w=0.4 l=112
-RI4 net19 b sky130_fd_pr__res_generic_po m=1 w=0.4 l=112
-RI5 net17 net15 sky130_fd_pr__res_generic_po m=1 w=0.4 l=112
-RI10 net15 net13 sky130_fd_pr__res_generic_po m=1 w=0.4 l=112
-RI9 net13 net21 sky130_fd_pr__res_generic_po m=1 w=0.4 l=112
+XRI21 a net27 sky130_fd_pr__res_generic_po m=1 w=0.4 l=112
+XRI0 net27 net23 sky130_fd_pr__res_generic_po m=1 w=0.4 l=112
+XRI1 net25 net17 sky130_fd_pr__res_generic_po m=1 w=0.4 l=112
+XRI2 net23 net25 sky130_fd_pr__res_generic_po m=1 w=0.4 l=112
+XRI3 net21 net19 sky130_fd_pr__res_generic_po m=1 w=0.4 l=112
+XRI4 net19 b sky130_fd_pr__res_generic_po m=1 w=0.4 l=112
+XRI5 net17 net15 sky130_fd_pr__res_generic_po m=1 w=0.4 l=112
+XRI10 net15 net13 sky130_fd_pr__res_generic_po m=1 w=0.4 l=112
+XRI9 net13 net21 sky130_fd_pr__res_generic_po m=1 w=0.4 l=112
 .ENDS
 
 .SUBCKT sky130_fd_io__tp1_div en_tp1 force_tp1 tp1 tp1_div vnb vssd
@@ -14100,9 +14100,9 @@ XM1 tp1_div_int force_tp1 vssd vnb sky130_fd_pr__nfet_g5v0d10v5 m=2 w=5.00 l=0.5
 
 .SUBCKT sky130_fd_io__res250only pad rout
 *.PININFO pad:B rout:B
-RI175 net12 net16 sky130_fd_pr__res_generic_po m=1 w=4 l=20.195
-RI229 net16 rout sky130_fd_pr__res_generic_po m=1 w=4 l=0.17
-RI228 pad net12 sky130_fd_pr__res_generic_po m=1 w=4 l=0.17
+XRI175 net12 net16 sky130_fd_pr__res_generic_po m=1 w=4 l=20.195
+XRI229 net16 rout sky130_fd_pr__res_generic_po m=1 w=4 l=0.17
+XRI228 pad net12 sky130_fd_pr__res_generic_po m=1 w=4 l=0.17
 RI237<1> net16 rout sky130_fd_pr__res_generic_m1
 RI237<2> net16 rout sky130_fd_pr__res_generic_m1
 RI234<1> pad net12 sky130_fd_pr__res_generic_m1
@@ -14149,20 +14149,20 @@ XRESD tp1 tp1_out sky130_fd_io__res250only
 XESD vssio vssio vssio vssio vssio vssio vssio net68 net68 net68 net68 net68 
 + net68 net68 net68 net68 net68 vddio tp1 tp1 tp1 tp1 tp1 
 + sky130_fd_io__signal_40_sym_hv_2k_dnwl_aup1_b
-RR1 vssio net68 sky130_fd_pr__res_generic_po m=1 w=0.5 l=10.2
+XRR1 vssio net68 sky130_fd_pr__res_generic_po m=1 w=0.5 l=10.2
 .ENDS
 
 .SUBCKT sky130_fd_io__tp2_res a b
 *.PININFO a:B b:B
-RR1<8> a n<7> sky130_fd_pr__res_generic_po m=1 w=0.4 l=87
-RR1<7> n<7> n<6> sky130_fd_pr__res_generic_po m=1 w=0.4 l=87
-RR1<6> n<6> n<5> sky130_fd_pr__res_generic_po m=1 w=0.4 l=87
-RR1<5> n<5> n<4> sky130_fd_pr__res_generic_po m=1 w=0.4 l=87
-RR1<4> n<4> n<3> sky130_fd_pr__res_generic_po m=1 w=0.4 l=87
-RR1<3> n<3> n<2> sky130_fd_pr__res_generic_po m=1 w=0.4 l=87
-RR1<2> n<2> n<1> sky130_fd_pr__res_generic_po m=1 w=0.4 l=87
-RR1<1> n<1> n<0> sky130_fd_pr__res_generic_po m=1 w=0.4 l=87
-RR1<0> n<0> b sky130_fd_pr__res_generic_po m=1 w=0.4 l=87
+XRR1<8> a n<7> sky130_fd_pr__res_generic_po m=1 w=0.4 l=87
+XRR1<7> n<7> n<6> sky130_fd_pr__res_generic_po m=1 w=0.4 l=87
+XRR1<6> n<6> n<5> sky130_fd_pr__res_generic_po m=1 w=0.4 l=87
+XRR1<5> n<5> n<4> sky130_fd_pr__res_generic_po m=1 w=0.4 l=87
+XRR1<4> n<4> n<3> sky130_fd_pr__res_generic_po m=1 w=0.4 l=87
+XRR1<3> n<3> n<2> sky130_fd_pr__res_generic_po m=1 w=0.4 l=87
+XRR1<2> n<2> n<1> sky130_fd_pr__res_generic_po m=1 w=0.4 l=87
+XRR1<1> n<1> n<0> sky130_fd_pr__res_generic_po m=1 w=0.4 l=87
+XRR1<0> n<0> b sky130_fd_pr__res_generic_po m=1 w=0.4 l=87
 .ENDS
 
 .SUBCKT sky130_fd_io__tp2_ls in out vgnd vhv
@@ -14229,7 +14229,7 @@ XTP2_DIV en_tp2 vssd tp2_out tp2_div vccd vddio vssd sky130_fd_io__tp2_div
 XESD vneg vssio vssio vssio vssio vssio vssio net73 net73 net73 net73 net73 
 + net73 net73 net73 net73 net73 vddio tp2 tp2 tp2 tp2 tp2 
 + sky130_fd_io__signal_40_sym_hv_2k_dnwl_aup1_b
-RI18 vneg net73 sky130_fd_pr__res_generic_po m=1 w=0.5 l=10.2
+XRI18 vneg net73 sky130_fd_pr__res_generic_po m=1 w=0.5 l=10.2
 XRESD tp2 tp2_out sky130_fd_io__res250only
 .ENDS
 
@@ -14239,7 +14239,7 @@ XRESD tp3 tp3_out sky130_fd_io__res250only
 XESD vssd vssd vssd vssd vssd vssd vssd net22 net22 net22 net22 net22 net22 
 + net22 net22 net22 net22 vddd tp3 tp3 tp3 tp3 tp3 
 + sky130_fd_io__signal_40_sym_hv_2k_dnwl_aup1_b
-RR1 vssd net22 sky130_fd_pr__res_generic_po m=1 w=0.5 l=10.2
+XRR1 vssd net22 sky130_fd_pr__res_generic_po m=1 w=0.5 l=10.2
 .ENDS
 
 .SUBCKT sky130_fd_io__xres_ipath in_h in_vt out out_h vcchib vddio_q vssd
