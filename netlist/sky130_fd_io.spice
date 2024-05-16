@@ -1081,9 +1081,9 @@ XI6 net25 IN0 VGND VGND sky130_fd_pr__nfet_g5v0d10v5 m=1 w=0.7 l=0.6 mult=1
 
 .SUBCKT sky130_fd_io__enh_nor2_x1 IN0 IN1 OUT VGND VPWR
 *.PININFO IN0:I IN1:I OUT:O VGND:I VPWR:I
-XI3 net16 IN0 VPWR VPWR sky130_fd_pr__pfet_g5v0d10v5 m=1 w=1.0 l=0.6 mult=2
+XI3 net16 IN0 VPWR VPWR sky130_fd_pr__pfet_g5v0d10v5 m=2 w=1.0 l=0.6 mult=2
 + sa=0.265 sb=0.265 sd=0.28 topography=normal area=0.063 perim=1.14
-XI12 OUT IN1 net16 VPWR sky130_fd_pr__pfet_g5v0d10v5 m=1 w=1.0 l=0.6 mult=2
+XI12 OUT IN1 net16 VPWR sky130_fd_pr__pfet_g5v0d10v5 m=2 w=1.0 l=0.6 mult=2
 + sa=0.265 sb=0.265 sd=0.28 topography=normal area=0.063 perim=1.14
 XI1 OUT IN0 VGND VGND sky130_fd_pr__nfet_g5v0d10v5 m=1 w=0.7 l=0.6 mult=1
 + sa=0.265 sb=0.265 sd=0.28 topography=normal area=0.063 perim=1.14
@@ -1654,9 +1654,12 @@ Xpug<5>_q0 PAD_ESD padlo PUG_H[5] tie_hi VPB_DRVR
 Xp1_bias_q0 p1g VDDIO VPB_DRVR sky130_fd_io__gpio_ovtv2_hotswap_bias
 Xp2p4_bias_q0 P2G PAD VCC_IO_SOFT VCC_IO_SOFT VPB_DRVR
 + sky130_fd_io__gpio_ovtv2_hotswap_vpb_bias
-RI26 P2G net137 short
-RI39 P2G net74 short
-RI49 PGHS_H p1g short
+* RI26 P2G net137 short
+* RI39 P2G net74 short
+* RI49 PGHS_H p1g short
+RI26 P2G net137 sky130_fd_pr__res_generic_m1 W=0.4 L=0.01
+RI39 P2G net74 sky130_fd_pr__res_generic_m1 W=0.4 L=0.01
+RI49 PGHS_H p1g sky130_fd_pr__res_generic_m2 W=0.26 L=0.01
 .ENDS sky130_fd_io__gpio_ovtv2_hotswap_i2c_fix_leak_fix
 
 * Copyright 2020 The SkyWater PDK Authors
@@ -2708,7 +2711,7 @@ Xn10_q0 PAD PD_H[3] VSSIO sky130_fd_io__gpio_ovtv2_pddrvr_unit
 Xn11_q0 PAD PD_H[3] VSSIO sky130_fd_io__gpio_ovtv2_pddrvr_unit
 xI9 VSSIO VDDIO sky130_fd_io__condiode
 xI62 VSSIO_Q VDDIO sky130_fd_io__condiode
-RI8 VDDIO net96 short
+* RI8 VDDIO net96 short	 ; This device does not exist. . .
 Xn14_q0 PAD PD_CSD VSSIO_Q VSSIO_Q sky130_fd_pr__esd_nfet_g5v0d10v5 m=1 w=40.31
 + l=0.55 mult=1 sa=0.265 sb=0.265 sd=0.28 topography=normal area=0.063 perim=1.14
 Xn13_q0 PAD PD_CSD VSSIO_Q VSSIO_Q sky130_fd_pr__esd_nfet_g5v0d10v5 m=1 w=40.31
@@ -6718,9 +6721,17 @@ XI6 OUT IN1 VGND VNB sky130_fd_pr__nfet_g5v0d10v5 m=1 w=1.0 l=0.6 mult=1
 
 .SUBCKT sky130_fd_io__sio_tk_em1o A B
 *.PININFO A:B B:B
-RI1 A net11 short
-RI2 B net7 short
+* RI1 A net11 short
+* RI2 B net7 short
+RI1 A net11 sky130_fd_pr__res_generic_m1 W=0.66 L=0.01
+RI2 B net7 sky130_fd_pr__res_generic_m1 W=0.66 L=0.01
 .ENDS sky130_fd_io__sio_tk_em1o
+
+.SUBCKT sky130_fd_io__sio_tk_em2o A B
+*.PININFO A:B B:B
+RI1 A net11 sky130_fd_pr__res_generic_m2 W=0.66 L=0.01
+RI2 B net7 sky130_fd_pr__res_generic_m2 W=0.66 L=0.01
+.ENDS sky130_fd_io__sio_tk_em2o
 
 * Copyright 2020 The SkyWater PDK Authors
 *
@@ -6740,9 +6751,17 @@ RI2 B net7 short
 
 .SUBCKT sky130_fd_io__sio_tk_em1s A B
 *.PININFO A:B B:B
-RI1 A net8 short
-RI2 B net8 short
+* RI1 A net8 short
+* RI2 B net8 short
+RI1 A net8 sky130_fd_pr__res_generic_m1 W=0.66 L=0.01
+RI2 B net8 sky130_fd_pr__res_generic_m1 W=0.66 L=0.01
 .ENDS sky130_fd_io__sio_tk_em1s
+
+.SUBCKT sky130_fd_io__sio_tk_em2s A B
+*.PININFO A:B B:B
+RI1 A net8 sky130_fd_pr__res_generic_m2 W=0.66 L=0.01
+RI2 B net8 sky130_fd_pr__res_generic_m2 W=0.66 L=0.01
+.ENDS sky130_fd_io__sio_tk_em2s
 
 * Copyright 2020 The SkyWater PDK Authors
 *
@@ -7052,7 +7071,8 @@ Xresd4_q0 PAD net189 sky130_fd_io__res75only_small
 Xipath_q0 dm_h_n<2> dm_h_n<1> dm_h_n<0> ENABLE_VDDIO hyst_trim_h
 + ib_mode_sel_h<1> ib_mode_sel_h<0> inp_dis_h_n IN IN_H PAD VCCHIB VDDIO_Q VINREF
 + VSSD vtrip_sel_h sky130_fd_io__gpio_ovtv2_ipath
-RS0 PAD PAD_A_NOESD_H short
+* RS0 PAD PAD_A_NOESD_H short
+RS0 PAD PAD_A_NOESD_H sky130_fd_pr__res_generic_m4 W=0.88 L=0.01
 .ENDS sky130_fd_io__top_gpio_ovtv2
 
 * Copyright 2020 The SkyWater PDK Authors
@@ -13216,11 +13236,11 @@ Xndrv nd ngin ns ns sky130_fd_pr__nfet_g5v0d10v5esd m=1 w=50.99 l=0.55 mult=1 sa
 .SUBCKT sky130_fd_io__sio_pddrvr_strong pad pd_h<4> pd_h<3> pd_h<2> tie_lo_esd 
 + vcc_io vgnd_io
 *.PININFO pd_h<4>:I pd_h<3>:I pd_h<2>:I vcc_io:I vgnd_io:I pad:O tie_lo_esd:O
-XE9 tie_lo_esd ng<4> sky130_fd_io__tk_em1o
+XE9 tie_lo_esd ng<4> sky130_fd_io__tk_em2o
 XE7 pd_h<4> ng<6> sky130_fd_io__tk_em1o
 XE2 ng<2> ng<3> sky130_fd_io__tk_em1o
-XE8 tie_lo_esd ng<3> sky130_fd_io__tk_em1o
-XE6 tie_lo_esd ng<6> sky130_fd_io__tk_em1s
+XE8 tie_lo_esd ng<3> sky130_fd_io__tk_em2o
+XE6 tie_lo_esd ng<6> sky130_fd_io__tk_em2s
 XE4 ng<4> pd_h<3> sky130_fd_io__tk_em1s
 XE3 ng<3> ng<4> sky130_fd_io__tk_em1s
 XE1 pd_h<2> ng<2> sky130_fd_io__tk_em1s
