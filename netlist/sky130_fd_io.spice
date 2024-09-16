@@ -1392,13 +1392,13 @@ XI63 PUG_H NGHS_H PG_PAD_VDDIOQ VSSIO sky130_fd_pr__nfet_g5v0d10v5 m=2 w=3.0
 + l=0.5 mult=1 sa=0.265 sb=0.265 sd=0.28 topography=normal area=0.063 perim=1.14
 XI47 mid1 NG_AG_VPMP AG_HV mid1 sky130_fd_pr__nfet_g5v0d10v5 m=5 w=10.0 l=0.5
 + mult=1 sa=0.265 sb=0.265 sd=0.28 topography=normal area=0.063 perim=1.14
-XI75<1> mid PD_H_VDDA VSSA net050<0> sky130_fd_pr__nfet_g5v0d10v5 m=1 w=0.42
+XI75<1> mid PD_H_VDDA VSSA VSSA sky130_fd_pr__nfet_g5v0d10v5 m=1 w=0.42
 + l=0.5 mult=1 sa=0.265 sb=0.265 sd=0.28 topography=normal area=0.063 perim=1.14
-XI75<0> mid1 PD_H_VDDA VSSA net050<1> sky130_fd_pr__nfet_g5v0d10v5 m=1 w=0.42
+XI75<0> mid1 PD_H_VDDA VSSA VSSA sky130_fd_pr__nfet_g5v0d10v5 m=1 w=0.42
 + l=0.5 mult=1 sa=0.265 sb=0.265 sd=0.28 topography=normal area=0.063 perim=1.14
-XI74<1> mid PD_H_VDDIO VSSA net051<0> sky130_fd_pr__nfet_g5v0d10v5 m=1 w=0.42
+XI74<1> mid PD_H_VDDIO VSSA VSSA sky130_fd_pr__nfet_g5v0d10v5 m=1 w=0.42
 + l=0.5 mult=1 sa=0.265 sb=0.265 sd=0.28 topography=normal area=0.063 perim=1.14
-XI74<0> mid1 PD_H_VDDIO VSSA net051<1> sky130_fd_pr__nfet_g5v0d10v5 m=1 w=0.42
+XI74<0> mid1 PD_H_VDDIO VSSA VSSA sky130_fd_pr__nfet_g5v0d10v5 m=1 w=0.42
 + l=0.5 mult=1 sa=0.265 sb=0.265 sd=0.28 topography=normal area=0.063 perim=1.14
 XI1 mid NMID_VDDA net83 VSSA sky130_fd_pr__nfet_g5v0d10v5 m=2 w=5.0 l=0.5 mult=1
 + sa=0.265 sb=0.265 sd=0.28 topography=normal area=0.063 perim=1.14
@@ -1657,9 +1657,9 @@ Xp2p4_bias_q0 P2G PAD VCC_IO_SOFT VCC_IO_SOFT VPB_DRVR
 * RI26 P2G net137 short
 * RI39 P2G net74 short
 * RI49 PGHS_H p1g short
-XRI26 P2G net137 sky130_fd_pr__res_generic_m1 W=0.4 L=0.01
-XRI39 P2G net74 sky130_fd_pr__res_generic_m1 W=0.4 L=0.01
-XRI49 PGHS_H p1g sky130_fd_pr__res_generic_m2 W=0.26 L=0.01
+RI26 P2G net137 sky130_fd_pr__res_generic_m1 W=0.4 L=0.01
+RI39 P2G net74 sky130_fd_pr__res_generic_m1 W=0.4 L=0.01
+RI49 PGHS_H p1g sky130_fd_pr__res_generic_m2 W=0.26 L=0.01
 .ENDS sky130_fd_io__gpio_ovtv2_hotswap_i2c_fix_leak_fix
 
 * Copyright 2020 The SkyWater PDK Authors
@@ -3101,10 +3101,10 @@ Xmpin_slow_q0 PD_H DRVLO_H_N int_slow VCC_IO sky130_fd_pr__pfet_g5v0d10v5 m=1
 Xmpen_slow_q0 int_slow PDEN_H_N VCC_IO VCC_IO sky130_fd_pr__pfet_g5v0d10v5 m=1
 + w=1.0 l=4.0 mult=1 sa=0.265 sb=0.265 sd=0.28 topography=normal area=0.063
 + perim=1.14
-Xmpin_fast<1>_q0 PD_H DRVLO_H_N int_nor<1> net19<0> sky130_fd_pr__pfet_g5v0d10v5
+Xmpin_fast<1>_q0 PD_H DRVLO_H_N int_nor<1> VCC_IO sky130_fd_pr__pfet_g5v0d10v5
 + m=2 w=3.0 l=0.5 mult=1 sa=0.265 sb=0.265 sd=0.28 topography=normal area=0.063
 + perim=1.14
-Xmpin_fast<0>_q0 PD_H DRVLO_H_N int_nor<0> net19<1> sky130_fd_pr__pfet_g5v0d10v5
+Xmpin_fast<0>_q0 PD_H DRVLO_H_N int_nor<0> VCC_IO sky130_fd_pr__pfet_g5v0d10v5
 + m=2 w=3.0 l=0.5 mult=1 sa=0.265 sb=0.265 sd=0.28 topography=normal area=0.063
 + perim=1.14
 Xmpen_fast<1>_q0 int_nor<1> EN_FAST_N[1] VCC_IO VCC_IO
@@ -3145,10 +3145,10 @@ Xmpin_slow_q0 PD_H DRVLO_H_N int_slow VCC_IO sky130_fd_pr__pfet_g5v0d10v5 m=1
 Xmpen_slow_q0 int_slow PDEN_H_N VCC_IO VCC_IO sky130_fd_pr__pfet_g5v0d10v5 m=1
 + w=1.0 l=4.0 mult=1 sa=0.265 sb=0.265 sd=0.28 topography=normal area=0.063
 + perim=1.14
-Xmpin_fast<1>_q0 PD_H DRVLO_H_N int_nor<1> net19<0> sky130_fd_pr__pfet_g5v0d10v5
+Xmpin_fast<1>_q0 PD_H DRVLO_H_N int_nor<1> VCC_IO sky130_fd_pr__pfet_g5v0d10v5
 + m=2 w=3.0 l=0.5 mult=1 sa=0.265 sb=0.265 sd=0.28 topography=normal area=0.063
 + perim=1.14
-Xmpin_fast<0>_q0 PD_H DRVLO_H_N int_nor<0> net19<1> sky130_fd_pr__pfet_g5v0d10v5
+Xmpin_fast<0>_q0 PD_H DRVLO_H_N int_nor<0> VCC_IO sky130_fd_pr__pfet_g5v0d10v5
 + m=2 w=3.0 l=0.5 mult=1 sa=0.265 sb=0.265 sd=0.28 topography=normal area=0.063
 + perim=1.14
 Xmpen_fast<1>_q0 int_nor<1> EN_FAST_N[1] VCC_IO VCC_IO
@@ -3212,7 +3212,7 @@ XI133 VPB_DRVR tie_hi_vpbdrvr sky130_fd_io__tk_tie_r_out_esd
 XI112 PUG_H[2] net83 sky130_fd_io__tk_em2o
 XI111 PUG_H[4] net81 sky130_fd_io__tk_em2o
 XI141 PUG_H[3] net79 sky130_fd_io__tk_em2o
-XI152 PUG_H[4] net079 sky130_fd_io__tk_em2o
+XI152 PUG_H[4] net079 sky130_fd_io__tk_em1o
 XI142 tie_hi_vpbdrvr net79 sky130_fd_io__tk_em2s
 XI82 tie_hi_vpbdrvr net83 sky130_fd_io__tk_em2s
 XI109 tie_hi_vpbdrvr net81 sky130_fd_io__tk_em2s
@@ -3403,16 +3403,16 @@ Xnand_q0 PUEN_H SLOW_H_N en_fast_h_n VGND_IO VCC_IO sky130_fd_io__com_nand2_dnw
 XE1 net30 PU_H_N sky130_fd_io__tk_em1s
 XRrespu1 int_res net30 sky130_fd_pr__res_generic_po W=0.33 L=11 m=1
 XRrespu2 PU_H_N int_res sky130_fd_pr__res_generic_po W=0.33 L=4 m=1
-Xmnin_fast<3>_q0 net30 DRVHI_H int<3> net017<0> sky130_fd_pr__nfet_g5v0d10v5 m=1
+Xmnin_fast<3>_q0 net30 DRVHI_H int<3> VGND_IO sky130_fd_pr__nfet_g5v0d10v5 m=1
 + w=1.5 l=0.5 mult=1 sa=0.265 sb=0.265 sd=0.28 topography=normal area=0.063
 + perim=1.14
-Xmnin_fast<2>_q0 net30 DRVHI_H int<2> net017<1> sky130_fd_pr__nfet_g5v0d10v5 m=1
+Xmnin_fast<2>_q0 net30 DRVHI_H int<2> VGND_IO sky130_fd_pr__nfet_g5v0d10v5 m=1
 + w=1.5 l=0.5 mult=1 sa=0.265 sb=0.265 sd=0.28 topography=normal area=0.063
 + perim=1.14
-Xmnin_fast<1>_q0 net30 DRVHI_H int<1> net017<2> sky130_fd_pr__nfet_g5v0d10v5 m=1
+Xmnin_fast<1>_q0 net30 DRVHI_H int<1> VGND_IO sky130_fd_pr__nfet_g5v0d10v5 m=1
 + w=1.5 l=0.5 mult=1 sa=0.265 sb=0.265 sd=0.28 topography=normal area=0.063
 + perim=1.14
-Xmnin_fast<0>_q0 net30 DRVHI_H int<0> net017<3> sky130_fd_pr__nfet_g5v0d10v5 m=1
+Xmnin_fast<0>_q0 net30 DRVHI_H int<0> VGND_IO sky130_fd_pr__nfet_g5v0d10v5 m=1
 + w=1.5 l=0.5 mult=1 sa=0.265 sb=0.265 sd=0.28 topography=normal area=0.063
 + perim=1.14
 Xmnen_slow1_q0 n<2> PUEN_H VGND_IO VGND_IO sky130_fd_pr__nfet_g5v0d10v5 m=1
@@ -3421,13 +3421,13 @@ Xmnen_slow1_q0 n<2> PUEN_H VGND_IO VGND_IO sky130_fd_pr__nfet_g5v0d10v5 m=1
 Xmnin_slow_q0 PU_H_N DRVHI_H n<2> VGND_IO sky130_fd_pr__nfet_g5v0d10v5 m=1
 + w=0.42 l=4.0 mult=1 sa=0.265 sb=0.265 sd=0.28 topography=normal area=0.063
 + perim=1.14
-Xmnen_fast<3>_q0 int<3> EN_FAST[3] VGND_IO net018<0>
+Xmnen_fast<3>_q0 int<3> EN_FAST[3] VGND_IO VGND_IO
 + sky130_fd_pr__nfet_g5v0d10v5 m=1 w=1.5 l=1.0 mult=1 sa=0.265 sb=0.265 sd=0.28
 + topography=normal area=0.063 perim=1.14
-Xmnen_fast<2>_q0 int<2> EN_FAST[2] VGND_IO net018<1>
+Xmnen_fast<2>_q0 int<2> EN_FAST[2] VGND_IO VGND_IO
 + sky130_fd_pr__nfet_g5v0d10v5 m=1 w=1.5 l=1.0 mult=1 sa=0.265 sb=0.265 sd=0.28
 + topography=normal area=0.063 perim=1.14
-Xmnen_fast<1>_q0 int<1> EN_FAST[1] VGND_IO net018<2>
+Xmnen_fast<1>_q0 int<1> EN_FAST[1] VGND_IO VGND_IO
 + sky130_fd_pr__nfet_g5v0d10v5 m=1 w=1.5 l=1.0 mult=1 sa=0.265 sb=0.265 sd=0.28
 + topography=normal area=0.063 perim=1.14
 Xmnen_fast<0>_q0 int<0> EN_FAST[0] VGND_IO VGND_IO sky130_fd_pr__nfet_g5v0d10v5
@@ -3462,16 +3462,16 @@ Xmpin_q0 PU_H_N DRVHI_H VCC_IO VCC_IO sky130_fd_pr__pfet_g5v0d10v5 m=3 w=5.0
 XE1 net30 PU_H_N sky130_fd_io__tk_em1s
 XRrespu1 int_res net30 sky130_fd_pr__res_generic_po W=0.33 L=11 m=1
 XRrespu2 PU_H_N int_res sky130_fd_pr__res_generic_po W=0.33 L=4 m=1
-Xmnin_fast<3>_q0 net30 DRVHI_H int<3> net017<0> sky130_fd_pr__nfet_g5v0d10v5 m=1
+Xmnin_fast<3>_q0 net30 DRVHI_H int<3> VGND_IO sky130_fd_pr__nfet_g5v0d10v5 m=1
 + w=1.5 l=0.5 mult=1 sa=0.265 sb=0.265 sd=0.28 topography=normal area=0.063
 + perim=1.14
-Xmnin_fast<2>_q0 net30 DRVHI_H int<2> net017<1> sky130_fd_pr__nfet_g5v0d10v5 m=1
+Xmnin_fast<2>_q0 net30 DRVHI_H int<2> VGND_IO sky130_fd_pr__nfet_g5v0d10v5 m=1
 + w=1.5 l=0.5 mult=1 sa=0.265 sb=0.265 sd=0.28 topography=normal area=0.063
 + perim=1.14
-Xmnin_fast<1>_q0 net30 DRVHI_H int<1> net017<2> sky130_fd_pr__nfet_g5v0d10v5 m=1
+Xmnin_fast<1>_q0 net30 DRVHI_H int<1> VGND_IO sky130_fd_pr__nfet_g5v0d10v5 m=1
 + w=1.5 l=0.5 mult=1 sa=0.265 sb=0.265 sd=0.28 topography=normal area=0.063
 + perim=1.14
-Xmnin_fast<0>_q0 net30 DRVHI_H int<0> net017<3> sky130_fd_pr__nfet_g5v0d10v5 m=1
+Xmnin_fast<0>_q0 net30 DRVHI_H int<0> VGND_IO sky130_fd_pr__nfet_g5v0d10v5 m=1
 + w=1.5 l=0.5 mult=1 sa=0.265 sb=0.265 sd=0.28 topography=normal area=0.063
 + perim=1.14
 Xmnen_slow1_q0 n<2> PUEN_H VGND_IO VGND_IO sky130_fd_pr__nfet_g5v0d10v5 m=1
@@ -3480,13 +3480,13 @@ Xmnen_slow1_q0 n<2> PUEN_H VGND_IO VGND_IO sky130_fd_pr__nfet_g5v0d10v5 m=1
 Xmnin_slow_q0 PU_H_N DRVHI_H n<2> VGND_IO sky130_fd_pr__nfet_g5v0d10v5 m=1
 + w=0.42 l=4.0 mult=1 sa=0.265 sb=0.265 sd=0.28 topography=normal area=0.063
 + perim=1.14
-Xmnen_fast<3>_q0 int<3> EN_FAST[3] VGND_IO net018<0>
+Xmnen_fast<3>_q0 int<3> EN_FAST[3] VGND_IO VGND_IO
 + sky130_fd_pr__nfet_g5v0d10v5 m=1 w=1.5 l=0.5 mult=1 sa=0.265 sb=0.265 sd=0.28
 + topography=normal area=0.063 perim=1.14
-Xmnen_fast<2>_q0 int<2> EN_FAST[2] VGND_IO net018<1>
+Xmnen_fast<2>_q0 int<2> EN_FAST[2] VGND_IO VGND_IO
 + sky130_fd_pr__nfet_g5v0d10v5 m=1 w=1.5 l=0.5 mult=1 sa=0.265 sb=0.265 sd=0.28
 + topography=normal area=0.063 perim=1.14
-Xmnen_fast<1>_q0 int<1> EN_FAST[1] VGND_IO net018<2>
+Xmnen_fast<1>_q0 int<1> EN_FAST[1] VGND_IO VGND_IO
 + sky130_fd_pr__nfet_g5v0d10v5 m=1 w=1.5 l=0.5 mult=1 sa=0.265 sb=0.265 sd=0.28
 + topography=normal area=0.063 perim=1.14
 Xmnen_fast<0>_q0 int<0> EN_FAST[0] VGND_IO VGND_IO sky130_fd_pr__nfet_g5v0d10v5
@@ -7880,7 +7880,7 @@ XRI45 net157 net155 sky130_fd_pr__res_generic_po W=0.33 L=720 m=1
 + vddio vddio_q vssa vssd vssio vssio_q vswitch
 *.PININFO amuxbus_a:B amuxbus_b:B pad:B pad_core:B vccd:B vcchib:B vdda:B 
 *.PININFO vddio:B vddio_q:B vssa:B vssd:B vssio:B vssio_q:B vswitch:B
-RI289 pad_core pad sky130_fd_pr__res_generic_m1
+RI289 pad_core pad sky130_fd_pr__res_generic_m3  L=0.9  W=8.98
 Xpudrvr_strong pad tie_hi_esd tie_hi_esd tie_hi_esd vddio vssd 
 + sky130_fd_io__gpio_pudrvr_strong
 Xpddrvr_strong tie_lo_esd tie_lo_esd pad tie_lo_esd tie_lo_esd tie_lo_esd 
@@ -8638,13 +8638,13 @@ Xmpin_slow pd_h drvlo_h_n int_slow vcc_io sky130_fd_pr__pfet_g5v0d10v5 m=1 w=1.0
 + sa=265e-3 sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
 Xmpen_slow int_slow pden_h_n vcc_io vcc_io sky130_fd_pr__pfet_g5v0d10v5 m=1 w=1.00 l=4.00 mult=1 
 + sa=265e-3 sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-Xmpin_fast<1> pd_h drvlo_h_n int_nor<1> net14<0> sky130_fd_pr__pfet_g5v0d10v5 m=2 w=3.00 l=0.50 mult=1 
+Xmpin_fast<1> pd_h drvlo_h_n int_nor<1> vcc_io sky130_fd_pr__pfet_g5v0d10v5 m=2 w=3.00 l=0.50 mult=1 
 + sa=265e-3 sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-Xmpin_fast<0> pd_h drvlo_h_n int_nor<0> net14<1> sky130_fd_pr__pfet_g5v0d10v5 m=2 w=3.00 l=0.50 mult=1 
+Xmpin_fast<0> pd_h drvlo_h_n int_nor<0> vcc_io sky130_fd_pr__pfet_g5v0d10v5 m=2 w=3.00 l=0.50 mult=1 
 + sa=265e-3 sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-Xmpen_fast<1> int_nor<1> en_fast_n<1> vcc_io net15<0> sky130_fd_pr__pfet_g5v0d10v5 m=1 w=3.00 l=1.00 
+Xmpen_fast<1> int_nor<1> en_fast_n<1> vcc_io vcc_io sky130_fd_pr__pfet_g5v0d10v5 m=1 w=3.00 l=1.00 
 + mult=1 sa=265e-3 sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-Xmpen_fast<0> int_nor<0> en_fast_n<0> vcc_io net15<1> sky130_fd_pr__pfet_g5v0d10v5 m=1 w=3.00 l=1.00 
+Xmpen_fast<0> int_nor<0> en_fast_n<0> vcc_io vcc_io sky130_fd_pr__pfet_g5v0d10v5 m=1 w=3.00 l=1.00 
 + mult=1 sa=265e-3 sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
 XI56 int_slow pden_h_n vcc_io vcc_io sky130_fd_pr__pfet_g5v0d10v5 m=1 w=0.42 l=4.00 mult=1 sa=265e-3 
 + sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
@@ -8678,25 +8678,25 @@ Xnr3 drvlo_h_n net76 net76 pd_h<2> pden_h_n vcc_io vgnd_io
 XE1 net24 pu_h_n sky130_fd_io__tk_em1s
 XRrespu1 int_res net24 sky130_fd_pr__res_generic_po m=1 w=0.33 l=11
 XRrespu2 pu_h_n int_res sky130_fd_pr__res_generic_po m=1 w=0.33 l=4
-Xmnin_fast<3> net24 drvhi_h int<3> net013<0> sky130_fd_pr__nfet_g5v0d10v5 m=1 w=1.50 l=0.50 mult=1 
+Xmnin_fast<3> net24 drvhi_h int<3> vgnd_io sky130_fd_pr__nfet_g5v0d10v5 m=1 w=1.50 l=0.50 mult=1 
 + sa=265e-3 sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-Xmnin_fast<2> net24 drvhi_h int<2> net013<1> sky130_fd_pr__nfet_g5v0d10v5 m=1 w=1.50 l=0.50 mult=1 
+Xmnin_fast<2> net24 drvhi_h int<2> vgnd_io sky130_fd_pr__nfet_g5v0d10v5 m=1 w=1.50 l=0.50 mult=1 
 + sa=265e-3 sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-Xmnin_fast<1> net24 drvhi_h int<1> net013<2> sky130_fd_pr__nfet_g5v0d10v5 m=1 w=1.50 l=0.50 mult=1 
+Xmnin_fast<1> net24 drvhi_h int<1> vgnd_io sky130_fd_pr__nfet_g5v0d10v5 m=1 w=1.50 l=0.50 mult=1 
 + sa=265e-3 sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-Xmnin_fast<0> net24 drvhi_h int<0> net013<3> sky130_fd_pr__nfet_g5v0d10v5 m=1 w=1.50 l=0.50 mult=1 
+Xmnin_fast<0> net24 drvhi_h int<0> vgnd_io sky130_fd_pr__nfet_g5v0d10v5 m=1 w=1.50 l=0.50 mult=1 
 + sa=265e-3 sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
 Xmnen_slow1 n<2> puen_h vgnd_io vgnd_io sky130_fd_pr__nfet_g5v0d10v5 m=1 w=0.75 l=4.00 mult=1 sa=265e-3 
 + sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
 Xmnin_slow pu_h_n drvhi_h n<2> vgnd_io sky130_fd_pr__nfet_g5v0d10v5 m=1 w=0.42 l=4.00 mult=1 sa=265e-3 
 + sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-Xmnen_fast<3> int<3> en_fast<3> vgnd_io net014<0> sky130_fd_pr__nfet_g5v0d10v5 m=1 w=1.50 l=1.00 mult=1 
+Xmnen_fast<3> int<3> en_fast<3> vgnd_io vgnd_io sky130_fd_pr__nfet_g5v0d10v5 m=1 w=1.50 l=1.00 mult=1 
 + sa=265e-3 sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-Xmnen_fast<2> int<2> en_fast<2> vgnd_io net014<1> sky130_fd_pr__nfet_g5v0d10v5 m=1 w=1.50 l=1.00 mult=1 
+Xmnen_fast<2> int<2> en_fast<2> vgnd_io vgnd_io sky130_fd_pr__nfet_g5v0d10v5 m=1 w=1.50 l=1.00 mult=1 
 + sa=265e-3 sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-Xmnen_fast<1> int<1> en_fast<1> vgnd_io net014<2> sky130_fd_pr__nfet_g5v0d10v5 m=1 w=1.50 l=1.00 mult=1 
+Xmnen_fast<1> int<1> en_fast<1> vgnd_io vgnd_io sky130_fd_pr__nfet_g5v0d10v5 m=1 w=1.50 l=1.00 mult=1 
 + sa=265e-3 sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-Xmnen_fast<0> int<0> en_fast<0> vgnd_io net014<3> sky130_fd_pr__nfet_g5v0d10v5 m=1 w=1.50 l=1.00 mult=1 
+Xmnen_fast<0> int<0> en_fast<0> vgnd_io vgnd_io sky130_fd_pr__nfet_g5v0d10v5 m=1 w=1.50 l=1.00 mult=1 
 + sa=265e-3 sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
 Xmpen pu_h_n puen_h vcc_io vcc_io sky130_fd_pr__pfet_g5v0d10v5 m=1 w=5.00 l=0.60 mult=1 sa=265e-3 
 + sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
@@ -10532,7 +10532,7 @@ Xlogic en_inpop_h en_outop_h en_outop_h_n ibuf_sel_h ibuf_sel_h_n sel_vcc_io
 *.PININFO res_tap<8>:O res_tap<7>:O res_tap<6>:O res_tap<5>:O res_tap<4>:O 
 *.PININFO res_tap<3>:O res_tap<2>:O res_tap<1>:O vohref_0p5:O fb_out:B 
 *.PININFO resgnd:B vgnd:B
-XRI80 res_tap<8> fb_out sky130_fd_pr__res_generic_m1
+RI80 res_tap<8> fb_out sky130_fd_pr__res_generic_m1
 XRI0<17> int1<1> vgnd vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
 XRI0<16> int1<2> int1<1> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
 XRI0<15> int1<3> int1<2> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
@@ -12313,13 +12313,13 @@ Xmpin_slow pd_h drvlo_h_n int_slow vcc_io sky130_fd_pr__pfet_g5v0d10v5 m=1 w=1.0
 + sa=265e-3 sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
 Xmpen_slow int_slow pden_h_n vcc_io vcc_io sky130_fd_pr__pfet_g5v0d10v5 m=1 w=1.00 l=4.00 mult=1 
 + sa=265e-3 sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-Xmpin_fast<1> pd_h drvlo_h_n int_nor<1> net12<0> sky130_fd_pr__pfet_g5v0d10v5 m=2 w=3.00 l=0.50 mult=1 
+Xmpin_fast<1> pd_h drvlo_h_n int_nor<1> vcc_io sky130_fd_pr__pfet_g5v0d10v5 m=2 w=3.00 l=0.50 mult=1 
 + sa=265e-3 sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-Xmpin_fast<0> pd_h drvlo_h_n int_nor<0> net12<1> sky130_fd_pr__pfet_g5v0d10v5 m=2 w=3.00 l=0.50 mult=1 
+Xmpin_fast<0> pd_h drvlo_h_n int_nor<0> vcc_io sky130_fd_pr__pfet_g5v0d10v5 m=2 w=3.00 l=0.50 mult=1 
 + sa=265e-3 sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-Xmpen_fast<1> int_nor<1> en_fast_n<1> vcc_io net13<0> sky130_fd_pr__pfet_g5v0d10v5 m=1 w=3.00 l=1.00 
+Xmpen_fast<1> int_nor<1> en_fast_n<1> vcc_io vcc_io sky130_fd_pr__pfet_g5v0d10v5 m=1 w=3.00 l=1.00 
 + mult=1 sa=265e-3 sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-Xmpen_fast<0> int_nor<0> en_fast_n<0> vcc_io net13<1> sky130_fd_pr__pfet_g5v0d10v5 m=1 w=3.00 l=1.00 
+Xmpen_fast<0> int_nor<0> en_fast_n<0> vcc_io vcc_io sky130_fd_pr__pfet_g5v0d10v5 m=1 w=3.00 l=1.00 
 + mult=1 sa=265e-3 sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
 Xmnin pd_h drvlo_h_n vgnd_io vgnd_io sky130_fd_pr__nfet_g5v0d10v5 m=3 w=5.00 l=0.60 mult=1 sa=265e-3 
 + sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
@@ -12335,13 +12335,13 @@ Xmpin_slow pd_h drvlo_h_n int_slow vcc_io sky130_fd_pr__pfet_g5v0d10v5 m=1 w=1.5
 + sa=265e-3 sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
 Xmpen_slow int_slow pden_h_n vcc_io vcc_io sky130_fd_pr__pfet_g5v0d10v5 m=1 w=1.00 l=1.00 mult=1 
 + sa=265e-3 sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-Xmpin_fast<1> pd_h drvlo_h_n int_nor<1> net12<0> sky130_fd_pr__pfet_g5v0d10v5 m=2 w=3.00 l=0.50 mult=1 
+Xmpin_fast<1> pd_h drvlo_h_n int_nor<1> vcc_io sky130_fd_pr__pfet_g5v0d10v5 m=2 w=3.00 l=0.50 mult=1 
 + sa=265e-3 sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-Xmpin_fast<0> pd_h drvlo_h_n int_nor<0> net12<1> sky130_fd_pr__pfet_g5v0d10v5 m=2 w=3.00 l=0.50 mult=1 
+Xmpin_fast<0> pd_h drvlo_h_n int_nor<0> vcc_io sky130_fd_pr__pfet_g5v0d10v5 m=2 w=3.00 l=0.50 mult=1 
 + sa=265e-3 sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-Xmpen_fast<1> int_nor<1> en_fast_n<1> vcc_io net13<0> sky130_fd_pr__pfet_g5v0d10v5 m=2 w=3.00 l=1.00 
+Xmpen_fast<1> int_nor<1> en_fast_n<1> vcc_io vcc_io sky130_fd_pr__pfet_g5v0d10v5 m=2 w=3.00 l=1.00 
 + mult=1 sa=265e-3 sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-Xmpen_fast<0> int_nor<0> en_fast_n<0> vcc_io net13<1> sky130_fd_pr__pfet_g5v0d10v5 m=2 w=3.00 l=1.00 
+Xmpen_fast<0> int_nor<0> en_fast_n<0> vcc_io vcc_io sky130_fd_pr__pfet_g5v0d10v5 m=2 w=3.00 l=1.00 
 + mult=1 sa=265e-3 sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
 Xmnin pd_h drvlo_h_n vgnd_io vgnd_io sky130_fd_pr__nfet_g5v0d10v5 m=3 w=5.00 l=0.60 mult=1 sa=265e-3 
 + sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
@@ -12530,25 +12530,25 @@ XI54 net192 bias_g vgnd_io vgnd_io sky130_fd_pr__nfet_g5v0d10v5 m=1 w=0.42 l=4.0
 XE1 net024 pu_h_n sky130_fd_io__sio_tk_em1s
 XRrespu1 int_res net024 sky130_fd_pr__res_generic_po m=1 w=0.33 l=11
 XRrespu2 pu_h_n int_res sky130_fd_pr__res_generic_po m=1 w=0.33 l=4
-Xmnin_fast<3> net024 drvhi_h int<3> net013<0> sky130_fd_pr__nfet_g5v0d10v5 m=1 w=1.50 l=0.50 mult=1 
+Xmnin_fast<3> net024 drvhi_h int<3> vgnd_io sky130_fd_pr__nfet_g5v0d10v5 m=1 w=1.50 l=0.50 mult=1 
 + sa=265e-3 sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-Xmnin_fast<2> net024 drvhi_h int<2> net013<1> sky130_fd_pr__nfet_g5v0d10v5 m=1 w=1.50 l=0.50 mult=1 
+Xmnin_fast<2> net024 drvhi_h int<2> vgnd_io sky130_fd_pr__nfet_g5v0d10v5 m=1 w=1.50 l=0.50 mult=1 
 + sa=265e-3 sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-Xmnin_fast<1> net024 drvhi_h int<1> net013<2> sky130_fd_pr__nfet_g5v0d10v5 m=1 w=1.50 l=0.50 mult=1 
+Xmnin_fast<1> net024 drvhi_h int<1> vgnd_io sky130_fd_pr__nfet_g5v0d10v5 m=1 w=1.50 l=0.50 mult=1 
 + sa=265e-3 sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-Xmnin_fast<0> net024 drvhi_h int<0> net013<3> sky130_fd_pr__nfet_g5v0d10v5 m=1 w=1.50 l=0.50 mult=1 
+Xmnin_fast<0> net024 drvhi_h int<0> vgnd_io sky130_fd_pr__nfet_g5v0d10v5 m=1 w=1.50 l=0.50 mult=1 
 + sa=265e-3 sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
 Xmnen_slow1 n<2> puen_h vgnd_io vgnd_io sky130_fd_pr__nfet_g5v0d10v5 m=1 w=0.42 l=4.00 mult=1 sa=265e-3 
 + sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
 Xmnin_slow pu_h_n drvhi_h n<2> vgnd_io sky130_fd_pr__nfet_g5v0d10v5 m=1 w=0.42 l=4.00 mult=1 sa=265e-3 
 + sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-Xmnen_fast<3> int<3> en_fast<3> vgnd_io net014<0> sky130_fd_pr__nfet_g5v0d10v5 m=1 w=1.50 l=1.00 mult=1 
+Xmnen_fast<3> int<3> en_fast<3> vgnd_io vgnd_io sky130_fd_pr__nfet_g5v0d10v5 m=1 w=1.50 l=1.00 mult=1 
 + sa=265e-3 sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-Xmnen_fast<2> int<2> en_fast<2> vgnd_io net014<1> sky130_fd_pr__nfet_g5v0d10v5 m=1 w=1.50 l=1.00 mult=1 
+Xmnen_fast<2> int<2> en_fast<2> vgnd_io vgnd_io sky130_fd_pr__nfet_g5v0d10v5 m=1 w=1.50 l=1.00 mult=1 
 + sa=265e-3 sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-Xmnen_fast<1> int<1> en_fast<1> vgnd_io net014<2> sky130_fd_pr__nfet_g5v0d10v5 m=1 w=1.50 l=1.00 mult=1 
+Xmnen_fast<1> int<1> en_fast<1> vgnd_io vgnd_io sky130_fd_pr__nfet_g5v0d10v5 m=1 w=1.50 l=1.00 mult=1 
 + sa=265e-3 sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-Xmnen_fast<0> int<0> en_fast<0> vgnd_io net014<3> sky130_fd_pr__nfet_g5v0d10v5 m=1 w=1.50 l=1.00 mult=1 
+Xmnen_fast<0> int<0> en_fast<0> vgnd_io vgnd_io sky130_fd_pr__nfet_g5v0d10v5 m=1 w=1.50 l=1.00 mult=1 
 + sa=265e-3 sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
 Xmpen pu_h_n puen_h vcc_io vcc_io sky130_fd_pr__pfet_g5v0d10v5 m=1 w=5.00 l=0.60 mult=1 sa=265e-3 
 + sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
@@ -13378,9 +13378,9 @@ XI207 net66 net74 sky130_fd_io__tk_em1o
 XI208 ngate net66 sky130_fd_io__tk_em1o
 XI187 net70 vreg_en_n vpwr vpb sky130_fd_pr__pfet_01v8 m=2 w=5.00 l=0.25 mult=1 sa=265e-3 
 + sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-XM<1> ngate ngate vgnd net020<0> sky130_fd_pr__nfet_g5v0d10v5 m=2 w=5.00 l=1.00 mult=1 sa=265e-3 
+XM<1> ngate ngate vgnd vgnd sky130_fd_pr__nfet_g5v0d10v5 m=2 w=5.00 l=1.00 mult=1 sa=265e-3 
 + sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-XM<0> ngate ngate vgnd net020<1> sky130_fd_pr__nfet_g5v0d10v5 m=2 w=5.00 l=1.00 mult=1 sa=265e-3 
+XM<0> ngate ngate vgnd vgnd sky130_fd_pr__nfet_g5v0d10v5 m=2 w=5.00 l=1.00 mult=1 sa=265e-3 
 + sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
 Xdummy vgnd vgnd vgnd vgnd sky130_fd_pr__nfet_g5v0d10v5 m=1 w=5.00 l=0.50 mult=1 sa=265e-3 sb=265e-3 
 + sd=280e-3 topography=normal area=0.063 perim=1.14
@@ -13464,13 +13464,13 @@ XMP1<12> net_307 net_307 vcc vpp sky130_fd_pr__pfet_g5v0d10v5 m=1 w=3.00 l=1.00 
 + sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
 XMP1<13> pu_0 pu_0 vcc vpp sky130_fd_pr__pfet_g5v0d10v5 m=1 w=3.00 l=1.00 mult=1 sa=265e-3 sb=265e-3 
 + sd=280e-3 topography=normal area=0.063 perim=1.14
-XMP1<8> out pu_0 vcc net_0107<0> sky130_fd_pr__pfet_g5v0d10v5 m=1 w=3.00 l=1.00 mult=1 sa=265e-3 
+XMP1<8> out pu_0 vcc vpp sky130_fd_pr__pfet_g5v0d10v5 m=1 w=3.00 l=1.00 mult=1 sa=265e-3 
 + sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-XMP1<9> out pu_0 vcc net_0107<1> sky130_fd_pr__pfet_g5v0d10v5 m=1 w=3.00 l=1.00 mult=1 sa=265e-3 
+XMP1<9> out pu_0 vcc vpp sky130_fd_pr__pfet_g5v0d10v5 m=1 w=3.00 l=1.00 mult=1 sa=265e-3 
 + sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-XMP1<10> out pu_0 vcc net_0107<2> sky130_fd_pr__pfet_g5v0d10v5 m=1 w=3.00 l=1.00 mult=1 sa=265e-3 
+XMP1<10> out pu_0 vcc vpp sky130_fd_pr__pfet_g5v0d10v5 m=1 w=3.00 l=1.00 mult=1 sa=265e-3 
 + sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-XMP1<11> out pu_0 vcc net_0107<3> sky130_fd_pr__pfet_g5v0d10v5 m=1 w=3.00 l=1.00 mult=1 sa=265e-3 
+XMP1<11> out pu_0 vcc vpp sky130_fd_pr__pfet_g5v0d10v5 m=1 w=3.00 l=1.00 mult=1 sa=265e-3 
 + sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
 XI360 net_172 en_hicc vcc vpp sky130_fd_pr__pfet_g5v0d10v5 m=1 w=0.75 l=0.50 mult=1 sa=265e-3 sb=265e-3 
 + sd=280e-3 topography=normal area=0.063 perim=1.14
@@ -13486,13 +13486,13 @@ XMP1<17> net_444 net_444 net_233 vpp sky130_fd_pr__pfet_g5v0d10v5 m=1 w=3.00 l=1
 + sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
 XMP1<16> pu_1 pu_1 net_233 vpp sky130_fd_pr__pfet_g5v0d10v5 m=1 w=3.00 l=1.00 mult=1 sa=265e-3 
 + sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-XMP1<18> net_172 pu_1 net_233 net_0108<0> sky130_fd_pr__pfet_g5v0d10v5 m=1 w=3.00 l=1.00 mult=1 
+XMP1<18> net_172 pu_1 net_233 vpp sky130_fd_pr__pfet_g5v0d10v5 m=1 w=3.00 l=1.00 mult=1 
 + sa=265e-3 sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-XMP1<19> net_172 pu_1 net_233 net_0108<1> sky130_fd_pr__pfet_g5v0d10v5 m=1 w=3.00 l=1.00 mult=1 
+XMP1<19> net_172 pu_1 net_233 vpp sky130_fd_pr__pfet_g5v0d10v5 m=1 w=3.00 l=1.00 mult=1 
 + sa=265e-3 sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-XMP1<20> net_172 pu_1 net_233 net_0108<2> sky130_fd_pr__pfet_g5v0d10v5 m=1 w=3.00 l=1.00 mult=1 
+XMP1<20> net_172 pu_1 net_233 vpp sky130_fd_pr__pfet_g5v0d10v5 m=1 w=3.00 l=1.00 mult=1 
 + sa=265e-3 sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-XMP1<21> net_172 pu_1 net_233 net_0108<3> sky130_fd_pr__pfet_g5v0d10v5 m=1 w=3.00 l=1.00 mult=1 
+XMP1<21> net_172 pu_1 net_233 vpp sky130_fd_pr__pfet_g5v0d10v5 m=1 w=3.00 l=1.00 mult=1 
 + sa=265e-3 sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
 XI266 net_233 net_189 net_233 vpp sky130_fd_pr__pfet_g5v0d10v5 m=1 w=7.00 l=8.00 mult=1 sa=265e-3 
 + sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
@@ -13548,13 +13548,13 @@ XI307 en_hicc_n en_hicc vgnd vnb sky130_fd_pr__nfet_g5v0d10v5 m=1 w=1.00 l=1.00 
 + sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
 XI466 net_398 vgnd vgnd vnb sky130_fd_pr__nfet_g5v0d10v5 m=1 w=5.00 l=0.50 mult=1 sa=265e-3 sb=265e-3 
 + sd=280e-3 topography=normal area=0.063 perim=1.14
-XMN<6> out pd_0 vgnd net_0109<0> sky130_fd_pr__nfet_g5v0d10v5 m=1 w=0.75 l=1.00 mult=1 sa=265e-3 
+XMN<6> out pd_0 vgnd vnb sky130_fd_pr__nfet_g5v0d10v5 m=1 w=0.75 l=1.00 mult=1 sa=265e-3 
 + sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-XMN<7> out pd_0 vgnd net_0109<1> sky130_fd_pr__nfet_g5v0d10v5 m=1 w=0.75 l=1.00 mult=1 sa=265e-3 
+XMN<7> out pd_0 vgnd vnb sky130_fd_pr__nfet_g5v0d10v5 m=1 w=0.75 l=1.00 mult=1 sa=265e-3 
 + sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-XMN<8> out pd_0 vgnd net_0109<2> sky130_fd_pr__nfet_g5v0d10v5 m=1 w=0.75 l=1.00 mult=1 sa=265e-3 
+XMN<8> out pd_0 vgnd vnb sky130_fd_pr__nfet_g5v0d10v5 m=1 w=0.75 l=1.00 mult=1 sa=265e-3 
 + sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-XMN<9> out pd_0 vgnd net_0109<3> sky130_fd_pr__nfet_g5v0d10v5 m=1 w=0.75 l=1.00 mult=1 sa=265e-3 
+XMN<9> out pd_0 vgnd vnb sky130_fd_pr__nfet_g5v0d10v5 m=1 w=0.75 l=1.00 mult=1 sa=265e-3 
 + sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
 XI492 net_398 vgnd vgnd vnb sky130_fd_pr__nfet_g5v0d10v5 m=1 w=5.00 l=1.00 mult=1 sa=265e-3 sb=265e-3 
 + sd=280e-3 topography=normal area=0.063 perim=1.14
@@ -13586,29 +13586,29 @@ XMN1<12> net_444 inn vsource_1 net315 sky130_fd_pr__nfet_g5v0d10v5 m=1 w=5.00 l=
 + sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
 XI364 net_398 en_hicc vgnd vnb sky130_fd_pr__nfet_g5v0d10v5 m=4 w=5.00 l=0.50 mult=1 sa=265e-3 
 + sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-XMN<13> net_172 pd_1 vgnd net_0110<0> sky130_fd_pr__nfet_g5v0d10v5 m=1 w=0.75 l=1.00 mult=1 sa=265e-3 
+XMN<13> net_172 pd_1 vgnd vnb sky130_fd_pr__nfet_g5v0d10v5 m=1 w=0.75 l=1.00 mult=1 sa=265e-3 
 + sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-XMN<12> net_172 pd_1 vgnd net_0110<1> sky130_fd_pr__nfet_g5v0d10v5 m=1 w=0.75 l=1.00 mult=1 sa=265e-3 
+XMN<12> net_172 pd_1 vgnd vnb sky130_fd_pr__nfet_g5v0d10v5 m=1 w=0.75 l=1.00 mult=1 sa=265e-3 
 + sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-XMN<11> net_172 pd_1 vgnd net_0110<2> sky130_fd_pr__nfet_g5v0d10v5 m=1 w=0.75 l=1.00 mult=1 sa=265e-3 
+XMN<11> net_172 pd_1 vgnd vnb sky130_fd_pr__nfet_g5v0d10v5 m=1 w=0.75 l=1.00 mult=1 sa=265e-3 
 + sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-XMN<10> net_172 pd_1 vgnd net_0110<3> sky130_fd_pr__nfet_g5v0d10v5 m=1 w=0.75 l=1.00 mult=1 sa=265e-3 
+XMN<10> net_172 pd_1 vgnd vnb sky130_fd_pr__nfet_g5v0d10v5 m=1 w=0.75 l=1.00 mult=1 sa=265e-3 
 + sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
 XMN<14> pd_1 pd_1 vgnd vnb sky130_fd_pr__nfet_g5v0d10v5 m=1 w=0.75 l=1.00 mult=1 sa=265e-3 sb=265e-3 
 + sd=280e-3 topography=normal area=0.063 perim=1.14
-XM<7> net_180 ngate net_398 net_0111<0> sky130_fd_pr__nfet_g5v0d10v5 m=2 w=5.00 l=1.00 mult=1 sa=265e-3 
+XM<7> net_180 ngate net_398 vnb sky130_fd_pr__nfet_g5v0d10v5 m=2 w=5.00 l=1.00 mult=1 sa=265e-3 
 + sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-XM<6> net_180 ngate net_398 net_0111<1> sky130_fd_pr__nfet_g5v0d10v5 m=2 w=5.00 l=1.00 mult=1 sa=265e-3 
+XM<6> net_180 ngate net_398 vnb sky130_fd_pr__nfet_g5v0d10v5 m=2 w=5.00 l=1.00 mult=1 sa=265e-3 
 + sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-XM<5> net_180 ngate net_398 net_0111<2> sky130_fd_pr__nfet_g5v0d10v5 m=2 w=5.00 l=1.00 mult=1 sa=265e-3 
+XM<5> net_180 ngate net_398 vnb sky130_fd_pr__nfet_g5v0d10v5 m=2 w=5.00 l=1.00 mult=1 sa=265e-3 
 + sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
 XI465 vsource_0 vsource_0 vsource_0 net327 sky130_fd_pr__nfet_g5v0d10v5 m=1 w=5.00 l=0.50 mult=1 
 + sa=265e-3 sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-XM<2> net_178 ngate vgnd net_0112<0> sky130_fd_pr__nfet_g5v0d10v5 m=2 w=5.00 l=1.00 mult=1 sa=265e-3 
+XM<2> net_178 ngate vgnd vnb sky130_fd_pr__nfet_g5v0d10v5 m=2 w=5.00 l=1.00 mult=1 sa=265e-3 
 + sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-XM<1> net_178 ngate vgnd net_0112<1> sky130_fd_pr__nfet_g5v0d10v5 m=2 w=5.00 l=1.00 mult=1 sa=265e-3 
+XM<1> net_178 ngate vgnd vnb sky130_fd_pr__nfet_g5v0d10v5 m=2 w=5.00 l=1.00 mult=1 sa=265e-3 
 + sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-XM<0> net_178 ngate vgnd net_0112<2> sky130_fd_pr__nfet_g5v0d10v5 m=2 w=5.00 l=1.00 mult=1 sa=265e-3 
+XM<0> net_178 ngate vgnd vnb sky130_fd_pr__nfet_g5v0d10v5 m=2 w=5.00 l=1.00 mult=1 sa=265e-3 
 + sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
 XI464 vsource_0 vsource_0 vsource_0 net327 sky130_fd_pr__nfet_g5v0d10v5 m=1 w=5.00 l=0.50 mult=1 
 + sa=265e-3 sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
@@ -13654,25 +13654,25 @@ XI6 net55 pu_h_n vcc_io vcc_io sky130_fd_pr__pfet_g5v0d10v5 m=1 w=5.00 l=1.00 mu
 Xresd pad pad_esd sky130_fd_io__res250only_small
 XML<14> net75 refleak_bias vgnd_io vgnd_io sky130_fd_pr__nfet_g5v0d10v5 m=2 w=5.00 l=1.00 mult=1 
 + sa=265e-3 sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-XML<2> net37 refleak_bias vgnd_io net023<0> sky130_fd_pr__nfet_g5v0d10v5 m=2 w=5.00 l=1.00 mult=1 
+XML<2> net37 refleak_bias vgnd_io vgnd_io sky130_fd_pr__nfet_g5v0d10v5 m=2 w=5.00 l=1.00 mult=1 
 + sa=265e-3 sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-XML<1> net37 refleak_bias vgnd_io net023<1> sky130_fd_pr__nfet_g5v0d10v5 m=2 w=5.00 l=1.00 mult=1 
+XML<1> net37 refleak_bias vgnd_io vgnd_io sky130_fd_pr__nfet_g5v0d10v5 m=2 w=5.00 l=1.00 mult=1 
 + sa=265e-3 sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-XML<0> net37 refleak_bias vgnd_io net023<2> sky130_fd_pr__nfet_g5v0d10v5 m=2 w=5.00 l=1.00 mult=1 
+XML<0> net37 refleak_bias vgnd_io vgnd_io sky130_fd_pr__nfet_g5v0d10v5 m=2 w=5.00 l=1.00 mult=1 
 + sa=265e-3 sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
 XMEN pad_esd net55 net36 vgnd_io sky130_fd_pr__nfet_g5v0d10v5 m=4 w=5.00 l=0.50 mult=1 sa=265e-3 
 + sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-XML<11> net31 refleak_bias vgnd_io net024<0> sky130_fd_pr__nfet_g5v0d10v5 m=2 w=5.00 l=1.00 mult=1 
+XML<11> net31 refleak_bias vgnd_io vgnd_io sky130_fd_pr__nfet_g5v0d10v5 m=2 w=5.00 l=1.00 mult=1 
 + sa=265e-3 sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-XML<10> net31 refleak_bias vgnd_io net024<1> sky130_fd_pr__nfet_g5v0d10v5 m=2 w=5.00 l=1.00 mult=1 
+XML<10> net31 refleak_bias vgnd_io vgnd_io sky130_fd_pr__nfet_g5v0d10v5 m=2 w=5.00 l=1.00 mult=1 
 + sa=265e-3 sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-XML<9> net31 refleak_bias vgnd_io net024<2> sky130_fd_pr__nfet_g5v0d10v5 m=2 w=5.00 l=1.00 mult=1 
+XML<9> net31 refleak_bias vgnd_io vgnd_io sky130_fd_pr__nfet_g5v0d10v5 m=2 w=5.00 l=1.00 mult=1 
 + sa=265e-3 sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-XML<8> net31 refleak_bias vgnd_io net024<3> sky130_fd_pr__nfet_g5v0d10v5 m=2 w=5.00 l=1.00 mult=1 
+XML<8> net31 refleak_bias vgnd_io vgnd_io sky130_fd_pr__nfet_g5v0d10v5 m=2 w=5.00 l=1.00 mult=1 
 + sa=265e-3 sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-XML<13> net35 refleak_bias vgnd_io net025<0> sky130_fd_pr__nfet_g5v0d10v5 m=2 w=5.00 l=1.00 mult=1 
+XML<13> net35 refleak_bias vgnd_io vgnd_io sky130_fd_pr__nfet_g5v0d10v5 m=2 w=5.00 l=1.00 mult=1 
 + sa=265e-3 sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-XML<12> net35 refleak_bias vgnd_io net025<1> sky130_fd_pr__nfet_g5v0d10v5 m=2 w=5.00 l=1.00 mult=1 
+XML<12> net35 refleak_bias vgnd_io vgnd_io sky130_fd_pr__nfet_g5v0d10v5 m=2 w=5.00 l=1.00 mult=1 
 + sa=265e-3 sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
 XI5 net55 pu_h_n vgnd_io vgnd_io sky130_fd_pr__nfet_g5v0d10v5 m=1 w=5.00 l=1.00 mult=1 sa=265e-3 
 + sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
