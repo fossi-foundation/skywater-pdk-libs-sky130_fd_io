@@ -1436,9 +1436,9 @@ XI26 mid PG_AG_VDDA AG_HV VDDA sky130_fd_pr__pfet_g5v0d10v5 m=4 w=10.0 l=0.5
 + VTRIP_SEL_H
 *.PININFO IN_H:I OUT_H:O OUT_VT:O VDDIO_Q:B VSSD:B VTRIP_SEL_H:I
 Xesd_res_q0 IN_H OUT_H sky130_fd_io__res250only_small
-Xggnfet6_q0 VSSD VDDIO_Q VSSD VDDIO_Q OUT_H VDDIO_Q
+Xggnfet6_q0 VSSD VDDIO_Q VSSD VDDIO_Q OUT_H noconnect1
 + sky130_fd_io__signal_5_sym_hv_local_5term
-Xggnfet1_q0 VSSD OUT_H VSSD VDDIO_Q VSSD VDDIO_Q
+Xggnfet1_q0 VSSD OUT_H VSSD VDDIO_Q VSSD noconnect2
 + sky130_fd_io__signal_5_sym_hv_local_5term
 Xhv_passgate_q0 OUT_H VTRIP_SEL_H OUT_VT VSSD sky130_fd_pr__nfet_g5v0d10v5 m=1
 + w=3.0 l=1.0 mult=1 sa=0.265 sb=0.265 sd=0.28 topography=normal area=0.063
@@ -1513,25 +1513,25 @@ XI26 n2 hld_ovr_h hld_i_ovr_h_n VGND VCC_IO sky130_fd_io__hvsbt_nor
 *.PININFO VTRIP_SEL_H:O VTRIP_SEL_H_N:O
 XI836 OD_I_H_N od_i_h VGND VCC_IO sky130_fd_io__hvsbt_inv_x2
 Xtrip_sel_st_q0 trip_sel_st_h od_i_h VGND sky130_fd_io__tk_opti
-XI803<1> dm_st_h<1> od_i_h VGND sky130_fd_io__tk_opti
+XI803<1> dm_st_h<1> od_i_h VGND sky130_fd_io__tk_optiA
 Xtrip_sel_rst_q0 trip_sel_rst_h VGND od_i_h sky130_fd_io__tk_opti
-XI802<1> dm_st_h<2> od_i_h VGND sky130_fd_io__tk_opti
-XI804<1> dm_rst_h<2> VGND od_i_h sky130_fd_io__tk_opti
-XI338<1> dm_rst_h<0> STARTUP_ST_H STARTUP_RST_H sky130_fd_io__tk_opti
+XI802<1> dm_st_h<2> od_i_h VGND sky130_fd_io__tk_optiA
+XI804<1> dm_rst_h<2> VGND od_i_h sky130_fd_io__tk_optiC
+XI338<1> dm_rst_h<0> STARTUP_ST_H STARTUP_RST_H sky130_fd_io__tk_optiC
 XI615 hyst_trim_st_h od_i_h VGND sky130_fd_io__tk_opti
 XI614 hyst_trim_rst_h VGND od_i_h sky130_fd_io__tk_opti
 XI598<1> ib_mode_sel_st_h<1> od_i_h VGND sky130_fd_io__tk_opti
 XI598<0> ib_mode_sel_st_h<0> od_i_h VGND sky130_fd_io__tk_opti
 XI597<1> ib_mode_sel_rst_h<1> VGND od_i_h sky130_fd_io__tk_opti
 XI597<0> ib_mode_sel_rst_h<0> VGND od_i_h sky130_fd_io__tk_opti
-XI337<1> dm_st_h<0> STARTUP_RST_H STARTUP_ST_H sky130_fd_io__tk_opti
-XI805<1> dm_rst_h<1> VGND od_i_h sky130_fd_io__tk_opti
+XI337<1> dm_st_h<0> STARTUP_RST_H STARTUP_ST_H sky130_fd_io__tk_optiA
+XI805<1> dm_rst_h<1> VGND od_i_h sky130_fd_io__tk_optiC
 XI666<1> slew_ctl_st_h<1> od_i_h VGND sky130_fd_io__tk_opti
 XI666<0> slew_ctl_st_h<0> od_i_h VGND sky130_fd_io__tk_opti
 XI665<1> slew_ctl_rst_h<1> VGND od_i_h sky130_fd_io__tk_opti
 XI665<0> slew_ctl_rst_h<0> VGND od_i_h sky130_fd_io__tk_opti
-XI687 ie_n_st_h STARTUP_ST_H STARTUP_RST_H sky130_fd_io__tk_opti
-XI686 ie_n_rst_h STARTUP_RST_H STARTUP_ST_H sky130_fd_io__tk_opti
+XI687 ie_n_st_h STARTUP_ST_H STARTUP_RST_H sky130_fd_io__tk_optiC
+XI686 ie_n_rst_h STARTUP_RST_H STARTUP_ST_H sky130_fd_io__tk_optiA
 Xdm_ls_0_q0 HLD_I_H_N DM[0] DM_H[0] DM_H_N[0] dm_rst_h<0> dm_st_h<0> VCC_IO VGND
 + VPWR sky130_fd_io__com_ctl_ls
 Xinp_dis_ls_q0 HLD_I_H_N INP_DIS INP_DIS_H INP_DIS_H_N ie_n_rst_h ie_n_st_h
@@ -1541,15 +1541,15 @@ Xtrip_sel_ls_q0 HLD_I_H_N VTRIP_SEL VTRIP_SEL_H VTRIP_SEL_H_N trip_sel_rst_h
 XI616 HLD_I_H_N HYST_TRIM HYST_TRIM_H HYST_TRIM_H_N hyst_trim_rst_h
 + hyst_trim_st_h VCC_IO VGND VPWR sky130_fd_io__com_ctl_ls
 XI595<1> HLD_I_H_N IB_MODE_SEL[1] IB_MODE_SEL_H[1] IB_MODE_SEL_H_N[1]
-+ ib_mode_sel_rst_h<1> ib_mode_sel_st_h<1> net58<0> net56<0> net57<0>
++ ib_mode_sel_rst_h<1> ib_mode_sel_st_h<1> VCC_IO VGND VPWR
 + sky130_fd_io__com_ctl_ls
 XI595<0> HLD_I_H_N IB_MODE_SEL[0] IB_MODE_SEL_H[0] IB_MODE_SEL_H_N[0]
-+ ib_mode_sel_rst_h<0> ib_mode_sel_st_h<0> net58<1> net56<1> net57<1>
++ ib_mode_sel_rst_h<0> ib_mode_sel_st_h<0> VCC_IO VGND VPWR
 + sky130_fd_io__com_ctl_ls
 XI667<1> HLD_I_H_N SLEW_CTL[1] SLEW_CTL_H[1] SLEW_CTL_H_N[1] slew_ctl_rst_h<1>
-+ slew_ctl_st_h<1> net61<0> net59<0> net60<0> sky130_fd_io__com_ctl_ls
++ slew_ctl_st_h<1> VCC_IO VGND VPWR sky130_fd_io__com_ctl_ls
 XI667<0> HLD_I_H_N SLEW_CTL[0] SLEW_CTL_H[0] SLEW_CTL_H_N[0] slew_ctl_rst_h<0>
-+ slew_ctl_st_h<0> net61<1> net59<1> net60<1> sky130_fd_io__com_ctl_ls
++ slew_ctl_st_h<0> VCC_IO VGND VPWR sky130_fd_io__com_ctl_ls
 Xdm_ls<2>_q0 HLD_I_H_N DM[2] DM_H[2] DM_H_N[2] dm_rst_h<2> dm_st_h<2> VCC_IO
 + VGND VPWR sky130_fd_io__com_ctl_ls
 Xdm_ls<1>_q0 HLD_I_H_N DM[1] DM_H[1] DM_H_N[1] dm_rst_h<1> dm_st_h<1> VCC_IO
@@ -1824,11 +1824,11 @@ Xhsctl_q0 EN_H enhs_lat_h_n FORCE_H[1] OD_I_H_N P3OUT PAD net50 VDDIO VPB_DRVR
 XI3 enhs_latbuf_h_n PADLO sky130_fd_io__sio_tk_em1s
 XEpghs12 PGHS_H net54 sky130_fd_io__sio_tk_em1o
 XI2 enhs_lat_h enhs_latbuf_h_n VSSD VSSD VDDIO VDDIO
-+ sky130_fd_io__sio_hvsbt_inv_x4
++ sky130_fd_io__gpio_ovtv2_hvsbt_inv_x4
 XI1 enhs_lat_h_n enhs_lat_h VSSD VSSD VDDIO VDDIO sky130_fd_io__sio_hvsbt_inv_x1
 Xpghspu_q0 PAD PGHS_H net50 TIE_HI VCC_IO_SOFT VPB_DRVR
 + sky130_fd_io__gpio_ovtv2_hotswap_pghspu
-Xclamp_q0 VSSD VDDIO VSSD VDDIO PAD VDDIO sky130_fd_io__signal_5_sym_hv_local_5term
+Xclamp_q0 VSSD VDDIO VSSD VDDIO PAD noconnect sky130_fd_io__signal_5_sym_hv_local_5term
 Xpghs12_q0 net54 PADLO VPB_DRVR VPB_DRVR sky130_fd_pr__pfet_g5v0d10v5 m=1 w=3.0
 + l=1.0 mult=1 sa=0.265 sb=0.265 sd=0.28 topography=normal area=0.063 perim=1.14
 .ENDS sky130_fd_io__gpio_ovtv2_hotswap_pghs_i2c_fix
@@ -1897,10 +1897,10 @@ Xpghs7_q0 padhi7 pg7 PAD VPB_DRVR sky130_fd_pr__pfet_g5v0d10v5 m=1 w=20.0 l=0.5
 .SUBCKT sky130_fd_io__gpio_ovtv2_hotswap_pug PAD PADLO PUG_H TIE_HI VPB_DRVR
 *.PININFO PAD:I PADLO:I PUG_H:O TIE_HI:I VPB_DRVR:I
 XEg1 PADLO net22 sky130_fd_io__sio_tk_em1s
-XI65 net24 TIE_HI sky130_fd_io__sio_tk_em1s
-XEs2 net26 TIE_HI sky130_fd_io__sio_tk_em1s
-XEs1 PAD net26 sky130_fd_io__sio_tk_em1o
-XEg2 net22 net24 sky130_fd_io__sio_tk_em1o
+XI65 net24 TIE_HI sky130_fd_io__sio_tk_em2s
+XEs2 net26 TIE_HI sky130_fd_io__sio_tk_em2s
+XEs1 PAD net26 sky130_fd_io__sio_tk_em2o
+XEg2 net22 net24 sky130_fd_io__sio_tk_em2o
 XI52 PUG_H net22 net26 VPB_DRVR sky130_fd_pr__pfet_g5v0d10v5 m=1 w=15.0 l=0.5
 + mult=1 sa=1.825 sb=1.825 sd=0.28 topography=normal area=0.063 perim=1.14
 XI53 PUG_H net24 net26 VPB_DRVR sky130_fd_pr__pfet_g5v0d10v5 m=1 w=15.0 l=0.5
@@ -1963,7 +1963,7 @@ Xpsw_pad5_q0 VPB_DRVR VPB_DRVR SOFT_VCC_IO PAD
 + sky130_fd_io__gpio_ovtv2_hotswap_vpb_bias_unit
 Xpsw_pad1_q0 VPB_DRVR VPB_DRVR P2G PAD
 + sky130_fd_io__gpio_ovtv2_hotswap_vpb_bias_unit
-XI5 TIE_HI SOFT_VCC_IO sky130_fd_io__tk_em1o
+XI5 TIE_HI SOFT_VCC_IO sky130_fd_io__tk_em2o
 .ENDS sky130_fd_io__gpio_ovtv2_hotswap_vpb_bias
 
 * Copyright 2020 The SkyWater PDK Authors
@@ -2914,8 +2914,8 @@ XI169 SLEW_CTL_H[1] SLEW_CTL_H_N[0] net278 VGND_IO VCC_IO
 + sky130_fd_io__com_nor2_dnw
 XI94 nsw_en nsw_enb PD_H[2] PD_H[3] VCC_IO VGND_IO
 + sky130_fd_io__gpio_ovtv2_predrvr_switch
-XI288 N0 net193 VGND_IO sky130_fd_pr__res_generic_nd__hv W=0.5 L=113.375 m=1
-XI287 vdiode net190 VGND_IO sky130_fd_pr__res_generic_nd__hv W=0.5 L=113.375 m=1
+XI288 N0 net193 VSSD sky130_fd_pr__res_generic_nd__hv W=0.5 L=113.375 m=1
+XI287 vdiode net190 VSSD sky130_fd_pr__res_generic_nd__hv W=0.5 L=113.375 m=1
 XI206 N0 en VGND_IO VGND_IO sky130_fd_pr__nfet_g5v0d10v5 m=1 w=5.0 l=0.5 mult=1
 + sa=0.265 sb=0.265 sd=0.28 topography=normal area=0.063 perim=1.14
 XI190 net531 en VGND_IO VGND_IO sky130_fd_pr__nfet_g5v0d10v5 m=1 w=5.0 l=0.5
@@ -3210,9 +3210,9 @@ XI375 SIG2 PMOS_EN SIG1 VCC_IO sky130_fd_pr__pfet_g5v0d10v5 m=2 w=5.0 l=0.5
 XI49 VDDIO TIE_HI_ESD sky130_fd_io__tk_tie_r_out_esd
 XI133 VPB_DRVR tie_hi_vpbdrvr sky130_fd_io__tk_tie_r_out_esd
 XI112 PUG_H[2] net83 sky130_fd_io__tk_em2o
-XI111 PUG_H[4] net81 sky130_fd_io__tk_em2o
+XI111 PUG_H[4] net81 sky130_fd_io__tk_em1o
 XI141 PUG_H[3] net79 sky130_fd_io__tk_em2o
-XI152 PUG_H[4] net079 sky130_fd_io__tk_em1o
+XI152 PUG_H[4] net079 sky130_fd_io__tk_em2o
 XI142 tie_hi_vpbdrvr net79 sky130_fd_io__tk_em2s
 XI82 tie_hi_vpbdrvr net83 sky130_fd_io__tk_em2s
 XI109 tie_hi_vpbdrvr net81 sky130_fd_io__tk_em2s
@@ -3332,7 +3332,7 @@ Xpdrv_q0 PD PGIN PS PB sky130_fd_pr__esd_pfet_g5v0d10v5 m=1 w=15.5 l=0.55 mult=1
 + VDDIO VPB_DRVR VSSD VSSIO
 *.PININFO NGHS_H:I PAD:B PGHS_H:I PU_H_N:I PUG_H:B VDDIO:I VPB_DRVR:I
 *.PININFO VSSD:I VSSIO:I
-XI36 PAD net26 sky130_fd_io__tk_em1o
+XI36 PAD net26 sky130_fd_io__tk_em2o
 XI51 PUG_H NGHS_H PU_H_N VSSIO sky130_fd_pr__nfet_g5v0d10v5 m=2 w=3.0 l=0.5
 + mult=1 sa=0.265 sb=0.265 sd=0.28 topography=normal area=0.063 perim=1.14
 XI50 PU_H_N PGHS_H PUG_H VPB_DRVR sky130_fd_pr__pfet_g5v0d10v5 m=2 w=3.0 l=0.5
@@ -6647,6 +6647,14 @@ XI1 OUT IN VPWR VPB sky130_fd_pr__pfet_g5v0d10v5 m=4 w=3.0 l=0.6 mult=1 sa=0.265
 + sb=0.265 sd=0.28 topography=normal area=0.063 perim=1.14
 .ENDS sky130_fd_io__sio_hvsbt_inv_x4
 
+.SUBCKT sky130_fd_io__gpio_ovtv2_hvsbt_inv_x4 IN OUT VGND VNB VPB VPWR
+*.PININFO IN:I OUT:O VGND:I VNB:I VPB:I VPWR:I
+XI2 OUT IN VGND VNB sky130_fd_pr__nfet_g5v0d10v5 m=4 w=1.0 l=0.6 mult=1 sa=0.265
++ sb=0.265 sd=0.28 topography=normal area=0.063 perim=1.14
+XI1 OUT IN VPWR VPB sky130_fd_pr__pfet_g5v0d10v5 m=4 w=3.0 l=0.6 mult=1 sa=0.265
++ sb=0.265 sd=0.28 topography=normal area=0.063 perim=1.14
+.ENDS sky130_fd_io__gpio_hvsbt_inv_x4
+
 * Copyright 2020 The SkyWater PDK Authors
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
@@ -6914,7 +6922,6 @@ Xe2_q0 SPD OUT sky130_fd_io__tk_em1o
 Xe1_q0 OUT SPU sky130_fd_io__tk_em2s
 .ENDS sky130_fd_io__tk_optiA
 
-
 * optiB is the same as opti, but uses tk_em2s, which is like tk_em1s
 * but with a m2 short instead of a m1 short, and tk_em2o, which is
 * like tk_em1o but with m2 shorts instead of m1 shorts.
@@ -6925,6 +6932,14 @@ Xe2_q0 SPD OUT sky130_fd_io__tk_em2o
 Xe1_q0 OUT SPU sky130_fd_io__tk_em2s
 .ENDS sky130_fd_io__tk_optiB
 
+* optiC is the same as opti, but uses tk_em2o, which is like tk_em1o
+* but with an m2 open instead of an m1 open.
+
+.SUBCKT sky130_fd_io__tk_optiC OUT SPD SPU
+*.PININFO OUT:B SPD:B SPU:B
+Xe2_q0 SPD OUT sky130_fd_io__tk_em2o
+Xe1_q0 OUT SPU sky130_fd_io__tk_em1s
+.ENDS sky130_fd_io__tk_optiC
 
 * Copyright 2020 The SkyWater PDK Authors
 *
@@ -8527,9 +8542,9 @@ Xhld_i_h_inv8<1> enable_vdda_h_n hld_i_h_n_net<1> net018<0> net017<0>
 + sky130_fd_io__hvsbt_inv_x8
 Xhld_i_h_inv8<0> enable_vdda_h_n hld_i_h_n_net<0> net018<1> net017<1> 
 + sky130_fd_io__hvsbt_inv_x8
-Rsky130_fd_pr__res_generic_m1<1> hld_i_h_n_net<1> hld_i_h_n sky130_fd_pr__res_generic_m1
-Rsky130_fd_pr__res_generic_m1<0> hld_i_h_n_net<0> hld_i_h_n sky130_fd_pr__res_generic_m1
-Rsky130_fd_pr__res_generic_m1_hld_i_h enable_vdda_h_n hld_i_h sky130_fd_pr__res_generic_m1
+Rsky130_fd_pr__res_generic_m1<1> hld_i_h_n_net<1> hld_i_h_n sky130_fd_pr__res_generic_m1 l=0.01 w=0.5
+Rsky130_fd_pr__res_generic_m1<0> hld_i_h_n_net<0> hld_i_h_n sky130_fd_pr__res_generic_m1 l=0.01 w=0.5
+Rsky130_fd_pr__res_generic_m1_hld_i_h enable_vdda_h_n hld_i_h sky130_fd_pr__res_generic_m1 l=0.01 w=0.5
 .ENDS
 
 .SUBCKT sky130_fd_io__gpio_ctl analog_en analog_en_h analog_en_vddio dm<2> dm<1> 
@@ -8988,9 +9003,9 @@ Xipath analog_en_h dm_h_n<2> dm_h_n<1> dm_h_n<0> inp_dis_h_n in in_h pad
 Xamux amuxbus_a amuxbus_b analog_en analog_pol analog_sel out pad analog_en_h 
 + analog_en_vddio vccd vdda vddio_q vssa vssd vssio_q vswitch 
 + sky130_fd_io__gpio_amux
-RS0<2> pad pad_a_noesd_h sky130_fd_pr__res_generic_m1
-RS0<1> pad pad_a_noesd_h sky130_fd_pr__res_generic_m1
-RS0<0> pad pad_a_noesd_h sky130_fd_pr__res_generic_m1
+RS0<2> pad pad_a_noesd_h sky130_fd_pr__res_generic_m1 l=0.01 w=0.5
+RS0<1> pad pad_a_noesd_h sky130_fd_pr__res_generic_m1 l=0.01 w=0.5
+RS0<0> pad pad_a_noesd_h sky130_fd_pr__res_generic_m1 l=0.01 w=0.5
 .ENDS
 
 .SUBCKT sky130_fd_io__gpiovrefv2_hv_inv in out vddio_q vssd
@@ -9240,7 +9255,7 @@ XI391 enable_h hld_h_n ref_sel<4> ref_sel<3> ref_sel<2> ref_sel<1> ref_sel<0>
 
 .SUBCKT sky130_fd_io__top_ground_padonlyv2 g_core g_pad
 *.PININFO g_core:B g_pad:B
-RI1 g_pad g_core sky130_fd_pr__res_generic_m1
+RI1 g_pad g_core sky130_fd_pr__res_generic_m1 l=0.01 w=0.5
 .ENDS
 
 .SUBCKT sky130_fd_io__top_hvclamp drn_hvc ogc_hvc src_bdy_hvc
@@ -9328,7 +9343,7 @@ Xpre_p1 g_nclamp_lvc1 g_pdpre_lvc1 drn_lvc drn_lvc sky130_fd_pr__pfet_01v8 m=20 
 
 .SUBCKT sky130_fd_io__top_padv2 core pad
 *.PININFO core:B pad:B
-RI1 pad core sky130_fd_pr__res_generic_m1
+RI1 pad core sky130_fd_pr__res_generic_m1 l=0.01 w=0.5
 .ENDS
 
 .SUBCKT sky130_fd_io__top_power_hvc_wpad amuxbus_a amuxbus_b drn_hvc ogc_hvc p_core 
@@ -9352,12 +9367,12 @@ Xnc2 src_bdy_hvc g_pdpre src_bdy_hvc src_bdy_hvc sky130_fd_pr__nfet_g5v0d10v5 m=
 + sa=265e-3 sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
 Xcxtor2 drn_hvc g_nclamp src_bdy_hvc src_bdy_hvc sky130_fd_pr__nfet_g5v0d10v5 m=22 w=10.0 l=0.50 mult=1 
 + sa=265e-3 sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-RI13 p_pad p_core sky130_fd_pr__res_generic_m1
+RI13 p_pad p_core sky130_fd_pr__res_generic_m1 l=0.01 w=0.5
 .ENDS
 
 .SUBCKT sky130_fd_io__top_power_padonlyv2 p_core p_pad
 *.PININFO p_core:B p_pad:B
-RI1 p_pad p_core sky130_fd_pr__res_generic_m1
+RI1 p_pad p_core sky130_fd_pr__res_generic_m1 l=0.01 w=0.5
 .ENDS
 
 .SUBCKT sky130_fd_io__pwrdet_inv_4 A Y vgnd vnb vpb vpwr
@@ -9430,8 +9445,8 @@ XI13 vpwrout vpwrout vpwrout vpwrout sky130_fd_pr__pfet_g5v0d10v5 m=2 w=3.00 l=0
 + sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
 .ENDS
 
-.SUBCKT sky130_fd_io__pwrdet_vddio out rst_por_hv_n vccd vddd vddio_q vssa
-*.PININFO rst_por_hv_n:I vccd:I vddd:I vddio_q:I vssa:I out:O
+.SUBCKT sky130_fd_io__pwrdet_vddio out rst_por_hv_n vccd vddd vddio_q vssa vssd
+*.PININFO rst_por_hv_n:I vccd:I vddd:I vddio_q:I vssa:I vssd:I out:O
 XI7 net_1 out vssa vssa vddd vddd sky130_fd_io__pwrdet_inv_4
 XI2 vddio_q net88 sky130_fd_io__res250only_small
 XI21 pre_out out_1 net126 vssa sky130_fd_pr__nfet_g5v0d10v5 m=2 w=1.50 l=4.00 mult=1 sa=265e-3 
@@ -9472,10 +9487,10 @@ XI6 vddd vddd vddd vddd sky130_fd_pr__pfet_g5v0d10v5 m=1 w=1.50 l=0.50 mult=1 sa
 + sd=280e-3 topography=normal area=0.063 perim=1.14
 XI3 vddd vddd vddd vddd sky130_fd_pr__pfet_g5v0d10v5 m=1 w=1.50 l=0.50 mult=1 sa=265e-3 sb=265e-3 
 + sd=280e-3 topography=normal area=0.063 perim=1.14
-XRI25 net88 vddio_r vssa sky130_fd_pr__res_generic_nd__hv m=1 w=0.3 l=278.07
+XRI25 net88 vddio_r vssd sky130_fd_pr__res_generic_nd__hv m=1 w=0.3 l=278.07
 .ENDS
 
-.SUBCKT sky130_fd_io__pwrdet_vddd out vddd vddio_q vssa
+.SUBCKT sky130_fd_io__pwrdet_vddd out vddd vddio_q vssa vssd
 *.PININFO vddd:I vddio_q:I vssa:I out:O
 XI0 vddd net100 sky130_fd_io__res250only_small
 XI295 net194 n2 vddio_q vddio_q sky130_fd_pr__pfet_g5v0d10v5 m=2 w=1.00 l=4.00 mult=1 sa=265e-3 
@@ -9493,11 +9508,11 @@ XI20 vddio_q vddio_q vddio_q vddio_q sky130_fd_pr__pfet_g5v0d10v5 m=1 w=1.50 l=0
 XI19 vddio_q vddio_q vddio_q vddio_q sky130_fd_pr__pfet_g5v0d10v5 m=1 w=1.50 l=0.50 mult=1 sa=265e-3 
 + sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
 XRI299 vssa vssa sky130_fd_pr__res_generic_po m=1 w=0.33 l=15.635
-XRI2 p0 net138 vssa sky130_fd_pr__res_generic_nd__hv m=1 w=0.3 l=3150
-XRI3 net132 vddio_q vssa sky130_fd_pr__res_generic_nd__hv m=1 w=0.3 l=1340
-XRI12 vddd vddd vssa sky130_fd_pr__res_generic_nd__hv m=1 w=0.3 l=69.52
+XRI2 p0 net138 vssd sky130_fd_pr__res_generic_nd__hv m=1 w=0.3 l=3150
+XRI3 net132 vddio_q vssd sky130_fd_pr__res_generic_nd__hv m=1 w=0.3 l=1340
+XRI12 vddd vddd vssd sky130_fd_pr__res_generic_nd__hv m=1 w=0.3 l=69.52
 XRI9 net138 net132 sky130_fd_pr__res_generic_po m=1 w=0.33 l=1950
-XRI11 net129 net100 vssa sky130_fd_pr__res_generic_nd__hv m=1 w=0.3 l=69.52
+XRI11 net129 net100 vssd sky130_fd_pr__res_generic_nd__hv m=1 w=0.3 l=69.52
 XI294 net194 n2 vssa vssa sky130_fd_pr__nfet_g5v0d10v5 m=1 w=1.00 l=4.00 mult=1 sa=265e-3 sb=265e-3 
 + sd=280e-3 topography=normal area=0.063 perim=1.14
 XI296 out net194 vssa vssa sky130_fd_pr__nfet_g5v0d10v5 m=1 w=1.00 l=2.00 mult=1 sa=265e-3 sb=265e-3 
@@ -9557,8 +9572,8 @@ XI5 in3_vddio_hv out3_vddd_hv net174 vssd vddio_q vddd1
 + sky130_fd_io__pwrdet_lshv2hv_0
 XI15 in3_vddd_hv out3_vddio_hv net160 vssd vddd2 vddio_q 
 + sky130_fd_io__pwrdet_lshv2hv_0
-XI1 net166 rst_por_hv_n vccd vddd1 vddio_q vssa sky130_fd_io__pwrdet_vddio
-XI0 net178 vddd2 vddio_q vssa sky130_fd_io__pwrdet_vddd
+XI1 net166 rst_por_hv_n vccd vddd1 vddio_q vssa vssd sky130_fd_io__pwrdet_vddio
+XI0 net178 vddd2 vddio_q vssa vssd sky130_fd_io__pwrdet_vddd
 .ENDS
 
 .SUBCKT sky130_fd_io__refgen_vdda_vswitch_ls in_h out_h out_h_n vddio_q vssa vswitch
@@ -9939,14 +9954,14 @@ XI3 net30 net35 vpwr_ka vpwr_ka sky130_fd_pr__pfet_01v8 m=1 w=0.55 l=2.00 mult=1
 
 .SUBCKT sky130_fd_io__refgen_em1s a b
 *.PININFO a:B b:B
-RI1 a net8 sky130_fd_pr__res_generic_m1
-RI2 b net8 sky130_fd_pr__res_generic_m1
+RI1 a net8 sky130_fd_pr__res_generic_m1 l=0.01 w=0.5
+RI2 b net8 sky130_fd_pr__res_generic_m1 l=0.01 w=0.5
 .ENDS
 
 .SUBCKT sky130_fd_io__refgen_em1o a b
 *.PININFO a:B b:B
-RI1 a net11 sky130_fd_pr__res_generic_m1
-RI2 b net7 sky130_fd_pr__res_generic_m1
+RI1 a net11 sky130_fd_pr__res_generic_m1 l=0.01 w=0.5
+RI2 b net7 sky130_fd_pr__res_generic_m1 l=0.01 w=0.5
 .ENDS
 
 .SUBCKT sky130_fd_io__refgen_opti out spd spu
@@ -10027,9 +10042,9 @@ XI2 out in vgnd vnb sky130_fd_pr__nfet_01v8 m=4 w=1.00 l=0.25 mult=1 sa=265e-3 s
 + vpb vpwr
 *.PININFO hld_h_n:I od_h:I vcc_io:I vgnd:I vpb:I vpwr:I hld_i_h_n:O 
 *.PININFO hld_i_vpwr:O
-Xhld_i_h_inv8<1> hld_i_h hld_i_h_n net013<0> net010<0> net011<0> net012<0> 
+Xhld_i_h_inv8<1> hld_i_h hld_i_h_n vgnd vgnd vcc_io vcc_io
 + sky130_fd_io__refgen_inv_x8
-Xhld_i_h_inv8<0> hld_i_h hld_i_h_n net013<1> net010<1> net011<1> net012<1> 
+Xhld_i_h_inv8<0> hld_i_h hld_i_h_n vgnd vgnd vcc_io vcc_io
 + sky130_fd_io__refgen_inv_x8
 Xhld_i_h_inv4 hld_i_h_n_ls hld_i_h vgnd vgnd vcc_io vcc_io 
 + sky130_fd_io__refgen_inv_x4
@@ -10532,8 +10547,8 @@ Xlogic en_inpop_h en_outop_h en_outop_h_n ibuf_sel_h ibuf_sel_h_n sel_vcc_io
 *.PININFO res_tap<8>:O res_tap<7>:O res_tap<6>:O res_tap<5>:O res_tap<4>:O 
 *.PININFO res_tap<3>:O res_tap<2>:O res_tap<1>:O vohref_0p5:O fb_out:B 
 *.PININFO resgnd:B vgnd:B
-RI80 res_tap<8> fb_out sky130_fd_pr__res_generic_m1
-XRI0<17> int1<1> vgnd vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
+RI80 res_tap<8> fb_out sky130_fd_pr__res_generic_m1 l=0.01 w=0.5
+XRI0<17> int1<1> resgnd vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
 XRI0<16> int1<2> int1<1> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
 XRI0<15> int1<3> int1<2> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
 XRI0<14> int1<4> int1<3> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
@@ -10629,7 +10644,7 @@ XRI79<0> res_tap<8> int8<14> vgnd sky130_fd_pr__res_generic_nd m=1 w=0.5 l=6.465
 *.PININFO res_tap<5>:O res_tap<4>:O res_tap<3>:O res_tap<2>:O res_tap<1>:O 
 *.PININFO res_tap<0>:O vohref_0p5:O fb_out:B res_stack:B
 XI11 res_stack net40<0> net40<1> net40<2> net40<3> net40<4> net40<5> net40<6> 
-+ net40<7> vgnd net041 vohref_0p5 sky130_fd_io__refgen_res_ntwk_a
++ net40<7> net041 vgnd vohref_0p5 sky130_fd_io__refgen_res_ntwk_a
 XI10 fb_out res_tap<7> res_tap<6> res_tap<5> res_tap<4> res_tap<3> res_tap<2> 
 + res_tap<1> res_tap<0> vgnd vgnd net41 sky130_fd_io__refgen_res_ntwk_a
 XI19 net041 sel_vohref_0p5 vgnd vnb sky130_fd_pr__nfet_g5v0d10v5 m=7 w=3.00 l=0.50 mult=1 sa=265e-3 
@@ -11197,19 +11212,24 @@ Xinbuf en en_h en_h_n en_n ibufmux_out_h_n ibufmux_out_n in_h in_vt vcc_io
 *.PININFO gate:I in:B nbody:B nwellRing:B vgnd:B
 XI1 in gate vgnd nbody sky130_fd_pr__esd_nfet_g5v0d10v5 m=1 w=5.40 l=0.60 mult=1 sa=265e-3 sb=265e-3 
 + sd=280e-3 topography=normal area=0.048 perim=0.94
-RI9 net18 nbody sky130_fd_pr__res_generic_m1
-RI8 net16 nwellRing sky130_fd_pr__res_generic_m1
+RI9 net18 nbody sky130_fd_pr__res_generic_m1 l=0.01 w=0.5
+RI8 net16 nwellRing sky130_fd_pr__res_generic_m1 l=0.01 w=0.5
 .ENDS
 
 .SUBCKT sky130_fd_io__sio_res250only_small_esd pad rout
 *.PININFO pad:B rout:B
-XRI175 net12 net16 sky130_fd_pr__res_generic_po m=1 w=2 l=10.07
-XRI229 net16 rout sky130_fd_pr__res_generic_po m=1 w=2 l=0.17
-XRI228 pad net12 sky130_fd_pr__res_generic_po m=1 w=2 l=0.17
-RI237<1> net16 rout sky130_fd_pr__res_generic_m1
-RI237<2> net16 rout sky130_fd_pr__res_generic_m1
-RI234<1> pad net12 sky130_fd_pr__res_generic_m1
-RI234<2> pad net12 sky130_fd_pr__res_generic_m1
+* XRI175 net12 net16 sky130_fd_pr__res_generic_po m=1 w=2 l=10.07
+* XRI229 net16 rout sky130_fd_pr__res_generic_po m=1 w=2 l=0.17
+* XRI228 pad net12 sky130_fd_pr__res_generic_po m=1 w=2 l=0.17
+* RI237<1> net16 rout sky130_fd_pr__res_generic_m1
+* RI237<2> net16 rout sky130_fd_pr__res_generic_li
+* RI234<1> pad net12 sky130_fd_pr__res_generic_m1
+* RI234<2> pad net12 sky130_fd_pr__res_generic_li
+
+* NOTE: Removed all but the primary resistor;  the other devices do not
+* show up in the layout.
+
+XRI175 pad rout sky130_fd_pr__res_generic_po m=1 w=2 l=10.07
 .ENDS
 
 .SUBCKT sky130_fd_io__sio_buf_localesd in_h out_h out_vt vcc_io vgnd vtrip_sel_h
@@ -12109,9 +12129,9 @@ XI7 net113 in_i_n vgnd vgnd sky130_fd_pr__nfet_01v8_lvt m=4 w=1.00 l=0.15 mult=1
 + hld_ovr od_i_h vcc_io vgnd vpwr
 *.PININFO enable_h:I hld_h_n:I hld_ovr:I vcc_io:I vgnd:I vpwr:I hld_i_h_n:O 
 *.PININFO hld_i_ovr_h:O hld_i_vpwr:O od_i_h:O
-Xhld_i_h_inv8<1> hld_i_h hld_i_h_n net025<0> vgnd vcc_io net024<0> 
+Xhld_i_h_inv8<1> hld_i_h hld_i_h_n vgnd vgnd vcc_io vcc_io
 + sky130_fd_io__sio_hvsbt_inv_x8
-Xhld_i_h_inv8<0> hld_i_h hld_i_h_n net025<1> vgnd vcc_io net024<1> 
+Xhld_i_h_inv8<0> hld_i_h hld_i_h_n vgnd vgnd vcc_io vcc_io
 + sky130_fd_io__sio_hvsbt_inv_x8
 Xhld_i_h_inv4 hld_i_h_n_ls hld_i_h vgnd vgnd vcc_io vcc_io 
 + sky130_fd_io__sio_hvsbt_inv_x4
@@ -12149,6 +12169,12 @@ Xe1 out spu sky130_fd_io__sio_tk_em1s
 Xe2 spd out sky130_fd_io__sio_tk_em1o
 .ENDS
 
+.SUBCKT sky130_fd_io__sio_tk_optiA out spd spu
+*.PININFO out:B spd:B spu:B
+Xe1 out spu sky130_fd_io__sio_tk_em2s
+Xe2 spd out sky130_fd_io__sio_tk_em1o
+.ENDS
+
 .SUBCKT sky130_fd_io__sio_ctl_lsbank dm<2> dm<1> dm<0> dm_h<2> dm_h<1> dm_h<0> 
 + dm_h_n<2> dm_h_n<1> dm_h_n<0> hld_i_h_n hld_i_vpwr ibuf_sel ibuf_sel_h 
 + ibuf_sel_h_n inp_dis inp_dis_h inp_dis_h_n od_i_h vcc_io vgnd vpwr vtrip_sel 
@@ -12170,6 +12196,7 @@ Xbuf_sel_ls hld_i_h_n ibuf_sel hld_i_vpwr ibuf_sel_h ibuf_sel_h_n
 + buf_sel_rst_h buf_sel_st_h vcc_io vgnd vpwr sky130_fd_io__sio_ctl_ls
 Xtrip_sel_ls hld_i_h_n vtrip_sel hld_i_vpwr vtrip_sel_h vtrip_sel_h_n 
 + trip_sel_rst_h trip_sel_st_h vcc_io vgnd vpwr sky130_fd_io__sio_ctl_ls
+
 XI101 net81 hld_i_h_n vcc_io sky130_fd_io__sio_tk_opto
 Xtrip_sel_st trip_sel_st_h od_i_h vgnd sky130_fd_io__sio_tk_opti
 Xbuf_sel_rst buf_sel_rst_h vgnd od_i_h sky130_fd_io__sio_tk_opti
@@ -12183,6 +12210,7 @@ XI347<1> dm_rst_h<0> vgnd od_i_h sky130_fd_io__sio_tk_opti
 Xdm_rst<1> dm_rst_h<1> vgnd od_i_h sky130_fd_io__sio_tk_opti
 XI344<1> dm_st_h<0> od_i_h vgnd sky130_fd_io__sio_tk_opti
 XI346<1> dm_st_h<2> od_i_h vgnd sky130_fd_io__sio_tk_opti
+
 .ENDS
 
 .SUBCKT sky130_fd_io__sio_ctl dm<2> dm<1> dm<0> dm_h<2> dm_h<1> dm_h<0> dm_h_n<2> 
@@ -12406,7 +12434,7 @@ XI86 slow_h pden_h_n en_fast_h vgnd_io vcc_io sky130_fd_io__sio_com_nor2_dnw
 XI77 en_fast2_n<1> pbias1 net167 sky130_fd_io__sio_tk_opto
 XI76 net179 pbias1 net167 sky130_fd_io__sio_tk_opto
 XI94 en_fast5_n<1> pbias1 net167 sky130_fd_io__sio_tk_opto
-XI96 en_fast5_n<0> en_fast5_n<1> vcc_io sky130_fd_io__sio_tk_opti
+XI96 en_fast5_n<0> en_fast5_n<1> vcc_io sky130_fd_io__sio_tk_optiA
 XI79 en_fast2_n<0> en_fast2_n<1> vcc_io sky130_fd_io__sio_tk_opti
 .ENDS
 
@@ -13074,7 +13102,8 @@ Xpghspu pad pghs_h net71 tie_hi vcc_io_soft vpb_drvr
 + sky130_fd_io__sio_hotswap_pghspu
 Xhsctl en_h enhs_lat_h_n force_h<1> od_h p3out pad net71 vcc_io vgnd vpb_drvr 
 + vpwr_ka sky130_fd_io__sio_hotswap_ctl
-Xclamp vgnd vcc_io vgnd vcc_io pad sky130_fd_io__signal_5_sym_hv_local_5term
+* Xclamp vgnd vcc_io vgnd vcc_io pad vgnd sky130_fd_io__signal_5_sym_hv_local_5term
+Xclamp vgnd vcc_io vgnd vgnd pad vgnd sky130_fd_io__signal_5_sym_hv_local_5term
 Xpghs12 net50 padlo vpb_drvr vpb_drvr sky130_fd_pr__pfet_g5v0d10v5 m=1 w=3.00 l=1.00 mult=1 sa=265e-3 
 + sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
 .ENDS
@@ -13103,11 +13132,11 @@ Xpug<0> net102 net126 pug_h<0> tie_hi vpb_drvr sky130_fd_io__sio_hotswap_pug
 Xpghs oe_hs_h force_h<1> od_h net95 net102 padlo net123 tie_hi vcc_io 
 + vcc_io_soft vgnd vpb_drvr vpwr_ka sky130_fd_io__sio_hotswap_pghs
 XI113 pad net102 sky130_fd_io__res75only_noshorts_nometal
-RI25 p1g net123 sky130_fd_pr__res_generic_m1
-RI26 p2g net117 sky130_fd_pr__res_generic_m1
-RI39 p2g net95 sky130_fd_pr__res_generic_m1
-RI27 padlo net126 sky130_fd_pr__res_generic_m1
-RI225 pghs_h p1g sky130_fd_pr__res_generic_m1
+RI25 p1g net123 sky130_fd_pr__res_generic_m2 l=0.01 w=0.5
+RI26 p2g net117 sky130_fd_pr__res_generic_m2 l=0.01 w=0.5
+RI39 p2g net95 sky130_fd_pr__res_generic_m2 l=0.01 w=0.5
+RI27 padlo net126 sky130_fd_pr__res_generic_m2 l=0.01 w=0.5
+RI225 pghs_h p1g sky130_fd_pr__res_generic_m2 l=0.01 w=0.5
 .ENDS
 
 .SUBCKT sky130_fd_io__sio_tk_tie_r300 a b
@@ -13265,7 +13294,7 @@ Xn8<3> pad pd_h<4> vgnd_io sky130_fd_io__sio_pddrvr_unit
 Xn8<2> pad pd_h<4> vgnd_io sky130_fd_io__sio_pddrvr_unit
 Xn8<1> pad pd_h<4> vgnd_io sky130_fd_io__sio_pddrvr_unit
 Xn8<0> pad pd_h<4> vgnd_io sky130_fd_io__sio_pddrvr_unit
-RI8 vcc_io net76 sky130_fd_pr__res_generic_m1
+RI8 vcc_io net76 sky130_fd_pr__res_generic_m1 l=0.01 w=0.5
 .ENDS
 
 .SUBCKT sky130_fd_io__sio_res_weak ra rb vgnd_io
@@ -13358,14 +13387,14 @@ XI533 out_t_n out_c_n vpwr vpb sky130_fd_pr__pfet_01v8 m=1 w=1.00 l=1.00 mult=1 
 
 .SUBCKT sky130_fd_io__tk_em1o_b a b
 *.PININFO a:B b:B
-RI1 a net11 sky130_fd_pr__res_generic_m1
-RI2 b net7 sky130_fd_pr__res_generic_m1
+RI1 a net11 sky130_fd_pr__res_generic_m1 l=0.01 w=0.5
+RI2 b net7 sky130_fd_pr__res_generic_m1 l=0.01 w=0.5
 .ENDS
 
 .SUBCKT sky130_fd_io__sio_tk_em1c a
 *.PININFO a:B
-RI1 a net10 sky130_fd_pr__res_generic_m1
-RI2 a net6 sky130_fd_pr__res_generic_m1
+RI1 a net10 sky130_fd_pr__res_generic_m1 l=0.01 w=0.5
+RI2 a net6 sky130_fd_pr__res_generic_m1 l=0.01 w=0.5
 .ENDS
 
 .SUBCKT sky130_fd_io__sio_opamp_biasgen_reg ngate vgnd vpb vpwr vreg_en_n
@@ -13548,13 +13577,13 @@ XI307 en_hicc_n en_hicc vgnd vnb sky130_fd_pr__nfet_g5v0d10v5 m=1 w=1.00 l=1.00 
 + sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
 XI466 net_398 vgnd vgnd vnb sky130_fd_pr__nfet_g5v0d10v5 m=1 w=5.00 l=0.50 mult=1 sa=265e-3 sb=265e-3 
 + sd=280e-3 topography=normal area=0.063 perim=1.14
-XMN<6> out pd_0 vgnd vnb sky130_fd_pr__nfet_g5v0d10v5 m=1 w=0.75 l=1.00 mult=1 sa=265e-3 
+XMN<6> out pd_0 vgnd vgnd sky130_fd_pr__nfet_g5v0d10v5 m=1 w=0.75 l=1.00 mult=1 sa=265e-3 
 + sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-XMN<7> out pd_0 vgnd vnb sky130_fd_pr__nfet_g5v0d10v5 m=1 w=0.75 l=1.00 mult=1 sa=265e-3 
+XMN<7> out pd_0 vgnd vgnd sky130_fd_pr__nfet_g5v0d10v5 m=1 w=0.75 l=1.00 mult=1 sa=265e-3 
 + sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-XMN<8> out pd_0 vgnd vnb sky130_fd_pr__nfet_g5v0d10v5 m=1 w=0.75 l=1.00 mult=1 sa=265e-3 
+XMN<8> out pd_0 vgnd vgnd sky130_fd_pr__nfet_g5v0d10v5 m=1 w=0.75 l=1.00 mult=1 sa=265e-3 
 + sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-XMN<9> out pd_0 vgnd vnb sky130_fd_pr__nfet_g5v0d10v5 m=1 w=0.75 l=1.00 mult=1 sa=265e-3 
+XMN<9> out pd_0 vgnd vgnd sky130_fd_pr__nfet_g5v0d10v5 m=1 w=0.75 l=1.00 mult=1 sa=265e-3 
 + sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
 XI492 net_398 vgnd vgnd vnb sky130_fd_pr__nfet_g5v0d10v5 m=1 w=5.00 l=1.00 mult=1 sa=265e-3 sb=265e-3 
 + sd=280e-3 topography=normal area=0.063 perim=1.14
@@ -13586,29 +13615,29 @@ XMN1<12> net_444 inn vsource_1 net315 sky130_fd_pr__nfet_g5v0d10v5 m=1 w=5.00 l=
 + sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
 XI364 net_398 en_hicc vgnd vnb sky130_fd_pr__nfet_g5v0d10v5 m=4 w=5.00 l=0.50 mult=1 sa=265e-3 
 + sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-XMN<13> net_172 pd_1 vgnd vnb sky130_fd_pr__nfet_g5v0d10v5 m=1 w=0.75 l=1.00 mult=1 sa=265e-3 
+XMN<13> net_172 pd_1 vgnd vgnd sky130_fd_pr__nfet_g5v0d10v5 m=1 w=0.75 l=1.00 mult=1 sa=265e-3 
 + sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-XMN<12> net_172 pd_1 vgnd vnb sky130_fd_pr__nfet_g5v0d10v5 m=1 w=0.75 l=1.00 mult=1 sa=265e-3 
+XMN<12> net_172 pd_1 vgnd vgnd sky130_fd_pr__nfet_g5v0d10v5 m=1 w=0.75 l=1.00 mult=1 sa=265e-3 
 + sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-XMN<11> net_172 pd_1 vgnd vnb sky130_fd_pr__nfet_g5v0d10v5 m=1 w=0.75 l=1.00 mult=1 sa=265e-3 
+XMN<11> net_172 pd_1 vgnd vgnd sky130_fd_pr__nfet_g5v0d10v5 m=1 w=0.75 l=1.00 mult=1 sa=265e-3 
 + sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-XMN<10> net_172 pd_1 vgnd vnb sky130_fd_pr__nfet_g5v0d10v5 m=1 w=0.75 l=1.00 mult=1 sa=265e-3 
+XMN<10> net_172 pd_1 vgnd vgnd sky130_fd_pr__nfet_g5v0d10v5 m=1 w=0.75 l=1.00 mult=1 sa=265e-3 
 + sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
 XMN<14> pd_1 pd_1 vgnd vnb sky130_fd_pr__nfet_g5v0d10v5 m=1 w=0.75 l=1.00 mult=1 sa=265e-3 sb=265e-3 
 + sd=280e-3 topography=normal area=0.063 perim=1.14
-XM<7> net_180 ngate net_398 vnb sky130_fd_pr__nfet_g5v0d10v5 m=2 w=5.00 l=1.00 mult=1 sa=265e-3 
+XM<7> net_180 ngate net_398 vgnd sky130_fd_pr__nfet_g5v0d10v5 m=2 w=5.00 l=1.00 mult=1 sa=265e-3 
 + sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-XM<6> net_180 ngate net_398 vnb sky130_fd_pr__nfet_g5v0d10v5 m=2 w=5.00 l=1.00 mult=1 sa=265e-3 
+XM<6> net_180 ngate net_398 vgnd sky130_fd_pr__nfet_g5v0d10v5 m=2 w=5.00 l=1.00 mult=1 sa=265e-3 
 + sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-XM<5> net_180 ngate net_398 vnb sky130_fd_pr__nfet_g5v0d10v5 m=2 w=5.00 l=1.00 mult=1 sa=265e-3 
+XM<5> net_180 ngate net_398 vgnd sky130_fd_pr__nfet_g5v0d10v5 m=2 w=5.00 l=1.00 mult=1 sa=265e-3 
 + sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
 XI465 vsource_0 vsource_0 vsource_0 net327 sky130_fd_pr__nfet_g5v0d10v5 m=1 w=5.00 l=0.50 mult=1 
 + sa=265e-3 sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-XM<2> net_178 ngate vgnd vnb sky130_fd_pr__nfet_g5v0d10v5 m=2 w=5.00 l=1.00 mult=1 sa=265e-3 
+XM<2> net_178 ngate vgnd vgnd sky130_fd_pr__nfet_g5v0d10v5 m=2 w=5.00 l=1.00 mult=1 sa=265e-3 
 + sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-XM<1> net_178 ngate vgnd vnb sky130_fd_pr__nfet_g5v0d10v5 m=2 w=5.00 l=1.00 mult=1 sa=265e-3 
+XM<1> net_178 ngate vgnd vgnd sky130_fd_pr__nfet_g5v0d10v5 m=2 w=5.00 l=1.00 mult=1 sa=265e-3 
 + sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-XM<0> net_178 ngate vgnd vnb sky130_fd_pr__nfet_g5v0d10v5 m=2 w=5.00 l=1.00 mult=1 sa=265e-3 
+XM<0> net_178 ngate vgnd vgnd sky130_fd_pr__nfet_g5v0d10v5 m=2 w=5.00 l=1.00 mult=1 sa=265e-3 
 + sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
 XI464 vsource_0 vsource_0 vsource_0 net327 sky130_fd_pr__nfet_g5v0d10v5 m=1 w=5.00 l=0.50 mult=1 
 + sa=265e-3 sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
@@ -14025,7 +14054,7 @@ XI103 pad_a_esd_1_h pad sky130_fd_io__sio_res250only_small_esd
 Xopath out dm_h<2> dm_h<1> dm_h<0> dm_h_n<2> dm_h_n<1> dm_h_n<0> hld_i_h_n 
 + hld_i_ovr_h hld_i_vpwr net94 oe_n pad refleak_bias slow tie_lo_esd vddio 
 + vssd vssio voutref vccd vcchib vreg_en sky130_fd_io__sio_opath
-RI71 pad pad_a_noesd_h sky130_fd_pr__res_generic_m1
+RI71 pad pad_a_noesd_h sky130_fd_pr__res_generic_m1 l=0.01 w=0.5
 .ENDS
 
 .SUBCKT sky130_fd_io__top_sio_macro amuxbus_a amuxbus_b dft_refgen dm0<2> dm0<1> 
@@ -14103,10 +14132,10 @@ XM1 tp1_div_int force_tp1 vssd vnb sky130_fd_pr__nfet_g5v0d10v5 m=2 w=5.00 l=0.5
 XRI175 net12 net16 sky130_fd_pr__res_generic_po m=1 w=4 l=20.195
 XRI229 net16 rout sky130_fd_pr__res_generic_po m=1 w=4 l=0.17
 XRI228 pad net12 sky130_fd_pr__res_generic_po m=1 w=4 l=0.17
-RI237<1> net16 rout sky130_fd_pr__res_generic_m1
-RI237<2> net16 rout sky130_fd_pr__res_generic_m1
-RI234<1> pad net12 sky130_fd_pr__res_generic_m1
-RI234<2> pad net12 sky130_fd_pr__res_generic_m1
+RI237<1> net16 rout sky130_fd_pr__res_generic_m1 l=0.01 w=0.5
+RI237<2> net16 rout sky130_fd_pr__res_generic_m1 l=0.01 w=0.5
+RI234<1> pad net12 sky130_fd_pr__res_generic_m1 l=0.01 w=0.5
+RI234<2> pad net12 sky130_fd_pr__res_generic_m1 l=0.01 w=0.5
 .ENDS
 
 .SUBCKT sky130_fd_io__signal_40_sym_hv_2k_dnwl_aup1_b body g<5> g<4> g<3> g<2> g<1> 
@@ -14136,7 +14165,7 @@ XesdNfet0<1> pad<0> gate<1> g<1> body sky130_fd_pr__esd_nfet_g5v0d10v5 m=1 w=40.
 + sa=265e-3 sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
 XesdNfet0<0> pad<0> gate<0> g<0> body sky130_fd_pr__esd_nfet_g5v0d10v5 m=1 w=40.31 l=0.55 mult=1 
 + sa=265e-3 sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
-RI8 nwellRing net59 sky130_fd_pr__res_generic_m1
+RI8 nwellRing net59 sky130_fd_pr__res_generic_m1 l=0.01 w=0.5
 .ENDS
 
 .SUBCKT sky130_fd_io__top_tp1 amuxbus_a amuxbus_b en_tp1 tp1 tp1_div tp1_out vccd 
