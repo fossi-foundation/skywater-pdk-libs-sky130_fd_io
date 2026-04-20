@@ -15,9 +15,6 @@
  *
  * SPDX-License-Identifier: Apache-2.0
  */
- *
- *
- */
 library ("sky130_fd_io__top_pwrdetv2_ff_n40C_1v95_5v50_5v50") {
 	define(driver_model,library,string);
 	define(clk_width,library,string);
