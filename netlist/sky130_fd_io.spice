@@ -1445,6 +1445,21 @@ Xhv_passgate_q0 OUT_H VTRIP_SEL_H OUT_VT VSSD sky130_fd_pr__nfet_g5v0d10v5 m=1
 + perim=1.14
 .ENDS sky130_fd_io__gpio_ovtv2_buf_localesd
 
+*
+
+.SUBCKT sky130_fd_io__gpiov2_buf_localesd IN_H OUT_H OUT_VT VDDIO_Q VSSD
++ VTRIP_SEL_H
+*.PININFO IN_H:I OUT_H:O OUT_VT:O VDDIO_Q:B VSSD:B VTRIP_SEL_H:I
+Xesd_res_q0 IN_H OUT_H sky130_fd_io__res250only_small
+Xggnfet6_q0 VSSD VDDIO_Q VSSD VDDIO_Q OUT_H VDDIO_Q
++ sky130_fd_io__signal_5_sym_hv_local_5term
+Xggnfet1_q0 VSSD OUT_H VSSD VDDIO_Q VSSD VDDIO_Q
++ sky130_fd_io__signal_5_sym_hv_local_5term
+Xhv_passgate_q0 OUT_H VTRIP_SEL_H OUT_VT VSSD sky130_fd_pr__nfet_g5v0d10v5 m=1
++ w=3.0 l=1.0 mult=1 sa=0.265 sb=0.265 sd=0.28 topography=normal area=0.063
++ perim=1.14
+.ENDS sky130_fd_io__gpiov2_buf_localesd
+
 * Copyright 2020 The SkyWater PDK Authors
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
@@ -5121,7 +5136,7 @@ XI107 DM_H_N[2] DM_H_N[1] DM_H_N[0] IB_MODE_SEL_H IB_MODE_SEL_H_N INP_DIS_H_N
 + en_h_n en_h mode_normal_n mode_vcchib_n tripsel_i_h tripsel_i_h_n VDDIO_Q VSSD
 + VTRIP_SEL_H_N sky130_fd_io__gpiov2_ictl_logic
 XI120 PAD in_h in_vt VDDIO_Q VSSD tripsel_i_h
-+ sky130_fd_io__gpio_ovtv2_buf_localesd
++ sky130_fd_io__gpiov2_buf_localesd
 .ENDS sky130_fd_io__gpiov2_ipath
 
 * Copyright 2020 The SkyWater PDK Authors
