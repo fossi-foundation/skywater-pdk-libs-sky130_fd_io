@@ -15,9 +15,6 @@
  *
  * SPDX-License-Identifier: Apache-2.0
  */
- *
- *
- */
 library ("sky130_fd_io__top_sio_macro_ss_ff_n40C_1v60_5v50") {
 	define(clk_width,library,string);
 	define(def_sim_opt,library,string);
