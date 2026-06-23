@@ -11222,8 +11222,11 @@ Xinbuf en en_h en_h_n en_n ibufmux_out_h_n ibufmux_out_n in_h in_vt vcc_io
 + vgnd vpb_ka vpwr_ka vtrip_sel_h_n sky130_fd_io__sio_inbuf
 .ENDS
 
-.SUBCKT sky130_fd_io__sio_signal_5_sym_hv_local_5term_esd gate in nbody nwellRing 
-+ vgnd
+* Note:  This gets the same treatment as the one for gpio_ovtv2.  Add net16 as a pin,
+* which connects back to vcc_io in sky130_fd_io__sio_buf_localesd.
+
+.SUBCKT sky130_fd_io__sio_signal_5_sym_hv_local_5term_esd gate in nbody nwellRing
++ vgnd net16
 *.PININFO gate:I in:B nbody:B nwellRing:B vgnd:B
 XI1 in gate vgnd nbody sky130_fd_pr__esd_nfet_g5v0d10v5 m=1 w=5.40 l=0.60 mult=1 sa=265e-3 sb=265e-3 
 + sd=280e-3 topography=normal area=0.048 perim=0.94
@@ -11249,13 +11252,13 @@ XRI175 pad rout sky130_fd_pr__res_generic_po m=1 w=2 l=10.07
 
 .SUBCKT sky130_fd_io__sio_buf_localesd in_h out_h out_vt vcc_io vgnd vtrip_sel_h
 *.PININFO in_h:I vtrip_sel_h:I out_h:O out_vt:O vcc_io:B vgnd:B
-Xggnfet2 vgnd out_vt vgnd vcc_io vgnd 
+Xggnfet2 vgnd out_vt vgnd vcc_io vgnd vcc_io
 + sky130_fd_io__sio_signal_5_sym_hv_local_5term_esd
-Xggnfet6 vgnd vcc_io vgnd vcc_io out_h 
+Xggnfet6 vgnd vcc_io vgnd vcc_io out_h vcc_io
 + sky130_fd_io__sio_signal_5_sym_hv_local_5term_esd
-Xggnfet5 vgnd vcc_io vgnd vcc_io out_vt 
+Xggnfet5 vgnd vcc_io vgnd vcc_io out_vt vcc_io
 + sky130_fd_io__sio_signal_5_sym_hv_local_5term_esd
-Xggnfet1 vgnd out_h vgnd vcc_io vgnd 
+Xggnfet1 vgnd out_h vgnd vcc_io vgnd vcc_io
 + sky130_fd_io__sio_signal_5_sym_hv_local_5term_esd
 Xesd_res in_h out_h sky130_fd_io__sio_res250only_small_esd
 Xhv_passgate out_h vtrip_sel_h out_vt vgnd sky130_fd_pr__nfet_g5v0d10v5 m=1 w=3.00 l=1.00 mult=1 
@@ -11907,13 +11910,13 @@ XI1654 hlsin ie_diff_dly_n vgnd vgnd sky130_fd_pr__nfet_01v8 m=1 w=1.00 l=0.18 m
 *.PININFO ng_ctl:I vcc_io:I vcc_ioq:I vgnd:I pad:B pad_sw0:B
 XI1718 pad_sw0 net56 sky130_fd_io__sio_tk_em1s
 Xpad_esd_res pad net56 sky130_fd_io__sio_res250only_small_esd
-Xesdfet2 vgnd net56 vgnd vcc_io vgnd 
+Xesdfet2 vgnd net56 vgnd vcc_io vgnd noconnect1
 + sky130_fd_io__sio_signal_5_sym_hv_local_5term_esd
-Xesdfet1 vgnd vcc_ioq vgnd vcc_io net56 
+Xesdfet1 vgnd vcc_ioq vgnd vcc_io net56 noconnect2
 + sky130_fd_io__sio_signal_5_sym_hv_local_5term_esd
-Xesdfet4 vgnd pad_sw0 vgnd vcc_io vgnd 
+Xesdfet4 vgnd pad_sw0 vgnd vcc_io vgnd noconnect3
 + sky130_fd_io__sio_signal_5_sym_hv_local_5term_esd
-Xesdfet3 vgnd vcc_ioq vgnd vcc_io pad_sw0 
+Xesdfet3 vgnd vcc_ioq vgnd vcc_io pad_sw0 noconnect4
 + sky130_fd_io__sio_signal_5_sym_hv_local_5term_esd
 XI1727 net56 ng_ctl pad_sw0 vgnd sky130_fd_pr__nfet_05v0_nvt m=1 w=10.0 l=0.90 mult=1 sa=1.445 
 + sb=2.625 sd=280e-3 topography=normal area=0.063 perim=1.14
@@ -13118,7 +13121,7 @@ Xpghspu pad pghs_h net71 tie_hi vcc_io_soft vpb_drvr
 Xhsctl en_h enhs_lat_h_n force_h<1> od_h p3out pad net71 vcc_io vgnd vpb_drvr 
 + vpwr_ka sky130_fd_io__sio_hotswap_ctl
 * Xclamp vgnd vcc_io vgnd vcc_io pad vgnd sky130_fd_io__signal_5_sym_hv_local_5term
-Xclamp vgnd vcc_io vgnd vgnd pad vgnd sky130_fd_io__signal_5_sym_hv_local_5term
+Xclamp vgnd vcc_io vgnd vgnd pad noconnect1 sky130_fd_io__sio_signal_5_sym_hv_local_5term_esd
 Xpghs12 net50 padlo vpb_drvr vpb_drvr sky130_fd_pr__pfet_g5v0d10v5 m=1 w=3.00 l=1.00 mult=1 sa=265e-3 
 + sb=265e-3 sd=280e-3 topography=normal area=0.063 perim=1.14
 .ENDS
