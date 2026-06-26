@@ -14098,10 +14098,12 @@ RI71 pad pad_a_noesd_h sky130_fd_pr__res_generic_m1 l=0.01 w=0.5
 *.PININFO pad_a_esd_1_h<1>:B pad_a_esd_1_h<0>:B pad_a_noesd_h<1>:B 
 *.PININFO pad_a_noesd_h<0>:B vccd:B vcchib:B vdda:B vddio:B vddio_q:B 
 *.PININFO vinref_dft:B voutref_dft:B vssa:B vssd:B vssio:B vssio_q:B vswitch:B
+*** NOTE: Pins vddio, vssio, and vssio_q in top_refgen_new are not used and
+*** do not connect to the buses of the same name.
 XREFGEN amuxbus_a amuxbus_b dft_refgen enable_h enable_vdda_h hld_h_n_refgen 
-+ ibuf_sel_refgen refleak_bias vccd vcchib vdda vddio vddio_q vinref 
++ ibuf_sel_refgen refleak_bias vccd vcchib vdda vddio_nc vddio_q vinref 
 + vinref_dft voh_sel<2> voh_sel<1> voh_sel<0> vohref voutref voutref_dft 
-+ vref_sel<1> vref_sel<0> vreg_en_refgen vssa vssd vssio vssio_q vswitch 
++ vref_sel<1> vref_sel<0> vreg_en_refgen vssa vssd vssio_nc vssio_q_nc vswitch 
 + vtrip_sel_refgen sky130_fd_io__top_refgen_new
 XSIO_PAIR<1> dm1<2> dm1<1> dm1<0> enable_h hld_h_n<1> hld_ovr<1> ibuf_sel<1> 
 + in<1> in_h<1> inp_dis<1> oe_n<1> out<1> pad<1> pad_a_esd_0_h<1> 
